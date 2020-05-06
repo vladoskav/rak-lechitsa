@@ -66,6 +66,12 @@ export default {};
   padding-top: 90px;
 }
 
+@media (max-width: 1320px) {
+  .about-project__container {
+    margin: 0 60px;
+  }
+}
+
 .about-project__header {
   max-width: 720px;
   margin: 0 auto;
@@ -106,6 +112,7 @@ export default {};
   display: grid;
   grid-template-columns: max-content max-content;
   column-gap: 40px;
+  justify-content: end;
 }
 
 .slider__input {
