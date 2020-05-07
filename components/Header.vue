@@ -8,8 +8,8 @@
 </template>
 
 <script>
-  import HeaderMenu from '@/components/ui/HeaderMenu';
-  import HeaderLogo from '@/components/ui/HeaderLogo';
+  import HeaderMenu from '@/components/HeaderMenu';
+  import HeaderLogo from '@/components/HeaderLogo';
 
   export default {
     components: {
