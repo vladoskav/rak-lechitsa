@@ -1,5 +1,6 @@
 <template>
-  <header> <!-- Это пробник проверяю знания на практике не обращайте внимания))-->
+  <header>
+    <!-- Это пробник проверяю знания на практике не обращайте внимания))-->
     <nav class="header-nav">
       <ul class="header-nav__list">
         <li class="header-nav__item">
