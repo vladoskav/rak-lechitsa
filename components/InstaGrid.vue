@@ -12,7 +12,7 @@
 </template>
 
 <script>
-import InstaElement from './ui/InstaElement';
+import InstaElement from './InstaElement';
 export default {
   components: {
     'insta-element': InstaElement,
