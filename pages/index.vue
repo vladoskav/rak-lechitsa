@@ -1,14 +1,17 @@
 <template>
   <div>
-    <AboutProject></AboutProject>
+    <storiesPeople></storiesPeople>
+    <about></about>
   </div>
 </template>
 
 <script>
+import StoriesPeople from '@/components/StoriesPeople'
 import AboutProject from '@/components/AboutProject'
 export default {
   components: {
-    AboutProject
+    'storiesPeople': StoriesPeople,
+    'about': AboutProject,
   }
 };
 </script>
