@@ -28,9 +28,11 @@ export default {};
 .button-cards:hover {
   opacity: 0.8;
   transition: opacity 0.1s linear;
+  background-color: #fbfbf8;
 }
 .button-cards:focus {
   outline: none;
+  background-color: #fbfbfb;
 }
 @media screen and (max-width: 1280px) {
   .button-cards {
