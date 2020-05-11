@@ -17,7 +17,7 @@ export default {};
   padding: 31px 0 31px 0;
   cursor: pointer;
   border: 0;
-  transition: opacity 0.1s linear;
+  transition: background-color 0.3s linear;
   font-size: 16px;
   line-height: 125%;
   color: #000000;
@@ -27,12 +27,12 @@ export default {};
 }
 .button-cards:hover {
   opacity: 0.8;
-  transition: opacity 0.1s linear;
-  background-color: #fbfbf8;
+  transition: background-color 0.3s linear;
+  background-color: #f8f8f8;
 }
 .button-cards:focus {
   outline: none;
-  background-color: #fbfbfb;
+  background-color: #f8f8f8;
 }
 @media screen and (max-width: 1280px) {
   .button-cards {
