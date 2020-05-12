@@ -137,6 +137,7 @@ export default {
   max-width: 413px;
 }
 .stories-section {
+  padding: 100px 0;
   max-width: 1320px;
   width: 92%;
   margin: auto;
