@@ -1,21 +1,21 @@
 <template>
   <section class="your-story">
     <div class="your-story__container">
-      <div class="title">Расскажите свою историю</div>
+      <st-title>Расскажите свою историю</st-title>
       <div class="your-story__columns">
         <div class="your-story__choose-option">
-          <div class="title-description">
+          <p class="your-story__paragraph">
             Мы публикуем новые истории на сайте раз в неделю. Есть 2 варианта
             поделиться своей историей неизлечимых привычек, навязчивых идей и
             болезненных привязанностей.
-          </div>
+          </p>
           <div class="your-story__option-labels">
-            <div class="your-story__option-label your-story__option-label_active">
+            <label class="your-story__option-label your-story__option-label_active">
               1-й вариант
-            </div>
-            <div class="your-story__option-label">
+            </label>
+            <label class="your-story__option-label">
               2-й вариант
-            </div>
+            </label>
           </div>
         </div>
         <div class="your-story__options">
@@ -44,23 +44,17 @@
 
 <script>
 import Button from '@/components/ui/Button';
+import Title from '@/components/ui/Title';
+
 export default {
   components: {
-    'dark-button': Button
+    'dark-button': Button,
+    'st-title': Title
   }
 };
 </script>
 
 <style scoped>
-/*Воможно готовые ui компоненты*/
-.title {
-  max-width: 413px;
-}
-.title-description{
-  max-width: 340px;
-}
-
-/*Основной блок стилей*/
 .your-story {
   background-color: #f7f7f7;
   display: flex;
@@ -74,14 +68,19 @@ export default {
   padding: 100px 60px;
 }
 
+.your-story__paragraph{
+  max-width: 340px;
+  font-size: 1.125rem;
+  line-height: 1,375rem;
+  font-style: normal;
+  font-weight: normal;
+  color: #666666;
+}
 
 .your-story__columns {
-  /*
-  display: flex;
-  justify-content: space-between;
-  */
   display: grid;
   grid-template-columns: 1fr auto;
+  margin-top: 32px;
 }
 
 .your-story__choose-option {
@@ -96,6 +95,7 @@ export default {
 }
 
 .your-story__option-label {
+  display: block;
   width: 100%;
   margin-bottom: 10px;
   font-size: 1.125rem;
