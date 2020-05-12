@@ -1,9 +1,7 @@
 <template>
-  <nuxt-link to="/stories">
-    <button class="button-cards">
-      <slot>Some button</slot>
-    </button>
-  </nuxt-link>
+  <button @click="$emit('btnClick')" class="button-cards">
+    <slot>Some button</slot>
+  </button>
 </template>
 
 <script>

@@ -1,5 +1,5 @@
 <template>
-  <a :href="link" class="story">
+  <div @click="$emit('cardClick')" class="story">
     <div
       :style="{ backgroundImage: `url('${image}')` }"
       :alt="alt"
@@ -7,19 +7,19 @@
     ></div>
     <h3 class="story__title">{{ author }}</h3>
     <p class="story__text">{{ text }}</p>
-  </a>
+  </div>
 </template>
 
 <script>
 export default {
-  props: ['image', 'alt', 'author', 'text', 'link'],
+  props: ['image', 'alt', 'author', 'text'],
 };
 </script>
 <style scoped>
 .story {
+  cursor: pointer;
   display: flex;
   flex-direction: column;
-  text-decoration: none;
   width: 100%;
 }
 .story__photo {

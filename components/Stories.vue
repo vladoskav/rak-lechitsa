@@ -4,15 +4,17 @@
     <ul class="stories">
       <li v-for="story in stories" :key="story.id" class="stories__item">
         <story
+          @cardClick="goToStory(story.id)"
           :alt="story.alt"
           :author="story.author"
           :image="story.url"
           :text="story.text"
-          :link="`/stories/${story.id}`"
         />
       </li>
     </ul>
-    <stories-button>Больше статей</stories-button>
+    <stories-button @btnClick="goToStory('')">
+      Больше статей
+    </stories-button>
   </section>
 </template>
 
@@ -23,6 +25,11 @@ export default {
   components: {
     story: Story,
     'stories-button': StoriesButton,
+  },
+  methods: {
+    goToStory(id) {
+      this.$router.push(`/stories/${id}`);
+    },
   },
   data() {
     return {
