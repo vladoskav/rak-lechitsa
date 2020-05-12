@@ -19,13 +19,6 @@
       <p class="stories__description stories__font">Все видео вы&nbsp;можете найте на&nbsp;нашем <a href="#" class="stories_link stories__font">YouTube канале.</a></p>
     </div>
   </container>
-</template>
-
-<script>
-  export default {
-
-  }
-</script>
 
 <style scoped>
 .stories__main{
@@ -200,3 +193,4 @@
 }
 
 </style>
+
