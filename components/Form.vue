@@ -1,6 +1,6 @@
 <template>
   <form @submit.prevent="submitQuestionForm" class="story-form">
-    <h2 class="story-form__step">{{title}}</h2>
+    <story-title class="story-form__step">{{title}}</story-title>
     <p class="story-form__input-name">{{question}}</p>
     <nxt-textarea
       class="story-form__textarea"
@@ -20,6 +20,7 @@
 import Button from '@/components/ui/Button';
 import Input from '@/components/ui/Input';
 import TextArea from '@/components/ui/TextArea';
+import Title from '@/components/ui/Title';
 
 export default {
   props: {
@@ -37,6 +38,7 @@ export default {
     'nxt-button': Button,
     'nxt-input': Input,
     'nxt-textarea': TextArea,
+    'story-title': Title,
   },
 
   data() {
@@ -75,9 +77,6 @@ export default {
 
 .story-form__step{
   margin: 40px auto 0 40px;
-  font-family: Inter;
-  font-style: normal;
-  font-weight: 600;
   font-size: 32px;
   line-height: 36px;
   color: #000000;
