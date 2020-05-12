@@ -1,7 +1,7 @@
 <template>
   <form @submit.prevent="submitQuestionForm" class="story-form">
-    <h2 class="form__step">{{title}}</h2>
-    <p class="form__input-name">{{question}}</p>
+    <h2 class="story-form__step">{{title}}</h2>
+    <p class="story-form__input-name">{{question}}</p>
     <nxt-textarea
       class="story-form__textarea"
       :placeholder="'Напишите тут'"
@@ -10,8 +10,8 @@
       v-model="message"
     />
     <div class="story-form__buttons">
-      <button class="story-form__back" type="submit" :theme="'light'">Назад</button>
-      <button class="story-form__forward" type="submit" :theme="'light'">Далее</button>
+      <button class="story-form__back" type="submit" >Назад</button>
+      <button class="story-form__forward" type="submit">Далее</button>
     </div>
   </form>
 </template>
@@ -41,8 +41,6 @@ export default {
 
   data() {
     return {
-      name: '',
-      email: '',
       message: '',
     };
   },
@@ -50,7 +48,7 @@ export default {
   methods: {
     submitQuestionForm() {
       console.log(
-        `name: ${this.name}, email: ${this.email}, message: ${this.message}`
+        `message: ${this.message}`
       );
       this.popupHandler();
     },
@@ -65,7 +63,7 @@ export default {
   flex-direction: column;
 }
 
-.form__input-name{
+.story-form__input-name{
   margin: 40px 40px 134px 40px;
   font-family: Inter;
   font-style: normal;
@@ -75,7 +73,7 @@ export default {
   color: #000000;
 }
 
-.form__step{
+.story-form__step{
   margin: 40px auto 0 40px;
   font-family: Inter;
   font-style: normal;
