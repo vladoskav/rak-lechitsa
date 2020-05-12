@@ -22,4 +22,10 @@
   color: #000000;
 }
 
+@media screen and (max-width: 1024px) {
+  .text-box {
+    height: 42px;
+  }
+}
+
 </style>

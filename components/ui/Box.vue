@@ -14,7 +14,7 @@
 <style scoped>
 .box {
   width: 100%;
-  height: 300px;
+  /* height: 300px; */
   object-fit: cover;
 
   background: #FFFFFF;

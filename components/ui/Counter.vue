@@ -23,4 +23,11 @@
   color: #000000;
 }
 
+@media screen and (max-width: 1024px) {
+  .counter {
+    font-size: 1.625rem;
+    line-height: 1.875rem;
+  }
+}
+
 </style>

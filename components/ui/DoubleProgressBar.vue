@@ -50,4 +50,16 @@
   background: #613A93;
 }
 
+@media screen and (max-width: 1280px) {
+  .progress-bar-double {
+    height: 35px;
+  }
+}
+
+@media screen and (max-width: 1024px) {
+  .progress-bar-double {
+    height: 28px;
+  }
+}
+
 </style>

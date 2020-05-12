@@ -23,4 +23,11 @@
   color: #666666;
 }
 
+@media screen and (max-width: 1024px) {
+  .data-source {
+    font-size: 0.625rem;
+    line-height: 0.875rem;
+  }
+}
+
 </style>

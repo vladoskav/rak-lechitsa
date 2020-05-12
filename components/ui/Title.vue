@@ -1,9 +1,9 @@
 <template>
-  <h1
+  <h2
     :class="['title', `title_theme_${theme}`]"
     >
     <slot></slot>
-  </h1>
+  </h2>
 </template>
 
 <script>
@@ -14,7 +14,7 @@
 
 <style scoped>
 .title {
-  max-width: 25%;
+  width: 413px;
   font-family: 'Inter';
   font-style: normal;
   font-weight: 600;
@@ -26,5 +26,31 @@
 
 .title_theme_line {
   text-decoration-line: underline;
+}
+
+@media screen and (max-width: 1280px) {
+  .title {
+    width: 367px;
+    font-size: 1.75rem;
+    line-height: 2rem;
+  }
+}
+
+@media screen and (max-width: 1024px) {
+  .title {
+    width: 288px;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .title {
+    width: 380px;
+  }
+}
+
+@media screen and (max-width: 320px) {
+  .title {
+    width: 290px;
+  }
 }
 </style>

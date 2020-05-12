@@ -81,4 +81,81 @@ import DoubleProgressBar from '@/components/ui/DoubleProgressBar';
   margin-top: 20px;
 }
 
+@media screen and (max-width: 1280px) {
+  .statistics__title {
+    margin-top: 90px;
+    margin-left: 50px;
+  }
+
+  .statistics__container {
+    margin-top: 60px;
+    margin-left: 50px;
+  }
+
+  .statistics__box {
+    padding: 18px 18px;
+  }
+
+  .statistics__text {
+    margin-bottom: 56px;
+  }
+}
+
+@media screen and (max-width: 1024px) {
+  .statistics__title {
+    margin-top: 80px;
+  }
+
+  .statistics__container {
+    margin-top: 46px;
+    margin-left: 51px;
+    grid-gap: 30px;
+  }
+
+  .statistics__box {
+    padding: 10px 10px;
+  }
+
+  .statistics__text {
+    margin-bottom: 54px;
+  }
+
+  .statistics__counter {
+    margin-top: 10px;
+  }
+
+  .statistics__data-source {
+    margin-top: 10px;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .statistics__title {
+    margin-left: auto;
+    text-align: center;
+  }
+
+  .statistics__container {
+    margin-top: 60px;
+    margin-left: 40px;
+    grid-gap: 20px;
+  }
+
+  .statistics__text {
+    margin-bottom: 62px;
+  }
+}
+
+@media screen and (max-width: 320px) {
+  .statistics__title {
+    text-align: left;
+  }
+
+  .statistics__container {
+    margin-top: 30px;
+    margin-left: 15px;
+    grid-gap: 10px;
+  }
+}
+
 </style>
