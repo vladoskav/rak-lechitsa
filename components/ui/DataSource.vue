@@ -5,9 +5,7 @@
 </template>
 
 <script>
-  export default {
-
-  }
+export default {};
 </script>
 
 <style scoped>
@@ -29,5 +27,4 @@
     line-height: 0.875rem;
   }
 }
-
 </style>

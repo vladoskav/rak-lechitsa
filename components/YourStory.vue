@@ -11,6 +11,7 @@
           </p>
           <div class="your-story__option-labels">
             <label class="your-story__option-label your-story__option-label_active">
+
               1-й вариант
             </label>
             <label class="your-story__option-label">
@@ -19,7 +20,9 @@
           </div>
         </div>
         <div class="your-story__options">
-          <div class="your-story__option your-story__option_fill-form your-story__option_active">
+          <div
+            class="your-story__option your-story__option_fill-form your-story__option_active"
+          >
             <p class="your-story__option-description">
               Заполнить подробную форму прямо на сайте и мы опубликуем вашу
               историю после проверки. Пожалуйста, заполняйте все пункты
@@ -29,8 +32,8 @@
           </div>
           <div class="your-story__option your-story__option_leave-contact">
             <p class="your-story__option-description">
-              Оставить контакт (почту или номер телефона) и мы свяжемся с
-              вами, зададим вопросы, уточним детали вашей истории.
+              Оставить контакт (почту или номер телефона) и мы свяжемся с вами,
+              зададим вопросы, уточним детали вашей истории.
             </p>
           </div>
         </div>
@@ -55,6 +58,7 @@ export default {
 </script>
 
 <style scoped>
+
 .your-story {
   background-color: #f7f7f7;
   display: flex;
@@ -76,6 +80,7 @@ export default {
   font-weight: normal;
   color: #666666;
 }
+
 
 .your-story__columns {
   display: grid;
