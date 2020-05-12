@@ -1,6 +1,6 @@
 <template>
-  <div class="about-project">
-    <section class="about-project__container">
+  <section class="about-project">
+    <div class="about-project__container">
       <h2 class="about-project__header">#РАКЛЕЧИТСЯ</h2>
       <h3 class="about-project__title">О проекте</h3>
       <div class="about-project__body">
@@ -17,38 +17,25 @@
             <label class="slider__btn" for="btn-2">Фонд Хабенского</label>
           </div>
           <ul class="slider__slides">
-            <li class="slider__slide1">
+            <li class="slider__slide">
               <p class="slider__text">
-                Есть вещи, которые не лечатся. Особенности характера, страстные увлечения, привычки,
-                ставшие частью нашего «я», фобии, которые мы приобрели в детстве. Список можно
-                продолжать до бесконечности, но одна болезнь в него точно не войдет. Эта болезнь —
-                рак.
-                Рак лечится, и лучшее доказательство — люди с их неизлечимыми особенностями, которые
-                сумели победить рак.
+                Есть вещи, которые не&nbsp;лечатся. Особенности характера, страстные увлечения, привычки, ставшие частью нашего &laquo;я&raquo;, фобии, которые мы&nbsp;приобрели в&nbsp;детстве. Список можно продолжать до&nbsp;бесконечности, но&nbsp;одна болезнь в&nbsp;него точно не&nbsp;войдет. Эта болезнь&nbsp;&mdash; рак.
+                Рак лечится, и&nbsp;лучшее доказательство&nbsp;&mdash; люди с&nbsp;их&nbsp;неизлечимыми особенностями, которые сумели победить рак.
               </p>
               <p class="slider__text">
-                Рак лечится — проект Благотворительного Фонда Константина Хабенского и Leo Burnett
-                Moscow. С его помощью мы надеемся изменить отношение людей к раку и заставить
-                каждого
-                поверить: онкологическое заболевание — это не приговор.
+                Рак лечится&nbsp;&mdash; проект Благотворительного Фонда Константина Хабенского и&nbsp;Leo Burnett Moscow. С&nbsp;его помощью мы&nbsp;надеемся изменить отношение людей к&nbsp;раку и&nbsp;заставить каждого поверить: онкологическое заболевание&nbsp;&mdash; это не&nbsp;приговор.
               </p>
             </li>
-            <li class="slider__slide2">
+            <li class="slider__slide">
               <p class="slider__text">
-                Благотворительный Фонд Константина Хабенского с 2008 года помогает детям с
-                онкологическими и другими тяжелыми заболеваниями головного мозга. Фонд не только
-                поддерживает семью заболевшего ребенка в самый сложный момент, оплачивая
-                обследования,
-                лечение и медицинские препараты, но и в целом меняет систему оказания помощи детям с
-                опухолями мозга в России.
+                Благотворительный Фонд Константина Хабенского с&nbsp;2008 года помогает детям с&nbsp;онкологическими и&nbsp;другими тяжелыми заболеваниями головного мозга. Фонд не&nbsp;только поддерживает семью заболевшего ребенка в&nbsp;самый сложный момент, оплачивая обследования, лечение и&nbsp;медицинские препараты, но&nbsp;и&nbsp;в&nbsp;целом меняет систему оказания помощи детям с&nbsp;опухолями мозга в&nbsp;России.
               </p>
             </li>
           </ul>
         </div>
       </div>
-    </section>
-  </div>
-
+    </div>
+  </section>
 </template>
 
 <script>
@@ -129,8 +116,8 @@ export default {};
   color: #ffffff;
 }
 
-.slider__input:checked:nth-child(1) ~ .slider__slides .slider__slide2,
-.slider__input:checked:nth-child(2) ~ .slider__slides .slider__slide1 {
+.slider__input:checked:nth-child(1) ~ .slider__slides .slider__slide:nth-child(2),
+.slider__input:checked:nth-child(2) ~ .slider__slides .slider__slide:nth-child(1) {
   display: none;
 }
 
@@ -167,6 +154,8 @@ export default {};
 .slider__slides {
   list-style: none;
   max-width: 645px;
+  padding: 0;
+  margin: 0;
 }
 
 .slider__text {
