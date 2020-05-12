@@ -1,15 +1,13 @@
 <template>
-  <h2
-    :class="['title', `title_theme_${theme}`]"
-    >
+  <h2 :class="['title', `title_theme_${theme}`]">
     <slot></slot>
   </h2>
 </template>
 
 <script>
-  export default {
-    props: ['theme'],
-  };
+export default {
+  props: ['theme'],
+};
 </script>
 
 <style scoped>

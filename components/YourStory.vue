@@ -10,22 +10,31 @@
             болезненных привязанностей.
           </p>
           <div class="your-story__option-labels">
-            <label @click="selectOption(1)" :class="{
-              'your-story__option-label': true,
-              'your-story__option-label_active': optionSelected === 1,
-            }">
+            <label
+              @click="selectOption(1)"
+              :class="{
+                'your-story__option-label': true,
+                'your-story__option-label_active': optionSelected === 1,
+              }"
+            >
               1-й вариант
             </label>
-            <label @click="selectOption(2)" :class="{
-              'your-story__option-label': true,
-              'your-story__option-label_active': optionSelected === 2,
-            }">
+            <label
+              @click="selectOption(2)"
+              :class="{
+                'your-story__option-label': true,
+                'your-story__option-label_active': optionSelected === 2,
+              }"
+            >
               2-й вариант
             </label>
           </div>
         </div>
         <div class="your-story__options">
-          <div class="your-story__option your-story__option_fill-form" v-if="optionSelected === 1">
+          <div
+            class="your-story__option your-story__option_fill-form"
+            v-if="optionSelected === 1"
+          >
             <p class="your-story__option-description">
               Заполнить подробную форму прямо на сайте и мы опубликуем вашу
               историю после проверки. Пожалуйста, заполняйте все пункты
@@ -33,16 +42,21 @@
               2-м вариантом.
             </p>
           </div>
-          <div class="your-story__option your-story__option_leave-contact" v-if="optionSelected === 2">
+          <div
+            class="your-story__option your-story__option_leave-contact"
+            v-if="optionSelected === 2"
+          >
             <p class="your-story__option-description">
-              Оставить контакт (почту или номер телефона) и мы свяжемся с
-              вами, зададим вопросы, уточним детали вашей истории.
+              Оставить контакт (почту или номер телефона) и мы свяжемся с вами,
+              зададим вопросы, уточним детали вашей истории.
             </p>
           </div>
         </div>
         <div class="button-container">
           <dark-button v-if="optionSelected === 1">Заполнить форму</dark-button>
-          <dark-button v-if="optionSelected === 2">Оставить контакт</dark-button>
+          <dark-button v-if="optionSelected === 2"
+            >Оставить контакт</dark-button
+          >
         </div>
       </div>
     </div>
@@ -56,18 +70,18 @@ import Title from '@/components/ui/Title';
 export default {
   components: {
     'dark-button': Button,
-    'st-title': Title
+    'st-title': Title,
   },
   methods: {
     selectOption(option) {
       this.optionSelected = option;
-    }
+    },
   },
   data() {
     return {
-      optionSelected: 1
+      optionSelected: 1,
     };
-  }
+  },
 };
 </script>
 
@@ -85,10 +99,10 @@ export default {
   padding: 100px 60px;
 }
 
-.your-story__paragraph{
+.your-story__paragraph {
   max-width: 340px;
   font-size: 1.125rem;
-  line-height: 1,375rem;
+  line-height: 1, 375rem;
   font-style: normal;
   font-weight: normal;
   color: #666666;
