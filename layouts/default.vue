@@ -6,6 +6,7 @@
     <pop-up v-if="popupShown" @closeClick="popupHandler">
       <form-inputs title="Шаг 1 из 12" question="Как вас зовут?" />
     </pop-up>
+    <footer-content></footer-content>
   </div>
 </template>
 
@@ -14,12 +15,15 @@ import Header from '@/components/Header';
 import Overlay from '@/components/ui/Overlay';
 import PopUp from '@/components/PopUp';
 import Form from '@/components/Form';
+import FooterContent from '@/components/FooterContent';
+
 export default {
   components: {
     'main-header': Header,
     overlay: Overlay,
     'pop-up': PopUp,
     'form-inputs': Form,
+    'footer-content': FooterContent,
   },
   methods: {
     popupHandler() {
