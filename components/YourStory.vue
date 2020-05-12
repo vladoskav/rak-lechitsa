@@ -10,7 +10,9 @@
             болезненных привязанностей.
           </div>
           <div class="your-story__option-labels">
-            <div class="your-story__option-label your-story__option-label_active">
+            <div
+              class="your-story__option-label your-story__option-label_active"
+            >
               1-й вариант
             </div>
             <div class="your-story__option-label">
@@ -19,7 +21,9 @@
           </div>
         </div>
         <div class="your-story__options">
-          <div class="your-story__option your-story__option_fill-form your-story__option_active">
+          <div
+            class="your-story__option your-story__option_fill-form your-story__option_active"
+          >
             <p class="your-story__option-description">
               Заполнить подробную форму прямо на сайте и мы опубликуем вашу
               историю после проверки. Пожалуйста, заполняйте все пункты
@@ -29,8 +33,8 @@
           </div>
           <div class="your-story__option your-story__option_leave-contact">
             <p class="your-story__option-description">
-              Оставить контакт (почту или номер телефона) и мы свяжемся с
-              вами, зададим вопросы, уточним детали вашей истории.
+              Оставить контакт (почту или номер телефона) и мы свяжемся с вами,
+              зададим вопросы, уточним детали вашей истории.
             </p>
           </div>
         </div>
@@ -46,8 +50,8 @@
 import Button from '@/components/ui/Button';
 export default {
   components: {
-    'dark-button': Button
-  }
+    'dark-button': Button,
+  },
 };
 </script>
 
@@ -56,7 +60,7 @@ export default {
 .title {
   max-width: 413px;
 }
-.title-description{
+.title-description {
   max-width: 340px;
 }
 
@@ -73,7 +77,6 @@ export default {
   max-width: 1440px;
   padding: 100px 60px;
 }
-
 
 .your-story__columns {
   /*
