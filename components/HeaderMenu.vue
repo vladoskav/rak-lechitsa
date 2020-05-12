@@ -16,7 +16,7 @@
         >
           {{ menuItem.title }}
         </nuxt-link>
-        <button class="header__menu-button" v-if="menuItem.type === 'button'">
+        <button @click="$emit('btnClick')" class="header__menu-button" v-if="menuItem.type === 'button'">
           {{ menuItem.title }}
         </button>
       </li>
