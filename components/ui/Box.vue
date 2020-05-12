@@ -5,10 +5,9 @@
 </template>
 
 <script>
-  export default {
-    components: {
-    },
-  }
+export default {
+  components: {},
+};
 </script>
 
 <style scoped>
@@ -17,8 +16,8 @@
   /* height: 300px; */
   object-fit: cover;
 
-  background: #FFFFFF;
-  border: 1px solid #EFEFEF;
+  background: #ffffff;
+  border: 1px solid #efefef;
   box-sizing: border-box;
 }
 </style>
