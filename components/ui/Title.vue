@@ -6,13 +6,17 @@
 
 <script>
 export default {
-  props: ['theme'],
+  props: {
+    theme: {
+      type: String,
+      default: 'line'
+    }
+  }
 };
 </script>
 
 <style scoped>
 .title {
-  width: 413px;
   font-family: 'Inter';
   font-style: normal;
   font-weight: 600;
@@ -25,29 +29,14 @@ export default {
   text-decoration-line: underline;
 }
 
+.title_theme_notline {
+  text-decoration-line: none;
+}
+
 @media screen and (max-width: 1280px) {
   .title {
-    width: 367px;
     font-size: 1.75rem;
     line-height: 2rem;
-  }
-}
-
-@media screen and (max-width: 1024px) {
-  .title {
-    width: 288px;
-  }
-}
-
-@media screen and (max-width: 768px) {
-  .title {
-    width: 380px;
-  }
-}
-
-@media screen and (max-width: 320px) {
-  .title {
-    width: 290px;
   }
 }
 </style>

@@ -12,12 +12,28 @@ export default {
 
 <style scoped>
 .box {
-  width: 100%;
-  /* height: 300px; */
-  object-fit: cover;
+  width: 300px;
 
   background: #ffffff;
   border: 1px solid #efefef;
   box-sizing: border-box;
+}
+
+@media screen and (max-width: 1280px) {
+  .box {
+    max-width: 265px;
+  }
+}
+
+@media screen and (max-width: 1024px) {
+  .box {
+    max-width: 208px;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .box {
+    max-width: 216px;
+  }
 }
 </style>

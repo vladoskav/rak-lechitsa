@@ -1,7 +1,7 @@
 <template>
   <div class="statistics">
-    <st-title class="statistics__title"
-      >Статистика по онкозаболеваниям</st-title
+    <st-title class="statistics__title" :theme="'notline'"
+      >Статистика по <br>онкозаболеваниям</st-title
     >
     <div class="statistics__container">
       <st-box class="statistics__box">
@@ -73,17 +73,19 @@ export default {
 </script>
 
 <style scoped>
+.statistics {
+  max-width: 1440px;
+}
+
 .statistics__title {
   margin: 100px auto 0 60px;
 }
 
 .statistics__container {
-  margin-top: 70px;
-  margin-left: 60px;
-  max-width: 90%;
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   grid-gap: 40px;
+  overflow: auto;
 }
 
 .statistics__box {
@@ -102,6 +104,12 @@ export default {
   margin-top: 20px;
 }
 
+@media screen and (max-width: 1440px) {
+  .statistics__container {
+    margin: 70px 60px 100px 60px;
+  }
+}
+
 @media screen and (max-width: 1280px) {
   .statistics__title {
     margin-top: 90px;
@@ -109,8 +117,7 @@ export default {
   }
 
   .statistics__container {
-    margin-top: 60px;
-    margin-left: 50px;
+    margin: 60px 50px 90px 50px;
   }
 
   .statistics__box {
@@ -128,8 +135,7 @@ export default {
   }
 
   .statistics__container {
-    margin-top: 46px;
-    margin-left: 51px;
+    margin: 46px 51px 80px 51px;
     grid-gap: 30px;
   }
 
@@ -153,12 +159,12 @@ export default {
 @media screen and (max-width: 768px) {
   .statistics__title {
     margin-left: auto;
+    margin-right: auto;
     text-align: center;
   }
 
   .statistics__container {
-    margin-top: 60px;
-    margin-left: 40px;
+    margin: 60px 0 80px 40px;
     grid-gap: 20px;
   }
 
@@ -169,12 +175,12 @@ export default {
 
 @media screen and (max-width: 320px) {
   .statistics__title {
+    margin: 30px 0 50px 15px;
     text-align: left;
   }
 
   .statistics__container {
-    margin-top: 30px;
-    margin-left: 15px;
+    margin: 30px 0 50px 15px;
     grid-gap: 10px;
   }
 }
