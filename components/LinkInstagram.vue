@@ -2,7 +2,9 @@
   <section class="instagram">
     <div class="text-block">
       <a href="https://www.instagram.com/raklechitsa" class="text-block__link"
-        ><h2 class="text-block__title">Инстаграм</h2></a
+        ><st-title :theme="'line'" class="text-block__title"
+          >Инстаграм</st-title
+        ></a
       >
       <p class="text-block__paragraph">
         Два раза в неделю мы просматриваем все посты по хештегу #этонелечится.
@@ -24,9 +26,11 @@
 
 <script>
 import InstaElement from './ui/InstaElement';
+import Title from './ui/Title';
 export default {
   components: {
     'insta-element': InstaElement,
+    'st-title': Title,
   },
   data() {
     return {
@@ -78,6 +82,9 @@ export default {
 </script>
 
 <style scoped>
+.text-block__title {
+  width: 100%;
+}
 .grid__element {
   width: 14vw;
   max-width: 195px;
@@ -88,6 +95,7 @@ export default {
   grid-gap: 40px;
 }
 .instagram {
+  padding: 100px 0;
   margin: 0 auto;
   width: 92%;
   max-width: 1320px;
@@ -104,15 +112,7 @@ export default {
   max-width: 340px;
   margin-right: 110px;
 }
-.text-block__title {
-  font-family: Inter, Arial, SansSerif;
-  font-style: normal;
-  font-weight: 600;
-  font-size: 32px;
-  line-height: 36px;
-  text-decoration-line: underline;
-  color: #000000;
-}
+
 .text-block__paragraph {
   font-family: Inter;
   font-style: normal;
@@ -126,10 +126,6 @@ export default {
     max-width: 1180px;
   }
 
-  .text-block__title {
-    font-size: 28px;
-    line-height: 32px;
-  }
   .text-block__paragraph {
     font-size: 16px;
     line-height: 20px;
@@ -140,10 +136,7 @@ export default {
     width: 90%;
     max-width: 924px;
   }
-  .text-block__title {
-    font-size: 24px;
-    line-height: 28px;
-  }
+
   .text-block__paragraph {
     font-size: 13px;
     line-height: 16px;

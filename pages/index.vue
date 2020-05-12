@@ -2,7 +2,9 @@
   <div>
     <cover />
     <storiesPeople />
+    <motto>и в отличие от рака,&nbsp;</motto>
     <stories />
+    <motto>рассказывайте ваши истории в&nbsp;инстаграм&NewLine;</motto>
     <instagram />
     <yourStory />
     <statistics />
@@ -17,6 +19,7 @@ import Statistics from '@/components/Statistics';
 import StoriesPeople from '@/components/StoriesPeople';
 import AboutProject from '@/components/AboutProject';
 import YourStory from '@/components/YourStory';
+import Motto from '../components/ui/Motto';
 export default {
   components: {
     stories: Stories,
@@ -26,6 +29,7 @@ export default {
     storiesPeople: StoriesPeople,
     about: AboutProject,
     yourStory: YourStory,
+    motto: Motto,
   },
 };
 </script>
