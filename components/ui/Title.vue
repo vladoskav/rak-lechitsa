@@ -22,9 +22,11 @@
   line-height: 2.25rem;
   color: #000000;
 }
+
 .title_theme_line {
   text-decoration-line: underline;
 }
+
 @media screen and (max-width: 1280px) {
   .title {
     width: 367px;
@@ -32,16 +34,19 @@
     line-height: 2rem;
   }
 }
+
 @media screen and (max-width: 1024px) {
   .title {
     width: 288px;
   }
 }
+
 @media screen and (max-width: 768px) {
   .title {
     width: 380px;
   }
 }
+
 @media screen and (max-width: 320px) {
   .title {
     width: 290px;
