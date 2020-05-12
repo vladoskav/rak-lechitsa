@@ -1,39 +1,44 @@
 <template>
-  <header> <!-- Это пробник проверяю знания на практике не обращайте внимания))-->
-    <nav class="header-nav">
-      <ul class="header-nav__list">
-        <li class="header-nav__item">
-          <a href="#" class="header-nav__link">Link</a>
-        </li>
-        <li class="header-nav__item">
-          <a href="#" class="header-nav__link">Link</a>
-        </li>
-        <li class="header-nav__item">
-          <a href="#" class="header-nav__link">Link</a>
-        </li>
-      </ul>
-      <button class="header-nav__button">Раасказать свою историю</button>
-    </nav>
+  <header class="header">
+    <div class="header__header-container">
+      <header-logo />
+      <header-menu />
+    </div>
   </header>
 </template>
 
 <script>
-export default {};
+import HeaderMenu from '@/components/HeaderMenu';
+import HeaderLogo from '@/components/HeaderLogo';
+
+export default {
+  components: {
+    'header-menu': HeaderMenu,
+    'header-logo': HeaderLogo,
+  },
+};
 </script>
 
 <style scoped>
-.header-nav {
+.header {
+  min-height: 76px;
+}
+.header__header-container {
+  max-width: 1320px;
+  height: 100%;
+  padding: 18px 0;
+  margin: auto;
   display: flex;
+  justify-content: space-between;
 }
 
-.header-nav__list {
-  display: flex;
-  list-style: none;
-  padding: 0;
-  margin: 0;
-}
-
-.header-nav__button {
-  cursor: pointer;
+@media screen and (max-width: 1320px) {
+  .header {
+    min-height: 72px;
+  }
+  .header__header-container {
+    max-width: 1180px;
+    padding: 18px;
+  }
 }
 </style>

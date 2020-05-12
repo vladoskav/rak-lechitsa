@@ -1,17 +1,28 @@
 <template>
   <div>
+    <cover />
+    <stories />
+    <instagram />
     <statistics />
+
   </div>
 </template>
-
 <script>
-  import Statistics from '@/components/Statistics';
+import Stories from '@/components/Stories';
+import LinkInstagram from '@/components/LinkInstagram';
+import Cover from '../components/Cover';
+import Statistics from '@/components/Statistics';
+
 export default {
   components: {
-    'statistics' : Statistics
-  }
+    stories: Stories,
+    instagram: LinkInstagram,
+    cover: Cover,
+    'statistics' : Statistics,
+
+
+  },
 };
 </script>
 
-<style>
-</style>
+<style></style>
