@@ -10,8 +10,9 @@
             болезненных привязанностей.
           </p>
           <div class="your-story__option-labels">
-            <label class="your-story__option-label your-story__option-label_active">
-
+            <label
+              class="your-story__option-label your-story__option-label_active"
+            >
               1-й вариант
             </label>
             <label class="your-story__option-label">
@@ -52,13 +53,12 @@ import Title from '@/components/ui/Title';
 export default {
   components: {
     'dark-button': Button,
-    'st-title': Title
-  }
+    'st-title': Title,
+  },
 };
 </script>
 
 <style scoped>
-
 .your-story {
   background-color: #f7f7f7;
   display: flex;
@@ -72,15 +72,14 @@ export default {
   padding: 100px 60px;
 }
 
-.your-story__paragraph{
+.your-story__paragraph {
   max-width: 340px;
   font-size: 1.125rem;
-  line-height: 1,375rem;
+  line-height: 1, 375rem;
   font-style: normal;
   font-weight: normal;
   color: #666666;
 }
-
 
 .your-story__columns {
   display: grid;

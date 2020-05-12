@@ -1,7 +1,7 @@
 <template>
   <form @submit.prevent="submitQuestionForm" class="story-form">
-    <story-title class="story-form__step">{{title}}</story-title>
-    <p class="story-form__input-name">{{question}}</p>
+    <story-title class="story-form__step">{{ title }}</story-title>
+    <p class="story-form__input-name">{{ question }}</p>
     <nxt-textarea
       class="story-form__textarea"
       :placeholder="'Напишите тут'"
@@ -10,7 +10,7 @@
       v-model="message"
     />
     <div class="story-form__buttons">
-      <button class="story-form__back" type="submit" >Назад</button>
+      <button class="story-form__back" type="submit">Назад</button>
       <button class="story-form__forward" type="submit">Далее</button>
     </div>
   </form>
@@ -26,13 +26,13 @@ export default {
   props: {
     title: {
       required: true,
-      default: "Шаг 0 из 12",
-      type: String
+      default: 'Шаг 0 из 12',
+      type: String,
     },
     question: {
       required: true,
-      type: String
-    }
+      type: String,
+    },
   },
   components: {
     'nxt-button': Button,
@@ -49,9 +49,7 @@ export default {
 
   methods: {
     submitQuestionForm() {
-      console.log(
-        `message: ${this.message}`
-      );
+      console.log(`message: ${this.message}`);
       this.popupHandler();
     },
   },
@@ -59,13 +57,12 @@ export default {
 </script>
 
 <style scoped>
-
 .story-form {
   display: flex;
   flex-direction: column;
 }
 
-.story-form__input-name{
+.story-form__input-name {
   margin: 40px 40px 134px 40px;
   font-family: Inter;
   font-style: normal;
@@ -75,7 +72,7 @@ export default {
   color: #000000;
 }
 
-.story-form__step{
+.story-form__step {
   margin: 40px auto 0 40px;
   font-size: 32px;
   line-height: 36px;
@@ -90,7 +87,7 @@ export default {
   line-height: 24px;
 }
 
-.story-form__buttons{
+.story-form__buttons {
   display: flex;
   flex-direction: row;
   justify-self: flex-end;
@@ -98,16 +95,16 @@ export default {
 }
 
 .story-form__back {
-  border: none; 
+  border: none;
   outline: none;
   background-color: #ffffff;
-  color: #C0C0C0;
+  color: #c0c0c0;
   margin: auto 30px auto 0;
 }
 
-.story-form__forward{
-  background: #613A93;
-  border: none; 
+.story-form__forward {
+  background: #613a93;
+  border: none;
   outline: none;
   min-width: 226px;
   min-height: 56px;

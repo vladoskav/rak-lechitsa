@@ -6,7 +6,7 @@
       :name="name"
       :required="required"
       @input="$emit('input', $event.target.value)"
-    >
+    />
   </label>
 </template>
 
@@ -20,7 +20,7 @@ export default {
 .textarea input {
   display: block;
   border: 0;
-  border-bottom: 1px solid #E7E7E7;
+  border-bottom: 1px solid #e7e7e7;
   width: 90%;
   margin: 0 40px auto 40px;
   padding: 5px;

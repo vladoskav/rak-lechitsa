@@ -1,10 +1,10 @@
 <template>
   <div>
-    <main-header @btnClick="popupHandler"/>
+    <main-header @btnClick="popupHandler" />
     <nuxt />
     <overlay v-if="popupShown" @overlayClick="popupHandler" />
     <pop-up v-if="popupShown" @closeClick="popupHandler">
-      <form-inputs title="Шаг 1 из 12" question="Как вас зовут?"/>
+      <form-inputs title="Шаг 1 из 12" question="Как вас зовут?" />
     </pop-up>
   </div>
 </template>
