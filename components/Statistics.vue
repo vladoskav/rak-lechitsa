@@ -1,52 +1,54 @@
 <template>
   <div class="statistics">
-    <st-title class="statistics__title" :theme="'notline'"
-      >Статистика по <br>онкозаболеваниям</st-title
-    >
-    <div class="statistics__container">
-      <st-box class="statistics__box">
-        <st-text class="statistics__text"
-          >Каждый 3-й в стране уверен, что рак неизлечим. А это примерно 48 918
-          000 человек.</st-text
-        >
-        <st-progress-bar :value="1" :maxValue="3" />
-        <st-counter class="statistics__counter">1 из 3</st-counter>
-        <st-data-source class="statistics__data-source"
-          >Левада-Центр 2018</st-data-source
-        >
-      </st-box>
-      <st-box class="statistics__box">
-        <st-text class="statistics__text"
-          >2,6% Россиян имеют онкозаболевания.</st-text
-        >
-        <st-progress-bar :value="10" :maxValue="100" />
-        <st-counter class="statistics__counter">3 700 000</st-counter>
-        <st-data-source class="statistics__data-source"
-          >Росстат 2018</st-data-source
-        >
-      </st-box>
-      <st-box class="statistics__box">
-        <st-text class="statistics__text"
-          >На 28% выросла доля выявления заболеваний на ранней стадии за 10
-          лет.</st-text
-        >
-        <st-double-progress-bar :oldValue="10" :newValue="80" :maxValue="100" />
-        <st-counter class="statistics__counter">↑28%</st-counter>
-        <st-data-source class="statistics__data-source"
-          >МНИОИ Герцена 2018</st-data-source
-        >
-      </st-box>
-      <st-box class="statistics__box">
-        <st-text class="statistics__text"
-          >На 25% снизилась смертность в течение первого года после постановки
-          диагноза.</st-text
-        >
-        <st-double-progress-bar :oldValue="20" :newValue="70" :maxValue="100" />
-        <st-counter class="statistics__counter">↓25%</st-counter>
-        <st-data-source class="statistics__data-source"
-          >МНИОИ Герцена 2018</st-data-source
-        >
-      </st-box>
+    <div class="statistics__block">
+      <st-title class="statistics__title" :theme="'notline'"
+        >Статистика по онкозаболеваниям</st-title
+      >
+      <div class="statistics__container">
+        <st-box class="statistics__box">
+          <st-text class="statistics__text"
+            >Каждый 3-й в стране уверен, что рак неизлечим. А это примерно 48 918
+            000 человек.</st-text
+          >
+          <st-progress-bar :value="1" :maxValue="3" />
+          <st-counter class="statistics__counter">1 из 3</st-counter>
+          <st-data-source class="statistics__data-source"
+            >Левада-Центр 2018</st-data-source
+          >
+        </st-box>
+        <st-box class="statistics__box">
+          <st-text class="statistics__text"
+            >2,6% Россиян имеют онкозаболевания.</st-text
+          >
+          <st-progress-bar :value="10" :maxValue="100" />
+          <st-counter class="statistics__counter">3 700 000</st-counter>
+          <st-data-source class="statistics__data-source"
+            >Росстат 2018</st-data-source
+          >
+        </st-box>
+        <st-box class="statistics__box">
+          <st-text class="statistics__text"
+            >На 28% выросла доля выявления заболеваний на ранней стадии за 10
+            лет.</st-text
+          >
+          <st-double-progress-bar :oldValue="10" :newValue="80" :maxValue="100" />
+          <st-counter class="statistics__counter">↑28%</st-counter>
+          <st-data-source class="statistics__data-source"
+            >МНИОИ Герцена 2018</st-data-source
+          >
+        </st-box>
+        <st-box class="statistics__box">
+          <st-text class="statistics__text"
+            >На 25% снизилась смертность в течение первого года после постановки
+            диагноза.</st-text
+          >
+          <st-double-progress-bar :oldValue="20" :newValue="70" :maxValue="100" />
+          <st-counter class="statistics__counter">↓25%</st-counter>
+          <st-data-source class="statistics__data-source"
+            >МНИОИ Герцена 2018</st-data-source
+          >
+        </st-box>
+      </div>
     </div>
   </div>
 </template>
@@ -74,11 +76,16 @@ export default {
 
 <style scoped>
 .statistics {
+  display: flex;
+}
+
+.statistics__block {
   max-width: 1440px;
+  margin: auto;
 }
 
 .statistics__title {
-  margin: 100px auto 0 60px;
+  margin-top: 100px;
 }
 
 .statistics__container {
@@ -86,6 +93,7 @@ export default {
   grid-template-columns: repeat(4, 1fr);
   grid-gap: 40px;
   overflow: auto;
+  margin: 70px 0 100px;
 }
 
 .statistics__box {
