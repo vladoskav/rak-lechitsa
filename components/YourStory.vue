@@ -11,28 +11,18 @@
           </p>
           <div class="your-story__option-labels">
             <label
-              @click="selectOption(1)"
-              :class="{
-                'your-story__option-label': true,
-                'your-story__option-label_active': optionSelected === 1,
-              }">
+              class="your-story__option-label your-story__option-label_active"
+            >
               1-й вариант
             </label>
-            <label
-              @click="selectOption(2)"
-              :class="{
-                'your-story__option-label': true,
-                'your-story__option-label_active': optionSelected === 2,
-              }"
-            >
+            <label class="your-story__option-label">
               2-й вариант
             </label>
           </div>
         </div>
         <div class="your-story__options">
           <div
-            class="your-story__option your-story__option_fill-form"
-            v-if="optionSelected === 1"
+            class="your-story__option your-story__option_fill-form your-story__option_active"
           >
             <p class="your-story__option-description">
               Заполнить подробную форму прямо на сайте и мы опубликуем вашу
@@ -41,19 +31,15 @@
               2-м вариантом.
             </p>
           </div>
-          <div
-            class="your-story__option your-story__option_leave-contact"
-            v-if="optionSelected === 2"
-          >
+          <div class="your-story__option your-story__option_leave-contact">
             <p class="your-story__option-description">
               Оставить контакт (почту или номер телефона) и мы свяжемся с вами,
               зададим вопросы, уточним детали вашей истории.
             </p>
           </div>
         </div>
-        <div class="button-container">
-          <dark-button v-if="optionSelected === 1">Заполнить форму</dark-button>
-          <dark-button v-if="optionSelected === 2" @click="popupHandler">Оставить контакт</dark-button>
+        <div class="button-container" @click="popupHandler">
+          <dark-button>Оставить контакт</dark-button>
         </div>
 
         <overlay v-if="popupShown" @overlayClick="popupHandler" />
@@ -88,16 +74,6 @@ export default {
   data() {
     return {
       popupShown: false,
-    };
-  },
-  methods: {
-    selectOption(option) {
-      this.optionSelected = option;
-    },
-  },
-  data() {
-    return {
-      optionSelected: 1,
     };
   },
 };
@@ -169,8 +145,12 @@ export default {
 }
 
 .your-story__option {
-  display: flex;
+  display: none;
   flex-direction: column;
+}
+
+.your-story__option_active {
+  display: flex;
 }
 
 .your-story__option-description {
