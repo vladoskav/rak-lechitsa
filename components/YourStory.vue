@@ -98,7 +98,7 @@ export default {
 .your-story__paragraph {
   max-width: 340px;
   font-size: 1.125rem;
-  line-height: 1, 375rem;
+  line-height: 1.375rem;
   font-style: normal;
   font-weight: normal;
   color: #666666;
@@ -113,8 +113,6 @@ export default {
   justify-content: space-between;
 }
 .your-story__option-labels {
-  width: 100%;
-  max-width: 105px;
   margin-right: 40px;
 }
 .your-story__option-label {

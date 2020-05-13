@@ -13,15 +13,15 @@ export default {};
   max-width: 340px;
   font-style: normal;
   font-weight: 600;
-  font-size: 16px;
-  line-height: 20px;
+  font-size: 1rem;
+  line-height: 1.25rem;
   color: #000;
   text-decoration: none;
 }
 
 @media screen and (max-width: 1320px) {
   .header__logo {
-    line-height: 18px;
+    line-height: 1.125.rem;
   }
 }
 </style>
