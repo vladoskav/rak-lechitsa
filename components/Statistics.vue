@@ -76,16 +76,11 @@ export default {
 
 <style scoped>
 .statistics {
-  display: flex;
-}
-
-.statistics__block {
   max-width: 1440px;
-  margin: auto;
 }
 
 .statistics__title {
-  margin-top: 100px;
+  margin: 100px auto 0 60px;
 }
 
 .statistics__container {
