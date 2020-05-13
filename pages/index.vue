@@ -6,7 +6,7 @@
     <stories />
     <motto>рассказывайте ваши истории в&nbsp;инстаграм&NewLine;</motto>
     <instagram />
-    <yourStory />
+    <yourStory @btnClick="popupHandler" />
     <statistics />
     <about />
   </div>
