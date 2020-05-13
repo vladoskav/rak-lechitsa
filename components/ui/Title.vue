@@ -26,7 +26,7 @@ export default {
 }
 
 .title_theme_line {
-  text-decoration-line: underline;
+  text-decoration-line: none;
 }
 
 .title_theme_notline {
