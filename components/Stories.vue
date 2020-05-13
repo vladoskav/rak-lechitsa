@@ -1,6 +1,6 @@
 <template>
   <section class="stories-section">
-    <h2 class="section__title">Истории неизлечимых привычек</h2>
+    <st-title class="section__title">Истории неизлечимых привычек</st-title>
     <ul class="stories">
       <li v-for="story in stories" :key="story.id" class="stories__item">
         <story
@@ -21,10 +21,12 @@
 <script>
 import Story from './Story';
 import StoriesButton from './ui/StoriesButton';
+import Title from './ui/Title';
 export default {
   components: {
     story: Story,
     'stories-button': StoriesButton,
+    'st-title': Title,
   },
   methods: {
     goToStory(id) {

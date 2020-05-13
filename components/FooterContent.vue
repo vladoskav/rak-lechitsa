@@ -40,6 +40,7 @@
 .footer {
   display: flex;
   flex-direction: column;
+  background-color: #FBFBFB;
 }
 
 .footer__main {

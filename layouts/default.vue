@@ -6,7 +6,7 @@
     <pop-up v-if="popupShown" @closeClick="popupHandler">
       <form-inputs title="Шаг 1 из 12" question="Как вас зовут?" />
     </pop-up>
-    <footer-content></footer-content>
+    <footer-content />
   </div>
 </template>
 
@@ -16,6 +16,7 @@ import Overlay from '@/components/ui/Overlay';
 import PopUp from '@/components/PopUp';
 import Form from '@/components/Form';
 import FooterContent from '@/components/FooterContent';
+
 
 export default {
   components: {
@@ -40,8 +41,7 @@ export default {
 
 <style>
 html {
-  font-family: 'Source Sans Pro', -apple-system, BlinkMacSystemFont, 'Segoe UI',
-    Roboto, 'Helvetica Neue', Arial, sans-serif;
+  font-family: Inter;
   font-size: 16px;
   word-spacing: 1px;
   -ms-text-size-adjust: 100%;

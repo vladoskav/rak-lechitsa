@@ -11,7 +11,11 @@
           </p>
           <div class="your-story__option-labels">
             <label
-              class="your-story__option-label your-story__option-label_active"
+              @click="selectOption(1)"
+              :class="{
+                'your-story__option-label': true,
+                'your-story__option-label_active': optionSelected === 1,
+              }"
             >
               1-й вариант
             </label>
@@ -38,9 +42,14 @@
             </p>
           </div>
         </div>
-        <div class="button-container">
+        <div class="button-container" @click="popupHandler">
           <dark-button>Оставить контакт</dark-button>
         </div>
+
+        <overlay v-if="popupShown" @overlayClick="popupHandler" />
+        <pop-up v-if="popupShown" @closeClick="popupHandler">
+          <form-inputs title="Шаг 1 из 12" question="Как вас зовут?" />
+        </pop-up>
       </div>
     </div>
   </section>
@@ -49,11 +58,27 @@
 <script>
 import Button from '@/components/ui/Button';
 import Title from '@/components/ui/Title';
+import Overlay from '@/components/ui/Overlay';
+import PopUp from '@/components/PopUp';
+import Form from '@/components/Form';
 
 export default {
   components: {
     'dark-button': Button,
     'st-title': Title,
+    overlay: Overlay,
+    'pop-up': PopUp,
+    'form-inputs': Form,
+  },
+  methods: {
+    popupHandler() {
+      this.popupShown = !this.popupShown;
+    },
+  },
+  data() {
+    return {
+      popupShown: false,
+    };
   },
 };
 </script>
