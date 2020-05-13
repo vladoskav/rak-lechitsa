@@ -19,6 +19,7 @@
         v-for="image in images"
         :bgImage="image.url"
         :link="image.link"
+        :key="image.id"
       />
     </div>
   </section>
@@ -39,41 +40,49 @@ export default {
           url:
             'https://images.unsplash.com/photo-1587614387466-0a72ca909e16?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1500&q=80',
           link: 'https://www.instagram.com/raklechitsa',
+          id: 1,
         },
         {
           url:
             'https://images.unsplash.com/photo-1587614387466-0a72ca909e16?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1500&q=80',
           link: 'https://www.instagram.com/raklechitsa',
+          id: 1,
         },
         {
           url:
             'https://images.unsplash.com/photo-1587614387466-0a72ca909e16?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1500&q=80',
           link: 'https://www.instagram.com/raklechitsa',
+          id: 1,
         },
         {
           url:
             'https://images.unsplash.com/photo-1587614387466-0a72ca909e16?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1500&q=80',
           link: 'https://www.instagram.com/raklechitsa',
+          id: 1,
         },
         {
           url:
             'https://images.unsplash.com/photo-1587614387466-0a72ca909e16?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1500&q=80',
           link: 'https://www.instagram.com/raklechitsa',
+          id: 1,
         },
         {
           url:
             'https://images.unsplash.com/photo-1587614387466-0a72ca909e16?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1500&q=80',
           link: 'https://www.instagram.com/raklechitsa',
+          id: 1,
         },
         {
           url:
             'https://images.unsplash.com/photo-1587614387466-0a72ca909e16?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1500&q=80',
           link: 'https://www.instagram.com/raklechitsa',
+          id: 1,
         },
         {
           url:
             'https://images.unsplash.com/photo-1587614387466-0a72ca909e16?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1500&q=80',
           link: 'https://www.instagram.com/raklechitsa',
+          id: 1,
         },
       ],
     };
