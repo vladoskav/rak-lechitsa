@@ -83,6 +83,7 @@
   background-position: center;
   border: none;
   outline: none;
+  cursor: pointer;
 }
 .stories__button-backward {
   background-image: url("data:image/svg+xml,%3Csvg width='10' height='18' viewBox='0 0 10 18' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M9 1L1 9L9 17' stroke='%23BFBFBF'/%3E%3C/svg%3E%0A");
@@ -97,6 +98,7 @@
   background-image: url("data:image/svg+xml,%3Csvg width='76' height='76' viewBox='0 0 76 76' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath opacity='0.8' fill-rule='evenodd' clip-rule='evenodd' d='M38 76C58.9868 76 76 58.9868 76 38C76 17.0132 58.9868 0 38 0C17.0132 0 0 17.0132 0 38C0 58.9868 17.0132 76 38 76ZM53.0477 39.6926C54.2932 38.9082 54.2932 37.0925 53.0477 36.308L30.9338 22.3799C29.6019 21.541 27.8679 22.4982 27.8679 24.0722V51.9284C27.8679 53.5024 29.6019 54.4596 30.9338 53.6208L53.0477 39.6926Z' fill='%23CECECE'/%3E%3C/svg%3E");
   background-repeat: no-repeat;
   background-position: center;
+  cursor: pointer;
 }
 .stories__description {
   margin-top: 10px;
