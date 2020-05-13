@@ -15,7 +15,7 @@ import Header from '@/components/Header';
 import Overlay from '@/components/ui/Overlay';
 import PopUp from '@/components/PopUp';
 import Form from '@/components/Form';
-import FooterContent from '@/components/FooterContent';
+import Footer from '@/components/Footer';
 
 
 export default {
@@ -24,7 +24,7 @@ export default {
     overlay: Overlay,
     'pop-up': PopUp,
     'form-inputs': Form,
-    'footer-content': FooterContent,
+    'footer-content': Footer,
   },
   methods: {
     popupHandler() {

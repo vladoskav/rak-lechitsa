@@ -15,7 +15,7 @@
                 <a class="footer__link footer__fonts" href="/stories">Поделитесь ↗</a>
             </div>
         </div>
-
+        
         <div class="footer__copyright">
             <p class="footer__author">Рак Лечится 2020</p>
             <p class="footer__author">Сделано студентами Яндекс Практикум</p>
@@ -36,16 +36,20 @@
   font-weight: normal;
   color: #000000;
 }
+
 .footer {
   display: flex;
   flex-direction: column;
+  background-color: #FBFBFB;
 }
+
 .footer__main {
   display: flex;
   flex-direction: row;
   margin: 60px;
   justify-content: space-between;
 }
+
 .footer__appreciation {
   font-weight: 600;
   font-size: 32px;
@@ -54,29 +58,35 @@
   width: 340px;
   justify-self: flex-start;
 }
+
 .footer__pages {
   margin: 0 auto 0 100px;
 }
+
 .footer__social {
   position: relative;
   display: flex;
   flex-direction: column;
   justify-self: flex-end;
 }
+
 .footer__copyright {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
   margin: 66px 60px 60px 60px;
 }
+
 .footer__link {
   font-size: 18px;
   line-height: 24px;
   margin: 0 40px 44px 0;
 }
+
 .footer__author {
   font-size: 18px;
   line-height: 18px;
   color: #898989;
 }
-</style> 
+
+</style>
