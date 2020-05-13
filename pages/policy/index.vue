@@ -367,7 +367,7 @@ export default {};
   color: #000000;
 }
 .politic__container {
-  padding-top: 100px;
+  padding: 100px 0 230px 0;
   display: flex;
   max-width: 780px;
   flex-direction: column;
