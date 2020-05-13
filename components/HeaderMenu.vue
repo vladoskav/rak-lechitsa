@@ -66,8 +66,8 @@ export default {
 .header__menu-link {
   font-style: normal;
   font-weight: normal;
-  font-size: 18px;
-  line-height: 24px;
+  font-size: 1.125rem;
+  line-height: 1.5rem;
   color: #000;
   text-decoration: none;
 }
@@ -79,8 +79,8 @@ export default {
 .header__menu-button {
   font-style: normal;
   font-weight: normal;
-  font-size: 18px;
-  line-height: 24px;
+  font-size: 1.125rem;
+  line-height: 1.5rem;
   color: #000;
   padding: 0;
   border: 0;
@@ -94,11 +94,11 @@ export default {
 
 @media screen and (max-width: 1320px) {
   .header__menu-link {
-    font-size: 16px;
+    font-size: 1rem;
   }
 
   .header__menu-button {
-    font-size: 16px;
+    font-size: 1rem;
   }
 }
 </style>
