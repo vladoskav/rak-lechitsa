@@ -41,7 +41,7 @@ export default {
 
 <style>
 html {
-  font-family: Inter;
+  font-family: 'Inter', monospace;
   font-size: 16px;
   word-spacing: 1px;
   -ms-text-size-adjust: 100%;
