@@ -15,7 +15,8 @@
               :class="{
                 'your-story__option-label': true,
                 'your-story__option-label_active': optionSelected === 1,
-              }">
+              }"
+            >
               1-й вариант
             </label>
             <label
