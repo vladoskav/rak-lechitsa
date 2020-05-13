@@ -50,7 +50,6 @@ export default {
   methods: {
     submitQuestionForm() {
       console.log(`message: ${this.message}`);
-      this.popupHandler();
     },
   },
 };
