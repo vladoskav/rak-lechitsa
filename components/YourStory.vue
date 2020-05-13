@@ -11,7 +11,11 @@
           </p>
           <div class="your-story__option-labels">
             <label
-              class="your-story__option-label your-story__option-label_active"
+              @click="selectOption(1)"
+              :class="{
+                'your-story__option-label': true,
+                'your-story__option-label_active': optionSelected === 1,
+              }"
             >
               1-й вариант
             </label>
