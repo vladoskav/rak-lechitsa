@@ -30,10 +30,7 @@
           </div>
         </div>
         <div class="your-story__options">
-          <div
-            class="your-story__option your-story__option_fill-form"
-            v-if="optionSelected === 1"
-          >
+          <div class="your-story__option" v-if="optionSelected === 1">
             <p class="your-story__option-description">
               Заполнить подробную форму прямо на сайте и мы опубликуем вашу
               историю после проверки. Пожалуйста, заполняйте все пункты
@@ -41,10 +38,7 @@
               2-м вариантом.
             </p>
           </div>
-          <div
-            class="your-story__option your-story__option_leave-contact"
-            v-if="optionSelected === 2"
-          >
+          <div class="your-story__option" v-if="optionSelected === 2">
             <p class="your-story__option-description">
               Оставить контакт (почту или номер телефона) и мы свяжемся с вами,
               зададим вопросы, уточним детали вашей истории.
@@ -52,10 +46,12 @@
           </div>
         </div>
         <div class="button-container">
-          <dark-button v-if="optionSelected === 1">Заполнить форму</dark-button>
-          <dark-button v-if="optionSelected === 2"
-            >Оставить контакт</dark-button
-          >
+          <dark-button v-if="optionSelected === 1">
+            Заполнить форму
+          </dark-button>
+          <dark-button v-if="optionSelected === 2">
+            Оставить контакт
+          </dark-button>
         </div>
       </div>
     </div>
