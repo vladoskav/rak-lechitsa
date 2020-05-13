@@ -23,6 +23,7 @@ export default {
   font-size: 2rem;
   line-height: 2.25rem;
   color: #000000;
+  max-width: 413px;
 }
 
 .title_theme_line {
