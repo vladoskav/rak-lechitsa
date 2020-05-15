@@ -1,12 +1,27 @@
 <template>
-  <div class="popup">
-    <div class="close" @click="$emit('closeClick')"></div>
-    <slot>Содержимое окна</slot>
+  <div>
+    <overlay v-if="popupShown" @overlayClick="popupHandler" />
+    <div class="popup" v-if="popupShown" @click="popupHandler">
+      <div class="close" @click="popupHandler"></div>
+      <form-inputs title="Шаг 1 из 12" question="Как вас зовут?" />
+    </div>
   </div>
 </template>
 
 <script>
-export default {};
+import Overlay from '@/components/ui/Overlay';
+import Input from '@/components/ui/Input';
+export default {
+  components: {
+    'overlay': Overlay,
+    'form-inputs': Input,
+  },
+  methods: {
+    popupHandler() {
+      this.popupShown = !this.popupShown;
+    },
+  },
+};
 </script>
 
 <style scoped>

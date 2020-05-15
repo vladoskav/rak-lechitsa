@@ -4,14 +4,14 @@
     <p class="story-form__input-name">{{ question }}</p>
     <nxt-textarea
       class="story-form__textarea"
-      :placeholder="'Напишите тут'"
+      placeholder='Напишите тут'
       :name="'message'"
-      :required="'required'"
+      required='required'
       v-model="message"
     />
     <div class="story-form__buttons">
-      <button class="story-form__back" type="submit">Назад</button>
-      <button class="story-form__forward" type="submit">Далее</button>
+      <button class="story-form__back">Назад</button>
+      <button class="story-form__forward">Далее</button>
     </div>
   </form>
 </template>
