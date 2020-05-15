@@ -7,8 +7,8 @@
       <div class="statistics__container">
         <st-box class="statistics__box">
           <st-text class="statistics__text"
-            >Каждый 3-й в стране уверен, что рак неизлечим. А это примерно 48 918
-            000 человек.</st-text
+            >Каждый 3-й в стране уверен, что рак неизлечим. А это примерно 48
+            918 000 человек.</st-text
           >
           <st-progress-bar :value="1" :maxValue="3" />
           <st-counter class="statistics__counter">1 из 3</st-counter>
@@ -31,7 +31,11 @@
             >На 28% выросла доля выявления заболеваний на ранней стадии за 10
             лет.</st-text
           >
-          <st-double-progress-bar :oldValue="10" :newValue="80" :maxValue="100" />
+          <st-double-progress-bar
+            :oldValue="10"
+            :newValue="80"
+            :maxValue="100"
+          />
           <st-counter class="statistics__counter">↑28%</st-counter>
           <st-data-source class="statistics__data-source"
             >МНИОИ Герцена 2018</st-data-source
@@ -42,7 +46,11 @@
             >На 25% снизилась смертность в течение первого года после постановки
             диагноза.</st-text
           >
-          <st-double-progress-bar :oldValue="20" :newValue="70" :maxValue="100" />
+          <st-double-progress-bar
+            :oldValue="20"
+            :newValue="70"
+            :maxValue="100"
+          />
           <st-counter class="statistics__counter">↓25%</st-counter>
           <st-data-source class="statistics__data-source"
             >МНИОИ Герцена 2018</st-data-source

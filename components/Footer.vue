@@ -1,32 +1,38 @@
 <template>
-    <section class="footer">
-        <div class="footer__main">
-            <h3 class="footer__appreciation footer__fonts">
-                Спасибо всем, кто помог состояться этому проекту
-            </h3>
+  <section class="footer">
+    <div class="footer__main">
+      <h3 class="footer__appreciation footer__fonts">
+        Спасибо всем, кто помог состояться этому проекту
+      </h3>
 
-            <ul class="footer__pages">
-                <li><a class="footer__link footer__fonts" href="/">Главная</a></li>
-                <li><a class="footer__link footer__fonts" href="/stories">Истории</a></li>
-            </ul>
+      <ul class="footer__pages">
+        <li><a class="footer__link footer__fonts" href="/">Главная</a></li>
+        <li>
+          <a class="footer__link footer__fonts" href="/stories">Истории</a>
+        </li>
+      </ul>
 
-            <ul class="footer__social">
-                <li><a class="footer__link footer__fonts" href="/">Мы&nbsp;в&nbsp;Инстаграме и&nbsp;Youtube</a></li>
-                <li><a class="footer__link footer__fonts" href="/stories">Поделитесь ↗</a></li>
-            </ul>
-        </div>
-        
-        <div class="footer__copyright">
-            <p class="footer__author">Рак Лечится 2020</p>
-            <p class="footer__author">Сделано студентами Яндекс Практикум</p>
-        </div>
-    </section>
+      <ul class="footer__social">
+        <li>
+          <a class="footer__link footer__fonts" href="/"
+            >Мы&nbsp;в&nbsp;Инстаграме и&nbsp;Youtube</a
+          >
+        </li>
+        <li>
+          <a class="footer__link footer__fonts" href="/stories">Поделитесь ↗</a>
+        </li>
+      </ul>
+    </div>
+
+    <div class="footer__copyright">
+      <p class="footer__author">Рак Лечится 2020</p>
+      <p class="footer__author">Сделано студентами Яндекс Практикум</p>
+    </div>
+  </section>
 </template>
 
 <script>
-    export default {
-        
-    }
+export default {};
 </script>
 
 <style scoped>
@@ -40,7 +46,7 @@
 .footer {
   display: flex;
   flex-direction: column;
-  background-color: #FBFBFB;
+  background-color: #fbfbfb;
 }
 
 .footer__main {
@@ -64,7 +70,7 @@
   padding: 0;
   display: flex;
   flex-direction: row;
-  list-style-type: none; 
+  list-style-type: none;
 }
 
 .footer__social {
@@ -73,7 +79,7 @@
   flex-direction: column;
   justify-self: flex-end;
   justify-content: space-between;
-  list-style-type: none; 
+  list-style-type: none;
 }
 
 .footer__copyright {
@@ -95,5 +101,4 @@
   line-height: 18px;
   color: #898989;
 }
-
 </style>
