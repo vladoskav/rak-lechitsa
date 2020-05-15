@@ -9,9 +9,9 @@ export default {
   props: {
     theme: {
       type: String,
-      default: 'line'
-    }
-  }
+      default: 'line',
+    },
+  },
 };
 </script>
 

@@ -17,7 +17,6 @@ import PopUp from '@/components/PopUp';
 import Form from '@/components/Form';
 import Footer from '@/components/Footer';
 
-
 export default {
   components: {
     'main-header': Header,
