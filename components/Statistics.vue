@@ -1,6 +1,6 @@
 <template>
-  <div class="statistics">
-    <div class="statistics__block">
+  <section class="statistics">
+    <container class="container">
       <st-title class="statistics__title" :theme="'notline'"
         >Статистика по онкозаболеваниям</st-title
       >
@@ -57,8 +57,8 @@
           >
         </st-box>
       </div>
-    </div>
-  </div>
+    </container>
+  </section>
 </template>
 
 <script>
@@ -69,6 +69,7 @@ import ProgressBar from '@/components/ui/ProgressBar';
 import Counter from '@/components/ui/Counter';
 import DataSource from '@/components/ui/DataSource';
 import DoubleProgressBar from '@/components/ui/DoubleProgressBar';
+import Container from './Container';
 export default {
   components: {
     'st-title': Title,
@@ -78,13 +79,17 @@ export default {
     'st-counter': Counter,
     'st-data-source': DataSource,
     'st-double-progress-bar': DoubleProgressBar,
+    'container': Container,
   },
 };
 </script>
 
 <style scoped>
-.statistics {
-  max-width: 1440px;
+
+.container {
+  display: flex;
+  justify-content: space-between;
+  flex-direction: column;
 }
 
 .statistics__title {
