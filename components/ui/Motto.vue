@@ -1,23 +1,31 @@
 <template>
   <section class="motto">
-    <p class="motto__text">
-      <slot>Надпись и хештег</slot>
-      <span class="motto__hashtag">#этонелечится</span>
-    </p>
+    <container class="container">
+      <p class="motto__text">
+        <slot>Надпись и хештег</slot>
+        <span class="motto__hashtag">#этонелечится</span>
+      </p>
+    </container>
   </section>
 </template>
 
 <script>
-export default {};
+import Container from '../Container';
+export default {
+  components: {
+    container: Container,
+  },
+};
 </script>
 
 <style scoped>
-.motto {
-  max-width: 1320px;
-  width: 93%;
-  padding: 20px 17vw;
+.container {
   background: #613a93;
-  margin: 0 auto;
+  padding: 20px 285px;
+}
+.motto {
+  padding-left: 60px;
+  padding-right: 60px;
 }
 .motto__text {
   font-family: Inter;
@@ -41,14 +49,16 @@ export default {};
 }
 @media screen and (max-width: 1280px) {
   .motto {
-    padding: 20px 0;
+    padding: 0 50px;
   }
   .motto__text {
     font-size: 28px;
-    margin: 0 auto;
   }
   .motto__hashtag {
     font-size: 34px;
+  }
+  .container {
+    padding: 20px 80px;
   }
 }
 @media screen and (max-width: 1024px) {
@@ -57,6 +67,9 @@ export default {};
   }
   .motto__hashtag {
     font-size: 32px;
+  }
+  .container {
+    padding: 20px 60px;
   }
 }
 @media screen and (max-width: 768px) {
@@ -68,6 +81,9 @@ export default {};
     font-size: 30px;
     line-height: 36px;
   }
+  .container {
+    padding: 12px 40px;
+  }
 }
 @media screen and (max-width: 320px) {
   .motto__text {
@@ -77,6 +93,9 @@ export default {};
   .motto__hashtag {
     font-size: 18px;
     line-height: 18px;
+  }
+  .container {
+    padding: 15px 35px;
   }
 }
 </style>
