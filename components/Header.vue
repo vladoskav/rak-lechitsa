@@ -15,6 +15,7 @@
 import Menu from './Menu';
 import Logo from './Logo';
 import Container from './Container';
+
 export default {
   components: {
     'header-menu': Menu,

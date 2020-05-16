@@ -1,7 +1,9 @@
 <template>
-  <button @click="$emit('btnClick')" class="button-cards">
-    <slot>Some button</slot>
-  </button>
+  <router-link to="/stories">
+    <button @click="$emit('btnClick')" class="button-cards">
+      <slot>Some button</slot>
+    </button>
+  </router-link>
 </template>
 
 <script>
