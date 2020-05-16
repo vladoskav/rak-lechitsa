@@ -3,6 +3,7 @@
     <div
       :style="{ backgroundImage: `url('${image}')` }"
       :alt="alt"
+      :disabled="disabled"
       class="story__photo"
     ></div>
     <h3 class="story__title">{{ author }}</h3>
@@ -12,7 +13,7 @@
 
 <script>
 export default {
-  props: ['image', 'alt', 'author', 'text'],
+  props: ['image', 'alt', 'author', 'text', 'disabled'],
 };
 </script>
 <style scoped>
@@ -21,6 +22,7 @@ export default {
   display: flex;
   flex-direction: column;
   width: 100%;
+  text-decoration: none;
 }
 .story__photo {
   width: 100%;
