@@ -48,10 +48,6 @@ export default {
   margin-right: 40px;
 }
 
-.menu__item:last-child {
-  margin-right: 0;
-}
-
 .menu__link {
   font-style: normal;
   font-weight: normal;
