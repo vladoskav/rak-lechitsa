@@ -1,5 +1,5 @@
 <template>
-  <container class="stories__main">
+  <contain class="stories__main">
     <div class="stories__text-container">
       <div class="stories__text stories__font">
         <h2 class="stories__title">
@@ -13,33 +13,42 @@
         </p>
       </div>
       <div class="stories__buttons">
-        <button class="stories__button stories__button-backward"></button>
-        <button class="stories__button stories__button-forward"></button>
+        <button class="stories__button stories__button_backward"></button>
+        <button class="stories__button stories__button_forward"></button>
       </div>
     </div>
 
     <div class="stories__video-container">
       <button
-        class="stories__button stories__button-backward stories__button-video"
+        class="stories__button stories__button_backward stories__button_video"
       ></button>
       <div class="stories__video"></div>
       <button
-        class="stories__button stories__button-forward stories__button-video"
+        class="stories__button stories__button_forward stories__button_video"
       ></button>
       <p class="stories__description stories__font">
         Все видео вы&nbsp;можете найте на&nbsp;нашем
-        <a href="#" class="stories_link stories__font">YouTube канале.</a>
+        <a href="#" class="stories__link stories__font">YouTube канале.</a>
       </p>
     </div>
-  </container>
+  </contain>
 </template>
+
+<script>
+import Container from '@/components/Container';
+
+export default {
+  components: {
+    'contain': Container,
+  },
+}
+</script>
+
 <style scoped>
 .stories__main {
   color: #e5e5e5;
   display: grid;
-  max-width: 1320px;
   padding: 100px 0 74px 0;
-  margin: 0 auto;
   grid-template-columns: 1fr 2fr;
 }
 .stories__text-container {
@@ -85,17 +94,17 @@
   outline: none;
   cursor: pointer;
 }
-.stories__button-backward {
-  background-image: url("data:image/svg+xml,%3Csvg width='10' height='18' viewBox='0 0 10 18' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M9 1L1 9L9 17' stroke='%23BFBFBF'/%3E%3C/svg%3E%0A");
+.stories__button_backward {
+  background-image: url('../static/backward.jpg');
 }
-.stories__button-forward {
-  background-image: url("data:image/svg+xml,%3Csvg width='10' height='18' viewBox='0 0 10 18' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M1 17L9 9L1 1' stroke='black'/%3E%3C/svg%3E");
+.stories__button_forward {
+  background-image: url('../static/forward.jpg');
 }
 .stories__video {
   max-width: 867px;
   height: 450px;
   background-color: #ededed;
-  background-image: url("data:image/svg+xml,%3Csvg width='76' height='76' viewBox='0 0 76 76' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath opacity='0.8' fill-rule='evenodd' clip-rule='evenodd' d='M38 76C58.9868 76 76 58.9868 76 38C76 17.0132 58.9868 0 38 0C17.0132 0 0 17.0132 0 38C0 58.9868 17.0132 76 38 76ZM53.0477 39.6926C54.2932 38.9082 54.2932 37.0925 53.0477 36.308L30.9338 22.3799C29.6019 21.541 27.8679 22.4982 27.8679 24.0722V51.9284C27.8679 53.5024 29.6019 54.4596 30.9338 53.6208L53.0477 39.6926Z' fill='%23CECECE'/%3E%3C/svg%3E");
+  background-image: url('../static/play.png');
   background-repeat: no-repeat;
   background-position: center;
   cursor: pointer;
@@ -103,10 +112,10 @@
 .stories__description {
   margin-top: 10px;
 }
-.stories_link {
+.stories__link {
   text-decoration: underline;
 }
-.stories__button-video {
+.stories__button_video {
   display: none;
 }
 
@@ -193,17 +202,17 @@
     grid-area: description;
     font-size: 12px;
   }
-  .stories__button-backward {
+  .stories__button_backward {
     margin-right: 14px;
     align-self: center;
     grid-area: backward;
   }
-  .stories__button-forward {
+  .stories__button_forward {
     margin-left: 14px;
     align-self: center;
     grid-area: forward;
   }
-  .stories__button-video {
+  .stories__button_video {
     display: block;
   }
 }

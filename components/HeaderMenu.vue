@@ -17,7 +17,7 @@
           {{ menuItem.title }}
         </nuxt-link>
         <button
-          @click="$emit('btnClick')"
+          @click="showPopup"
           class="header__menu-button"
           v-if="menuItem.type === 'button'"
         >
@@ -40,6 +40,11 @@ export default {
       ],
     };
   },
+  methods: {
+    showPopup() {
+      this.$store.commit('popup/togglePopup');
+    }
+  }
 };
 </script>
 

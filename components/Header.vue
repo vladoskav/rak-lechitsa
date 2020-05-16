@@ -2,7 +2,7 @@
   <header class="header">
     <div class="header__header-container">
       <header-logo />
-      <header-menu @btnClick="$emit('btnClick')" />
+      <header-menu/>
     </div>
   </header>
 </template>
