@@ -1,20 +1,26 @@
 <template>
   <header class="header">
-    <div class="header__header-container">
-      <header-logo />
-      <header-menu @btnClick="$emit('btnClick')" />
-    </div>
+    <container class="header__container">
+      <logo />
+      <header-menu>
+        <button @click="$emit('btnClick')" class="header__button">
+          Рассказать историю
+        </button>
+      </header-menu>
+    </container>
   </header>
 </template>
 
 <script>
-import HeaderMenu from '@/components/HeaderMenu';
-import HeaderLogo from '@/components/HeaderLogo';
+import Menu from './Menu';
+import Logo from './Logo';
+import Container from './Container';
 
 export default {
   components: {
-    'header-menu': HeaderMenu,
-    'header-logo': HeaderLogo,
+    'header-menu': Menu,
+    logo: Logo,
+    container: Container,
   },
 };
 </script>
@@ -22,23 +28,34 @@ export default {
 <style scoped>
 .header {
   min-height: 76px;
+  padding: 18px 60px;
 }
-.header__header-container {
-  max-width: 1320px;
-  height: 100%;
-  padding: 18px 0;
-  margin: auto;
+.header__container {
   display: flex;
   justify-content: space-between;
 }
+.header__button {
+  font-style: normal;
+  font-weight: normal;
+  font-size: 18px;
+  line-height: 24px;
+  color: #000;
+  padding: 0;
+  border: 0;
+  background-color: transparent;
+  cursor: pointer;
+}
 
-@media screen and (max-width: 1320px) {
+.header__button:focus {
+  outline: 0;
+}
+@media screen and (max-width: 1280px) {
   .header {
-    min-height: 72px;
+    max-height: 72px;
+    padding: 18px 50px;
   }
-  .header__header-container {
-    max-width: 1180px;
-    padding: 18px;
+  .header__button {
+    font-size: 16px;
   }
 }
 </style>

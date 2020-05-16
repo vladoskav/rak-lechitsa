@@ -1,5 +1,5 @@
 <template>
-  <nuxt-link class="header__logo" to="/">
+  <nuxt-link class="logo" to="/">
     Проект Благотворительного Фонда Константина Хабенского
   </nuxt-link>
 </template>
@@ -9,7 +9,7 @@ export default {};
 </script>
 
 <style scoped>
-.header__logo {
+.logo {
   max-width: 340px;
   font-style: normal;
   font-weight: 600;
@@ -20,7 +20,7 @@ export default {};
 }
 
 @media screen and (max-width: 1320px) {
-  .header__logo {
+  .logo {
     line-height: 1.125.rem;
   }
 }
