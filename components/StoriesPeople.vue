@@ -1,5 +1,5 @@
 <template>
-  <contain class="stories__main">
+  <container class="stories__main">
     <div class="stories__text-container">
       <div class="stories__text stories__font">
         <h2 class="stories__title">
@@ -31,7 +31,7 @@
         <a href="#" class="stories__link stories__font">YouTube канале.</a>
       </p>
     </div>
-  </contain>
+  </container>
 </template>
 
 <script>
@@ -39,7 +39,7 @@ import Container from '@/components/Container';
 
 export default {
   components: {
-    'contain': Container,
+    'container': Container,
   },
 }
 </script>

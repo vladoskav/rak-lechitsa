@@ -1,6 +1,6 @@
 <template>
   <section class="about-project">
-    <contain class="about-project__container">
+    <container class="about-project__container">
       <h2 class="about-project__title">#РАКЛЕЧИТСЯ</h2>
       <st-title class="about-project__about">О проекте</st-title>
       <div class="about__columns">
@@ -42,7 +42,7 @@
           </div>
         </div>
       </div>
-    </contain>
+    </container>
   </section>
 </template>
 
@@ -51,7 +51,7 @@ import Container from '@/components/Container';
 import Title from '@/components/ui/Title';
 export default {
   components: {
-    'contain': Container,
+    'container': Container,
     'st-title': Title,
   },
   methods: {

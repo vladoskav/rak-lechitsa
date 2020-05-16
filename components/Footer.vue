@@ -1,6 +1,6 @@
 <template>
   <section class="footer">
-    <contain class="footer__main">
+    <container class="footer__main">
       <div class="footer__flexNav">
         <h3 class="footer__appreciation footer__fonts">
           Спасибо всем, кто помог состояться этому проекту
@@ -27,7 +27,7 @@
         <p class="footer__author">Сделано студентами <a class="footer__link footer__author" href="https://praktikum.yandex.ru/">Яндекс Практикум</a></p>
       </div>
 
-    </contain>
+    </container>
   </section>
 </template>
 
@@ -42,7 +42,7 @@ export default {
     }
   },
   components: {
-    'contain': Container,
+    'container': Container,
     'navigation': Navigation,
   },
 };

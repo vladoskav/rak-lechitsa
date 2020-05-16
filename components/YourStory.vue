@@ -1,6 +1,6 @@
 <template>
   <section class="your-story">
-    <contain class="your-story__container">
+    <container class="your-story__container">
       <st-title>Расскажите свою историю</st-title>
       <div class="your-story__columns">
         <p class="your-story__paragraph">
@@ -54,7 +54,7 @@
           </div>
         </div>
       </div>
-    </contain>
+    </container>
   </section>
 </template>
 
@@ -66,7 +66,7 @@ export default {
   components: {
     'dark-button': Button,
     'st-title': Title,
-    'contain': Container,
+    'container': Container,
   },
   methods: {
     showPopup() {
