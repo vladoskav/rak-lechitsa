@@ -1,6 +1,6 @@
 <template>
-  <div class="statistics">
-    <div class="statistics__block">
+  <section class="statistics">
+    <container class="container">
       <st-title class="statistics__title" :theme="'notline'"
         >Статистика по онкозаболеваниям</st-title
       >
@@ -57,8 +57,8 @@
           >
         </st-box>
       </div>
-    </div>
-  </div>
+    </container>
+  </section>
 </template>
 
 <script>
@@ -69,6 +69,7 @@ import ProgressBar from '@/components/ui/ProgressBar';
 import Counter from '@/components/ui/Counter';
 import DataSource from '@/components/ui/DataSource';
 import DoubleProgressBar from '@/components/ui/DoubleProgressBar';
+import Container from './Container';
 export default {
   components: {
     'st-title': Title,
@@ -78,17 +79,20 @@ export default {
     'st-counter': Counter,
     'st-data-source': DataSource,
     'st-double-progress-bar': DoubleProgressBar,
+    'container': Container,
   },
 };
 </script>
 
 <style scoped>
-.statistics {
-  max-width: 1440px;
+.statistics{
+  padding: 100px 60px;
 }
 
-.statistics__title {
-  margin: 100px auto 0 60px;
+.container {
+  display: flex;
+  justify-content: space-between;
+  flex-direction: column;
 }
 
 .statistics__container {
@@ -96,7 +100,7 @@ export default {
   grid-template-columns: repeat(4, 1fr);
   grid-gap: 40px;
   overflow: auto;
-  margin: 70px 0 100px;
+  margin-top: 70px;
 }
 
 .statistics__box {
@@ -115,20 +119,13 @@ export default {
   margin-top: 20px;
 }
 
-@media screen and (max-width: 1440px) {
-  .statistics__container {
-    margin: 70px 60px 100px 60px;
-  }
-}
-
 @media screen and (max-width: 1280px) {
-  .statistics__title {
-    margin-top: 90px;
-    margin-left: 50px;
+  .statistics{
+    padding: 90px 50px;
   }
 
   .statistics__container {
-    margin: 60px 50px 90px 50px;
+    margin-top: 60px;
   }
 
   .statistics__box {
@@ -141,12 +138,12 @@ export default {
 }
 
 @media screen and (max-width: 1024px) {
-  .statistics__title {
-    margin-top: 80px;
+  .statistics {
+    padding: 80px 50px;
   }
 
   .statistics__container {
-    margin: 46px 51px 80px 51px;
+    margin-top: 46px;
     grid-gap: 30px;
   }
 
@@ -175,7 +172,7 @@ export default {
   }
 
   .statistics__container {
-    margin: 60px 0 80px 40px;
+    margin-top: 60px;
     grid-gap: 20px;
   }
 
@@ -185,13 +182,16 @@ export default {
 }
 
 @media screen and (max-width: 320px) {
+  .statistics {
+    padding: 50px 15px;
+  }
+
   .statistics__title {
-    margin: 30px 0 50px 15px;
     text-align: left;
   }
 
   .statistics__container {
-    margin: 30px 0 50px 15px;
+    margin-top: 30px;
     grid-gap: 10px;
   }
 }
