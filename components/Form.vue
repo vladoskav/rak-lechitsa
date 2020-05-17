@@ -42,13 +42,13 @@ export default {
   },
   computed: {
     formArr() {
-      const index = this.$store.getters['popup/index']
-      const arr = this.$store.getters['popup/question']
+      const index = this.$store.getters['stages/index']
+      const arr = this.$store.getters['stages/question']
       return arr[index]
     },
     initialAnswer() {
-      const index = this.$store.getters['popup/index']
-      const arr = this.$store.getters['popup/answer']
+      const index = this.$store.getters['stages/index']
+      const arr = this.$store.getters['stages/answer']
       return arr[index] || ''
     },
   },
@@ -57,11 +57,11 @@ export default {
       event.preventDefault();
     },
     async prevQuestion() {
-      await this.$store.dispatch('popup/PREV_QUESTION');
+      await this.$store.dispatch('stages/PREV_QUESTION');
       this.answer = this.initialAnswer 
     },
     async nextQuestion() {
-      await this.$store.dispatch('popup/NEXT_QUESTION', {
+      await this.$store.dispatch('stages/NEXT_QUESTION', {
         answer: this.answer
       });
       this.answer = this.initialAnswer
