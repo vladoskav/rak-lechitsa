@@ -33,8 +33,7 @@
 
 <script>
 import Container from '@/components/Container';
-import Navigation from '@/components/Navigation';
-
+import Menu from '@/components/Menu';
 export default {
   data() {
     return {
@@ -43,7 +42,7 @@ export default {
   },
   components: {
     'container': Container,
-    'navigation': Navigation,
+    'navigation': Menu,
   },
 };
 </script>
@@ -57,11 +56,9 @@ export default {
   font-size: 18px;
   line-height: 24px;
 }
-
 .footer {
   background-color: #fbfbfb;
 }
-
 .footer__main {
   padding-top: 60px;
   padding-bottom: 60px;
@@ -74,14 +71,12 @@ export default {
   'copyright copyright';
   justify-content: space-between;
 }
-
 .footer__flexNav {
   grid-area: appreciation;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
 }
-
 .footer__appreciation {
   font-weight: 600;
   font-size: 32px;
@@ -89,11 +84,9 @@ export default {
   position: relative;
   width: 340px;
 }
-
 .footer__pages {
-  margin-left: 100px;
+  margin: 0 0 0 100px;
 }
-
 .footer__social {
   grid-area: social;
   margin: 0 40px 44px 0;
@@ -102,18 +95,15 @@ export default {
   flex-direction: column;
   list-style-type: none;
 }
-
 .footer__link {
   font-size: 18px;
   line-height: 24px;
   text-decoration: none;
   color: #000000;
 }
-
 .footer__social-link {
   text-decoration: underline;
 }
-
 .footer__copyright {
   grid-area: copyright;
   display: flex;
@@ -122,7 +112,6 @@ export default {
   margin: 110px 0 0 0;
   padding: 0;
 }
-
 .footer__author {
   font-size: 18px;
   line-height: 18px;
