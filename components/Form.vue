@@ -1,16 +1,24 @@
 <template>
   <form @submit.prevent="prevent" class="story-form">
     <story-title class="story-form__step">{{formArr.title}}</story-title>
-    <span class="story-form__input-name">{{formArr.question}}</span>
-    <span v-if='formArr.questionAdditional' class='story-form__input_additional'>{{formArr.questionAdditional}}</span>
+    <span class="story-form__question">{{formArr.question}}
+      <span v-if='formArr.questionAdditional' class='story-form__additional'>{{formArr.questionAdditional}}</span>
+    </span>
     <nxt-input
+      placeholder='Напишите тут'
+      required
       class="story-form__textarea"
-      
       v-model="answer"
     />
     <div class="story-form__buttons">
       <button @click='prevQuestion' class="story-form__back">Назад</button>
-      <button @click='nextQuestion' class="story-form__forward">Далее</button>
+      <button @click='nextQuestion' class="story-form__forward" v-if="!formArr.policy">Далее</button>
+      <button @click='nextQuestion' class="story-form__forward" v-if="formArr.policy">
+        Отправить
+      </button>
+      <span v-if='formArr.policy' class='story-form__additional'>{{formArr.policy}}
+        <a href="/policy" class="story-form__additional">обработку персональных данных</a>
+      </span>
     </div>
   </form>
 </template>
@@ -68,7 +76,7 @@ export default {
   flex-direction: column;
 }
 
-.story-form__input-name {
+.story-form__question {
   margin: 40px 40px 134px 40px;
   font-family: Inter;
   font-style: normal;
@@ -76,6 +84,10 @@ export default {
   font-size: 18px;
   line-height: 24px;
   color: #000000;
+}
+
+.story-form__additional {
+  color: #666;
 }
 
 .story-form__step {
@@ -109,6 +121,7 @@ export default {
 }
 
 .story-form__forward {
+  margin-right: 30px;
   background: #613a93;
   border: none;
   outline: none;
