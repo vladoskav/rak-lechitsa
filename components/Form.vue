@@ -1,17 +1,16 @@
 <template>
-  <form @submit.prevent="submitQuestionForm" class="story-form">
-    <story-title class="story-form__step">{{ title }}</story-title>
-    <p class="story-form__input-name">{{ question }}</p>
+  <form @submit.prevent="prevent" class="story-form">
+    <story-title class="story-form__step">{{formArr.title}}</story-title>
+    <span class="story-form__input-name">{{formArr.question}}</span>
+    <span v-if='formArr.questionAdditional' class='story-form__input_additional'>{{formArr.questionAdditional}}</span>
     <nxt-input
       class="story-form__textarea"
-      placeholder='Напишите тут'
-      :name="'message'"
-      required='required'
-      v-model="message"
+      
+      v-model="answer"
     />
     <div class="story-form__buttons">
-      <button class="story-form__back">Назад</button>
-      <button class="story-form__forward">Далее</button>
+      <button @click='prevQuestion' class="story-form__back">Назад</button>
+      <button @click='nextQuestion' class="story-form__forward">Далее</button>
     </div>
   </form>
 </template>
@@ -22,17 +21,6 @@ import Input from '@/components/ui/Input';
 import Title from '@/components/ui/Title';
 
 export default {
-  props: {
-    title: {
-      required: true,
-      default: 'Шаг 0 из 12',
-      type: String,
-    },
-    question: {
-      required: true,
-      type: String,
-    },
-  },
   components: {
     'nxt-button': Button,
     'nxt-input': Input,
@@ -41,14 +29,35 @@ export default {
 
   data() {
     return {
-      message: '',
+      answer: '',
     };
   },
-
-  methods: {
-    submitQuestionForm() {
-      console.log(`message: ${this.message}`);
+  computed: {
+    formArr() {
+      const index = this.$store.getters['popup/index']
+      const arr = this.$store.getters['popup/question']
+      return arr[index]
     },
+    initialAnswer() {
+      const index = this.$store.getters['popup/index']
+      const arr = this.$store.getters['popup/answer']
+      return arr[index] || ''
+    },
+  },
+  methods: {
+    prevent(event) {
+      event.preventDefault();
+    },
+    async prevQuestion() {
+      await this.$store.dispatch('popup/PREV_QUESTION');
+      this.answer = this.initialAnswer 
+    },
+    async nextQuestion() {
+      await this.$store.dispatch('popup/NEXT_QUESTION', {
+        answer: this.answer
+      });
+      this.answer = this.initialAnswer
+    }
   },
 };
 </script>
