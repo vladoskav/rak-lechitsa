@@ -35,12 +35,12 @@ export default {
 <style scoped>
 .menu {
   display: flex;
+  margin: auto 0;
 }
 .menu__list {
   display: flex;
   list-style: none;
   padding: 0;
-  margin: auto;
 }
 .menu__item {
   margin-right: 40px;
