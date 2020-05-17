@@ -1,21 +1,24 @@
 <template>
   <form @submit.prevent="prevent" class="story-form">
-    <story-title class="story-form__step">{{formArr.title}}</story-title>
+    <story-title :class="{
+                'story-form__step': true,
+                'story-form__last_step': formArr.last,
+              }">{{formArr.title}}</story-title>
     <span class="story-form__question">{{formArr.question}}
       <span v-if='formArr.questionAdditional' class='story-form__additional'>{{formArr.questionAdditional}}</span>
     </span>
-    <nxt-input
+    <nxt-input v-if="!formArr.last"
       placeholder='Напишите тут'
       required
       class="story-form__textarea"
       v-model="answer"
     />
     <div class="story-form__buttons">
-      <button @click='prevQuestion' class="story-form__back">Назад</button>
-      <button @click='nextQuestion' class="story-form__forward" v-if="!formArr.policy">Далее</button>
-      <button @click='nextQuestion' class="story-form__forward" v-if="formArr.policy">
-        Отправить
-      </button>
+      <button @click='prevQuestion' class="story-form__back" v-if="!formArr.last">Назад</button>
+      <button @click='nextQuestion' :class="{
+                'story-form__forward': true,
+                'story-form__close': formArr.last,
+              }" >{{formArr.btn}}</button>
       <span v-if='formArr.policy' class='story-form__additional'>{{formArr.policy}}
         <a href="/policy" class="story-form__additional">обработку персональных данных</a>
       </span>
@@ -128,5 +131,18 @@ export default {
   min-width: 226px;
   min-height: 56px;
   color: #fff;
+}
+
+.story-form__last_step {
+  text-align: center;
+  max-width: 100%;
+  margin: 40px auto auto auto;
+}
+
+.story-form__close {
+  position: relative;
+  margin: auto;
+  padding: 0;
+  align-self: center;
 }
 </style>
