@@ -36,18 +36,15 @@ export default {
 .menu {
   display: flex;
 }
-
 .menu__list {
   display: flex;
   list-style: none;
   padding: 0;
   margin: auto;
 }
-
 .menu__item {
   margin-right: 40px;
 }
-
 .menu__link {
   font-style: normal;
   font-weight: normal;
@@ -56,11 +53,9 @@ export default {
   color: #000;
   text-decoration: none;
 }
-
 .menu__link_open {
   text-decoration: underline;
 }
-
 @media screen and (max-width: 1280px) {
   .menu__link {
     font-size: 1rem;

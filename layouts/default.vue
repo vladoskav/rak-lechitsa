@@ -1,39 +1,27 @@
 <template>
   <div>
-    <main-header @btnClick="popupHandler" />
+    <main-header/>
+    <pop-up v-if="popupShown"/>
     <nuxt />
-    <overlay v-if="popupShown" @overlayClick="popupHandler" />
-    <pop-up v-if="popupShown" @closeClick="popupHandler">
-      <form-inputs title="Шаг 1 из 12" question="Как вас зовут?" />
-    </pop-up>
     <footer-content />
   </div>
 </template>
 
 <script>
 import Header from '@/components/Header';
-import Overlay from '@/components/ui/Overlay';
 import PopUp from '@/components/PopUp';
-import Form from '@/components/Form';
 import Footer from '@/components/Footer';
 
 export default {
   components: {
     'main-header': Header,
-    overlay: Overlay,
     'pop-up': PopUp,
-    'form-inputs': Form,
     'footer-content': Footer,
   },
-  methods: {
-    popupHandler() {
-      this.popupShown = !this.popupShown;
-    },
-  },
-  data() {
-    return {
-      popupShown: false,
-    };
+  computed: {
+    popupShown() {
+      return this.$store.getters['popup/getPopupShown']
+    }
   },
 };
 </script>

@@ -2,16 +2,16 @@
   <form @submit.prevent="submitQuestionForm" class="story-form">
     <story-title class="story-form__step">{{ title }}</story-title>
     <p class="story-form__input-name">{{ question }}</p>
-    <nxt-textarea
+    <nxt-input
       class="story-form__textarea"
-      :placeholder="'Напишите тут'"
+      placeholder='Напишите тут'
       :name="'message'"
-      :required="'required'"
+      required='required'
       v-model="message"
     />
     <div class="story-form__buttons">
-      <button class="story-form__back" type="submit">Назад</button>
-      <button class="story-form__forward" type="submit">Далее</button>
+      <button class="story-form__back">Назад</button>
+      <button class="story-form__forward">Далее</button>
     </div>
   </form>
 </template>
@@ -19,7 +19,6 @@
 <script>
 import Button from '@/components/ui/Button';
 import Input from '@/components/ui/Input';
-import TextArea from '@/components/ui/TextArea';
 import Title from '@/components/ui/Title';
 
 export default {
@@ -37,7 +36,6 @@ export default {
   components: {
     'nxt-button': Button,
     'nxt-input': Input,
-    'nxt-textarea': TextArea,
     'story-title': Title,
   },
 
