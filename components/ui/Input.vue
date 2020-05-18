@@ -3,13 +3,14 @@
       :placeholder="placeholder"
       :name="name"
       :required="required"
-      @input="$emit('input', $event.target.value)"
-  />
+      v-bind:value="value"
+      v-on:input="$emit('input', $event.target.value)"
+  >
 </template>
 
 <script>
 export default {
-  props: ['labelText', 'placeholder', 'name', 'required'],
+  props: ['placeholder', 'name', 'required', 'value'],
 };
 </script>
 

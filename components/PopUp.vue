@@ -3,7 +3,7 @@
     <overlay @overlayClick="closePopup" />
     <div class="popup">
       <div class="close" @click="closePopup"></div>
-      <form-inputs title="Шаг 1 из 12" question="Как вас зовут?" />
+      <form-inputs />
     </div>
   </div>
 </template>
