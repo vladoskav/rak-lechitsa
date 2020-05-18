@@ -1,25 +1,36 @@
 <template>
   <div>
-    <overlay @overlayClick="closePopup" />
+    <overlay v-if="popupShown" @overlayClick="closePopup" />
+    <overlay v-if="popupSocial" @overlayClick="closeSocial" />
     <div class="popup">
-      <div class="close" @click="closePopup"></div>
-      <form-inputs />
+      <div v-if="popupShown" class="close" @click="closePopup"></div>
+      <div v-if="popupSocial" class="close" @click="closeSocial"></div>
+      <slot></slot>
     </div>
   </div>
 </template>
 
 <script>
 import Overlay from '@/components/ui/Overlay';
-import Form from '@/components/Form';
 export default {
   components: {
     'overlay': Overlay,
-    'form-inputs': Form,
   },
   methods: {
     closePopup() {
       this.$store.commit('popup/togglePopup');
-    }
+    },
+    closeSocial() {
+      this.$store.commit('popup/toggleSocial');
+    },
+  },
+  computed: {
+    popupShown() {
+      return this.$store.getters['popup/getPopupShown']
+    },
+    popupSocial() {
+      return this.$store.getters['popup/getPopupSocial']
+    },
   },
 };
 </script>
@@ -31,7 +42,7 @@ export default {
   left: 50%;
   transform: translate(-50%, -50%);
   width: 920px;
-  min-height: 600px;
+  min-height: 324px;
   border: none;
   box-sizing: border-box;
   padding: 20px;

@@ -176,6 +176,7 @@ export default {
     margin: 0 auto;
   }
   .stories__paragraph {
+    text-align: left;
     margin-top: 26px;
     font-size: 13px;
     line-height: 16px;
@@ -215,5 +216,29 @@ export default {
   .stories__button_video {
     display: block;
   }
+}
+
+@media screen and (max-width: 670px) {
+.stories__video-container {
+    margin: 40px auto 0 auto;
+    display: flex;
+    flex-direction: row;
+}
+.stories__button_backward {
+    align-self: center;
+    grid-area: none;
+}
+.stories__button_forward {
+    align-self: center;
+    grid-area: none;
+}
+.stories__video {
+    grid-area: none;
+    min-width: 580px;
+    height: 300px;
+}
+.stories__description {
+    display: none;
+}
 }
 </style>

@@ -1,7 +1,12 @@
 <template>
   <div>
     <main-header/>
-    <pop-up v-if="popupShown"/>
+    <pop-up v-if="popupShown">
+      <form-inputs />
+    </pop-up>
+    <pop-up v-if="popupSocial">
+      <form-social />
+    </pop-up>   
     <nuxt />
     <footer-content />
   </div>
@@ -11,17 +16,24 @@
 import Header from '@/components/Header';
 import PopUp from '@/components/PopUp';
 import Footer from '@/components/Footer';
+import Form from '@/components/Form';
+import FormSocial from '@/components/FormSocial'
 
 export default {
   components: {
     'main-header': Header,
     'pop-up': PopUp,
     'footer-content': Footer,
+    'form-inputs': Form,
+    'form-social': FormSocial,
   },
   computed: {
     popupShown() {
       return this.$store.getters['popup/getPopupShown']
-    }
+    },
+    popupSocial() {
+      return this.$store.getters['popup/getPopupSocial']
+    },
   },
 };
 </script>

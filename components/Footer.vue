@@ -18,7 +18,7 @@
           </p>
         </li>
         <li>
-          <a class="footer__link footer__fonts" href="/stories">Поделитесь &#8599;</a>
+          <p class="footer__link footer__fonts" @click="popupSocial">Поделитесь &#8599;</p>
         </li>
       </ul>
 
@@ -43,6 +43,11 @@ export default {
   components: {
     'container': Container,
     'navigation': Menu,
+  },
+  methods: {
+    popupSocial() {
+      this.$store.commit('popup/toggleSocial');
+    },
   },
 };
 </script>
@@ -86,6 +91,7 @@ export default {
 }
 .footer__pages {
   margin: 0 0 0 100px;
+  text-decoration: none;
 }
 .footer__social {
   grid-area: social;
