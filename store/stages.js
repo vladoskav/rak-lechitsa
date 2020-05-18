@@ -125,6 +125,5 @@ const QUESTIONS = {
     13: {
         title: 'Спасибо что приняли участие!',
         last: 'true',
-        btn: 'Закрыть'
     }
 }

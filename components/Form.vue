@@ -14,11 +14,9 @@
       v-model="answer"
     />
     <div class="story-form__buttons">
-      <button @click='prevQuestion' class="story-form__back" v-if="!formArr.last">Назад</button>
-      <button @click='nextQuestion' :class="{
-                'story-form__forward': true,
-                'story-form__close': formArr.last,
-              }" >{{formArr.btn}}</button>
+      <button v-if="!formArr.last" @click='prevQuestion' class="story-form__back">Назад</button>
+      <button v-if="!formArr.last" @click='nextQuestion' class="story-form__forward" >{{formArr.btn}}</button>
+      <button v-if="formArr.last" @click='showPopup' class="story-form__forward story-form__close">Закрыть</button>
       <span v-if='formArr.policy' class='story-form__additional'>{{formArr.policy}}
         <a href="/policy" class="story-form__additional">обработку персональных данных</a>
       </span>
@@ -59,6 +57,9 @@ export default {
     prevent(event) {
       event.preventDefault();
     },
+    showPopup() {
+      this.$store.commit('popup/togglePopup');
+    },
     async prevQuestion() {
       await this.$store.dispatch('stages/PREV_QUESTION');
       this.answer = this.initialAnswer 
@@ -81,12 +82,11 @@ export default {
 
 .story-form__question {
   margin: 40px 40px 134px 40px;
-  font-family: Inter;
   font-style: normal;
   font-weight: 500;
   font-size: 18px;
   line-height: 24px;
-  color: #000000;
+  color: #000;
 }
 
 .story-form__additional {
@@ -97,11 +97,10 @@ export default {
   margin: 40px auto 0 40px;
   font-size: 32px;
   line-height: 36px;
-  color: #000000;
+  color: #000;
 }
 
 .story-form__textarea {
-  font-family: Inter;
   font-style: normal;
   font-weight: normal;
   font-size: 18px;
@@ -118,7 +117,7 @@ export default {
 .story-form__back {
   border: none;
   outline: none;
-  background-color: #ffffff;
+  background-color: #fff;
   color: #c0c0c0;
   margin: auto 30px auto 0;
 }
@@ -140,9 +139,10 @@ export default {
 }
 
 .story-form__close {
-  position: relative;
-  margin: auto;
-  padding: 0;
-  align-self: center;
+  position: absolute;
+  margin: 0;
+  left: 38%;
+  right: 38%;
+  bottom: 40px;
 }
 </style>
