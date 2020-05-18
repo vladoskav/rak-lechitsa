@@ -16,6 +16,7 @@ export default {
 <style scoped>
 .link-photo {
   width: 100%;
+  height: 100%;
   background-size: cover;
   padding-bottom: 100%;
 }
