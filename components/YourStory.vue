@@ -44,11 +44,11 @@
               зададим вопросы, уточним детали вашей истории.
             </p>
           </div>
-          <div class="button-container" @click="showPopup">
-            <dark-button class="button-container-button" v-if="optionSelected === 1">
+          <div class="button-container">
+            <dark-button class="button-container-button" @darkClick="showPopup('popupShown')" v-if="optionSelected === 1">
               Заполнить форму
             </dark-button>
-            <dark-button class="button-container-button" v-if="optionSelected === 2">
+            <dark-button class="button-container-button" @darkClick="showPopup('popupContact')" v-if="optionSelected === 2">
               Оставить контакт
             </dark-button>
           </div>
@@ -69,8 +69,8 @@ export default {
     'container': Container,
   },
   methods: {
-    showPopup() {
-      this.$store.commit('popup/togglePopup');
+    showPopup(popup) {
+      this.$store.commit('popup/togglePopup', popup);
     },
     selectOption(option) {
       this.optionSelected = option;
