@@ -1,6 +1,6 @@
 <template>
   <container class="header__container">
-    <header-menu class="header__menu">
+    <header-menu class="header__menu" type="link">
       <button @click="showPopup" class="header__button">
         Рассказать историю
       </button>
