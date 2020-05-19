@@ -22,7 +22,7 @@
       <button
         class="stories__button stories__button_backward stories__button_video"
       ></button>
-      <div class="stories__video"></div>
+      <div class="stories__video"><play class="stories__video-play" /></div>
       <button
         class="stories__button stories__button_forward stories__button_video"
       ></button>
@@ -36,10 +36,12 @@
 
 <script>
 import Container from '@/components/Container';
+import Play from '@/components/svg/Play';
 
 export default {
   components: {
     'container': Container,
+    'play': Play,
   },
 }
 </script>
@@ -95,18 +97,21 @@ export default {
   cursor: pointer;
 }
 .stories__button_backward {
-  background-image: url('../static/backward.jpg');
+  background-image: url('../static/backward.png');
+  background-color: #fff;
 }
 .stories__button_forward {
-  background-image: url('../static/forward.jpg');
+  background-image: url('../static/forward.png');
+  background-color: #fff;
 }
 .stories__video {
+  display: flex;
   max-width: 867px;
   height: 450px;
   background-color: #ededed;
-  background-image: url('../static/play.png');
-  background-repeat: no-repeat;
-  background-position: center;
+}
+.stories__video-play {
+  margin: auto;
   cursor: pointer;
 }
 .stories__description {
@@ -139,6 +144,10 @@ export default {
     max-width: 773px;
     height: 400px;
   }
+  .stories__video-play {
+  width: 76px;
+  height: 76px;
+}
 }
 @media screen and (max-width: 1180px) {
   .stories__main {
@@ -176,6 +185,7 @@ export default {
     margin: 0 auto;
   }
   .stories__paragraph {
+    text-align: left;
     margin-top: 26px;
     font-size: 13px;
     line-height: 16px;
@@ -215,5 +225,50 @@ export default {
   .stories__button_video {
     display: block;
   }
+}
+
+@media screen and (max-width: 670px) {
+.stories__main {
+  padding: 100px 15px 74px 15px;
+}
+.stories__title {
+  text-align: left;
+}
+.stories__video-container {
+    margin: 40px auto 0 auto;
+    display: flex;
+    flex-direction: row;
+    position: relative;
+}
+.stories__button_backward {
+    align-self: center;
+    grid-area: none;
+    position: absolute;
+    left: 10px;
+}
+.stories__button_forward {
+    align-self: center;
+    grid-area: none;
+    position: absolute;
+    right: 10px;
+}
+.stories__video {
+    grid-area: none;
+    min-width: 290px;
+    height: 150px;
+}
+.stories__description {
+    display: none;
+}
+.stories__button_backward {
+  background-color: #EDEDED;
+}
+.stories__button_forward {
+  background-color: #EDEDED;
+}
+.stories__video-play {
+  width: 38px;
+  height: 38px;
+}
 }
 </style>

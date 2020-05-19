@@ -2,8 +2,8 @@
   <header class="header">
     <container class="header__container">
       <logo />
-      <header-menu class="header__menu">
-        <button @click="showPopup" class="header__button">
+      <header-menu class="header__menu" type="link">
+        <button @click="showPopup('popupShown')" class="header__button">
           Рассказать историю
         </button>
       </header-menu>
@@ -25,8 +25,8 @@ export default {
     'mobile-icon': MobileIcon,
   },
   methods: {
-    showPopup() {
-      this.$store.commit('popup/togglePopup');
+    showPopup(popup) {
+      this.$store.commit('popup/togglePopup', popup);
     },
   },
 };
