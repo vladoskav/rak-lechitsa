@@ -1,5 +1,6 @@
 <template>
   <div>
+    <mobile-menu v-if="isMobileMenuOpened" class="main-mobile-menu" />
     <main-header/>
     <pop-up v-if="popupShown" @overlayClick="closePopup('popupShown')" @closeClick="closePopup('popupShown')" >
       <form-inputs v-if="popupShown" />
@@ -19,6 +20,7 @@
 import Header from '@/components/Header';
 import PopUp from '@/components/PopUp';
 import Footer from '@/components/Footer';
+import MobileMenu from '@/components/MobileMenu';
 import Form from '@/components/Form';
 import FormSocial from '@/components/FormSocial';
 import FormContact from '@/components/FormContact';
@@ -28,13 +30,17 @@ export default {
     'main-header': Header,
     'pop-up': PopUp,
     'footer-content': Footer,
+    'mobile-menu': MobileMenu,
     'form-inputs': Form,
     'form-social': FormSocial,
     'form-contact': FormContact
   },
   computed: {
     popupShown() {
-      return this.$store.getters[`popup/getPopupShown`]
+      return this.$store.getters['popup/getPopupShown']
+    },
+    isMobileMenuOpened() {
+      return this.$store.getters['mobile-menu/getMobileMenuState']
     },
     popupSocial() {
       return this.$store.getters[`popup/getPopupSocial`]
@@ -246,5 +252,17 @@ template {
 
 [hidden] {
   display: none;
+}
+
+.main-mobile-menu {
+  display: none;
+}
+
+@media screen and (max-width: 768px) {
+  .main-mobile-menu {
+    max-height: 72px;
+    display: flex;
+    align-items: left;
+  }
 }
 </style>
