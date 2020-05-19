@@ -18,7 +18,6 @@ export default {};
   color: #000;
   text-decoration: none;
 }
-
 @media screen and (max-width: 1320px) {
   .logo {
     line-height: 1.125.rem;

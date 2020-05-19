@@ -3,7 +3,7 @@
     <container class="header__container">
       <logo />
       <header-menu>
-        <button @click="$emit('btnClick')" class="header__button">
+        <button @click="showPopup" class="header__button">
           Рассказать историю
         </button>
       </header-menu>
@@ -15,12 +15,16 @@
 import Menu from './Menu';
 import Logo from './Logo';
 import Container from './Container';
-
 export default {
   components: {
     'header-menu': Menu,
     logo: Logo,
     container: Container,
+  },
+  methods: {
+    showPopup() {
+      this.$store.commit('popup/togglePopup');
+    },
   },
 };
 </script>
@@ -46,7 +50,6 @@ export default {
   background-color: transparent;
   cursor: pointer;
 }
-
 .header__button:focus {
   outline: 0;
 }
