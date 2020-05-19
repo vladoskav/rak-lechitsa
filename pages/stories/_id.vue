@@ -17,7 +17,7 @@
               :style="{ backgroundImage: `url('${story.url}')` }"
             ></div>
           </div>
-          <a class="text-block__link" href="">Поделитесь</a>
+          <a class="text-block__link" href="">Поделитесь &#8599;</a>
           <p class="story__date">20 апреля 2018</p>
         </div>
       </div>
@@ -49,7 +49,9 @@
         пунктуальность уже не лечится»
       </p>
       <div class="link-box">
-        <a class="link">Поделитесь этой статьей в своих социальных сетях ↗</a>
+        <a class="link" href=""
+          >Поделитесь этой статьей в своих социальных сетях &#8599;</a
+        >
       </div>
       <ul class="stories-section__grid">
         <li v-for="story in stories" :key="story.id" class="grid-item">
@@ -134,6 +136,12 @@ export default {
   font-size: 18px;
   line-height: 24px;
   color: #121212;
+  text-decoration: none;
+  transition: opacity 0.3s linear;
+}
+.link:hover {
+  opacity: 0.8;
+  transition: opacity 0.3s linear;
 }
 .upper-block {
   display: grid;
@@ -170,6 +178,12 @@ export default {
   font-size: 18px;
   line-height: 24px;
   color: #121212;
+  text-decoration: none;
+  transition: opacity 0.3s linear;
+}
+.text-block__link:hover {
+  opacity: 0.8;
+  transition: opacity 0.3s linear;
 }
 .story__photo {
   width: 100%;
