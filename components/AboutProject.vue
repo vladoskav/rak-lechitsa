@@ -4,11 +4,12 @@
       <h2 class="about-project__title">#РАКЛЕЧИТСЯ</h2>
       <st-title class="about-project__about">О проекте</st-title>
       <div class="about__columns">
-        <div class="about__choose">
-          <p class="about__paragraph">
-            Этот проект был создан благотворительным фондом Константина
-            Хабенского.
-          </p>
+        <p class="about__paragraph">
+          Этот проект был создан благотворительным фондом Константина
+          Хабенского.
+        </p>
+
+        <div class="about__texts">
           <div class="about__tumblers">
             <label
               @click="selectOption(1)"
@@ -27,9 +28,6 @@
               >Фонд Хабенского</label
             >
           </div>
-        </div>
-
-        <div class="about__texts">
           <div class="about__text" v-if="optionSelected === 1">
             <p class="about__detailed">
               Есть вещи, которые не&nbsp;лечатся. Особенности характера,
@@ -82,11 +80,10 @@ export default {
 .about-project {
   background-color: #613a93;
   color: #dedede;
-  padding-left: 60px;
-  padding-right: 60px;
 }
 
 .about-project__container {
+  margin: 0 60px;
   padding: 90px 0 100px 0;
 }
 
@@ -108,30 +105,28 @@ export default {
 }
 .about__paragraph {
   max-width: 340px;
-  font-size: 1.125rem;
-  line-height: 1.375rem;
+  font-size: 18px;
+  line-height: 22px;
   font-style: normal;
   font-weight: normal;
 }
 .about__columns {
-  display: grid;
-  grid-template-columns: 1fr auto;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
   margin-top: 32px;
 }
-.about__choose {
-  display: flex;
-  justify-content: space-between;
-}
 .about__tumblers {
+  display: flex;
+  flex-direction: column;
   margin-right: 40px;
+  text-align: right;
 }
 .about__tumbler {
-  display: block;
-  width: 100%;
   margin-bottom: 10px;
-  font-size: 1.125rem;
-  line-height: 1.375rem;
-  font-weight: normal;
+  font-size: 18px;
+  line-height: 22px;
+  font-weight: 500;
   color: #c9c9c9;
   cursor: pointer;
 }
@@ -144,16 +139,116 @@ export default {
 }
 .about__texts {
   display: flex;
-  max-width: 640px;
 }
 .about__text {
+  max-width: 640px;
   display: flex;
   flex-direction: column;
 }
 .about__detailed {
   width: 100%;
-  font-size: 1.125rem;
-  line-height: 1.375rem;
+  font-size: 18px;
+  line-height: 22px;
   font-weight: normal;
+}
+@media screen and (max-width: 1280px) {
+  .about-project__container {
+    padding: 90px 0;
+    margin: 0 50px;
+  }
+  .about-project__title {
+    font-size: 58px;
+    line-height: 70px;
+  }
+  .about-project__about {
+    font-size: 28px;
+    line-height: 32px;
+  }
+  .about__paragraph {
+    font-size: 16px;
+    line-height: 20px;
+  }
+}
+
+@media screen and (max-width: 1024px) {
+  .about-project__container {
+    padding: 80px 0;
+  }
+  .about-project__title {
+    font-size: 52px;
+    line-height: 63px;
+  }
+  .about-project__about {
+    font-size: 24px;
+    line-height: 28px;
+  }
+  .about__paragraph {
+    font-size: 13px;
+    line-height: 16px;
+  }
+  .about__tumbler {
+    font-size: 15px;
+    line-height: 19px;
+  }
+  .about__text {
+    font-size: 15px;
+    line-height: 19px;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .about-project__container {
+    padding: 80px 15px;
+    margin: 0 auto;
+    max-width: 380px;
+  }
+  .about-project__title {
+    display: none;
+  }
+  .about-project__about {
+    text-align: center;
+  }
+  .about__paragraph {
+    margin: 0;
+    max-width: 100%;
+  }
+  .about__columns {
+    margin-top: 26px;
+    flex-direction: column;
+  }
+  .about__texts {
+    margin-top: 80px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+  .about__text {
+    margin-top: 30px;
+    max-width: 380px;
+  }
+  .about__tumblers {
+    flex-direction: row;
+  }
+  .about__tumbler {
+    margin: 0 30px 0 0;
+  }
+  .about__tumbler_active {
+    border-bottom: 2px solid #fff;
+  }
+}
+
+@media screen and (max-width: 320px) {
+  .about-project__about {
+    font-size: 18px;
+    line-height: 21px;
+  }
+  .about__tumbler {
+    font-size: 13px;
+    line-height: 19px;
+  }
+  .about__text {
+    font-size: 15px;
+    line-height: 16px;
+  }
 }
 </style>
