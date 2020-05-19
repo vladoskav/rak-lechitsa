@@ -16,7 +16,7 @@
     <div class="story-form__buttons">
       <button v-if="!formArr.last" @click='prevQuestion' class="story-form__back">Назад</button>
       <button v-if="!formArr.last" @click='nextQuestion' class="story-form__forward" >{{formArr.btn}}</button>
-      <button v-if="formArr.last" @click='showPopup' class="story-form__forward story-form__close">Закрыть</button>
+      <button v-if="formArr.last" @click="showPopup('popupShown')" class="story-form__forward story-form__close">Закрыть</button>
       <span v-if='formArr.policy' class='story-form__additional'>{{formArr.policy}}
         <a href="/policy" class="story-form__additional">обработку персональных данных</a>
       </span>
@@ -57,8 +57,8 @@ export default {
     prevent(event) {
       event.preventDefault();
     },
-    showPopup() {
-      this.$store.commit('popup/togglePopup');
+    showPopup(popup) {
+      this.$store.commit('popup/togglePopup', popup);
     },
     async prevQuestion() {
       await this.$store.dispatch('stages/PREV_QUESTION');
