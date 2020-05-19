@@ -79,13 +79,13 @@ export default {
     'st-counter': Counter,
     'st-data-source': DataSource,
     'st-double-progress-bar': DoubleProgressBar,
-    'container': Container,
+    container: Container,
   },
 };
 </script>
 
 <style scoped>
-.statistics{
+.statistics {
   padding: 100px 60px;
 }
 
@@ -120,7 +120,7 @@ export default {
 }
 
 @media screen and (max-width: 1280px) {
-  .statistics{
+  .statistics {
     padding: 90px 50px;
   }
 

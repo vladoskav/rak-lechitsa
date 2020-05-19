@@ -29,6 +29,7 @@ export default {
 .header {
   min-height: 76px;
   padding: 18px 60px;
+  border-bottom: 1px solid #e8e8e8;
 }
 .header__container {
   display: flex;
