@@ -3,7 +3,7 @@
     <container class="header__container">
       <logo />
       <header-menu type="link">
-        <button @click="showPopup" class="header__button">
+        <button @click="showPopup('popupShown')" class="header__button">
           Рассказать историю
         </button>
       </header-menu>
@@ -22,8 +22,8 @@ export default {
     container: Container,
   },
   methods: {
-    showPopup() {
-      this.$store.commit('popup/togglePopup');
+    showPopup(popup) {
+      this.$store.commit('popup/togglePopup', popup);
     },
   },
 };

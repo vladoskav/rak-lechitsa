@@ -1,10 +1,9 @@
 <template>
   <div>
-    <overlay v-if="popupShown" @overlayClick="closePopup" />
-    <overlay v-if="popupSocial" @overlayClick="closeSocial" />
+    <overlay @overlayClick="$emit('overlayClick')" />
     <div class="popup">
-      <div v-if="popupShown" class="close" @click="closePopup"></div>
-      <div v-if="popupSocial" class="close" @click="closeSocial"></div>
+      <div class="close" @click="$emit('closeClick')"></div>
+      
       <slot></slot>
     </div>
   </div>
@@ -13,15 +12,13 @@
 <script>
 import Overlay from '@/components/ui/Overlay';
 export default {
+  props: ['popup'],
   components: {
     'overlay': Overlay,
   },
   methods: {
-    closePopup() {
-      this.$store.commit('popup/togglePopup');
-    },
-    closeSocial() {
-      this.$store.commit('popup/toggleSocial');
+    closePopup(elem) {
+      this.$store.commit(`popup/${elem}`);
     },
   },
   computed: {
@@ -31,6 +28,9 @@ export default {
     popupSocial() {
       return this.$store.getters['popup/getPopupSocial']
     },
+    popupContact() {
+      return this.$store.getters['popup/getPopupContact']
+    }
   },
 };
 </script>
@@ -60,5 +60,23 @@ export default {
   background-size: contain;
   background-repeat: no-repeat;
   cursor: pointer;
+}
+
+@media screen and (max-width: 1280px) {
+  .popup {
+    width: 800px;
+  }
+}
+
+@media screen and (max-width: 810px) {
+  .popup {
+    width: 580px;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .popup {
+    width: 290px;
+  }
 }
 </style>

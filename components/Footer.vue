@@ -19,7 +19,7 @@
             </p>
           </li>
           <li>
-            <p class="footer__link footer__fonts footer__share" @click="popupSocial">Поделитесь &#8599;</p>
+            <p class="footer__link footer__fonts footer__share" @click="showPopup('popupSocial')">Поделитесь &#8599;</p>
           </li>
         </ul>
       </div>
@@ -47,8 +47,8 @@ export default {
     'navigation': Menu,
   },
   methods: {
-    popupSocial() {
-      this.$store.commit('popup/toggleSocial');
+    showPopup(popup) {
+      this.$store.commit('popup/togglePopup', popup);
     },
   },
 };
