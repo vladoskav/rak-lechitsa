@@ -22,7 +22,7 @@
       <button
         class="stories__button stories__button_backward stories__button_video"
       ></button>
-      <div class="stories__video"></div>
+      <div class="stories__video"><play class="stories__video-play" /></div>
       <button
         class="stories__button stories__button_forward stories__button_video"
       ></button>
@@ -36,10 +36,12 @@
 
 <script>
 import Container from '@/components/Container';
+import Play from '@/components/svg/Play';
 
 export default {
   components: {
     'container': Container,
+    'play': Play,
   },
 }
 </script>
@@ -103,12 +105,13 @@ export default {
   background-color: #fff;
 }
 .stories__video {
+  display: flex;
   max-width: 867px;
   height: 450px;
   background-color: #ededed;
-  background-image: url('../static/play.png');
-  background-repeat: no-repeat;
-  background-position: center;
+}
+.stories__video-play {
+  margin: auto;
   cursor: pointer;
 }
 .stories__description {
@@ -141,6 +144,10 @@ export default {
     max-width: 773px;
     height: 400px;
   }
+  .stories__video-play {
+  width: 76px;
+  height: 76px;
+}
 }
 @media screen and (max-width: 1180px) {
   .stories__main {
@@ -258,6 +265,10 @@ export default {
 }
 .stories__button_forward {
   background-color: #EDEDED;
+}
+.stories__video-play {
+  width: 38px;
+  height: 38px;
 }
 }
 </style>
