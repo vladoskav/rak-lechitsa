@@ -17,7 +17,9 @@
               :style="{ backgroundImage: `url('${story.url}')` }"
             ></div>
           </div>
-          <a class="text-block__link" href="">Поделитесь &#8599;</a>
+          <a class="text-block__link" @click="showPopup('popupSocial')"
+            >Поделитесь &#8599;</a
+          >
           <p class="story__date">20 апреля 2018</p>
         </div>
       </div>
@@ -49,7 +51,7 @@
         пунктуальность уже не лечится»
       </p>
       <div class="link-box">
-        <a class="link" href=""
+        <a class="link" @click="showPopup('popupSocial')"
           >Поделитесь этой статьей в своих социальных сетях &#8599;</a
         >
       </div>
@@ -101,6 +103,9 @@ export default {
     },
     goToStory(id) {
       this.$router.push(`/stories/${id}`);
+    },
+    showPopup(popup) {
+      this.$store.commit('popup/togglePopup', popup);
     },
   },
   components: {
