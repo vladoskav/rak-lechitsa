@@ -1,5 +1,6 @@
 <template>
   <div>
+    <mobile-menu v-if="isMobileMenuOpened" class="main-mobile-menu" />
     <main-header/>
     <pop-up v-if="popupShown"/>
     <nuxt />
@@ -11,16 +12,21 @@
 import Header from '@/components/Header';
 import PopUp from '@/components/PopUp';
 import Footer from '@/components/Footer';
+import MobileMenu from '@/components/MobileMenu';
 
 export default {
   components: {
     'main-header': Header,
     'pop-up': PopUp,
     'footer-content': Footer,
+    'mobile-menu': MobileMenu,
   },
   computed: {
     popupShown() {
       return this.$store.getters['popup/getPopupShown']
+    },
+    isMobileMenuOpened() {
+      return this.$store.getters['mobile-menu/getMobileMenuState']
     }
   },
 };
@@ -221,5 +227,17 @@ template {
 
 [hidden] {
   display: none;
+}
+
+.main-mobile-menu {
+  display: none;
+}
+
+@media screen and (max-width: 768px) {
+  .main-mobile-menu {
+    max-height: 72px;
+    display: flex;
+    align-items: left;
+  }
 }
 </style>

@@ -2,11 +2,12 @@
   <header class="header">
     <container class="header__container">
       <logo />
-      <header-menu>
+      <header-menu class="header__menu">
         <button @click="showPopup" class="header__button">
           Рассказать историю
         </button>
       </header-menu>
+      <mobile-icon class="header__mobile-icon" />
     </container>
   </header>
 </template>
@@ -15,11 +16,13 @@
 import Menu from './Menu';
 import Logo from './Logo';
 import Container from './Container';
+import MobileIcon from '@/components/ui/MobileIcon';
 export default {
   components: {
     'header-menu': Menu,
     logo: Logo,
     container: Container,
+    'mobile-icon': MobileIcon,
   },
   methods: {
     showPopup() {
@@ -34,31 +37,58 @@ export default {
   min-height: 76px;
   padding: 18px 60px;
 }
+
 .header__container {
   display: flex;
   justify-content: space-between;
 }
+
 .header__button {
+  font-family: 'Inter';
   font-style: normal;
   font-weight: normal;
-  font-size: 18px;
-  line-height: 24px;
+  font-size: 1.125rem;
+  line-height: 1.5rem;
   color: #000;
   padding: 0;
   border: 0;
   background-color: transparent;
   cursor: pointer;
 }
+
 .header__button:focus {
   outline: 0;
 }
+
+.header__mobile-icon {
+  display: none;
+}
+
 @media screen and (max-width: 1280px) {
   .header {
     max-height: 72px;
     padding: 18px 50px;
   }
+
   .header__button {
-    font-size: 16px;
+    font-size: 1rem;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .header__menu {
+    display: none;
+  }
+
+  .header__mobile-icon {
+    display: block;
+  }
+}
+
+@media screen and (max-width: 320px) {
+  .header {
+    max-height: 64px;
+    padding: 18px 15px;
   }
 }
 </style>
