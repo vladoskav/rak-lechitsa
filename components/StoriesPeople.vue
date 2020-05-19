@@ -95,10 +95,12 @@ export default {
   cursor: pointer;
 }
 .stories__button_backward {
-  background-image: url('../static/backward.jpg');
+  background-image: url('../static/backward.png');
+  background-color: #fff;
 }
 .stories__button_forward {
-  background-image: url('../static/forward.jpg');
+  background-image: url('../static/forward.png');
+  background-color: #fff;
 }
 .stories__video {
   max-width: 867px;
@@ -219,26 +221,43 @@ export default {
 }
 
 @media screen and (max-width: 670px) {
+.stories__main {
+  padding: 100px 15px 74px 15px;
+}
+.stories__title {
+  text-align: left;
+}
 .stories__video-container {
     margin: 40px auto 0 auto;
     display: flex;
     flex-direction: row;
+    position: relative;
 }
 .stories__button_backward {
     align-self: center;
     grid-area: none;
+    position: absolute;
+    left: 10px;
 }
 .stories__button_forward {
     align-self: center;
     grid-area: none;
+    position: absolute;
+    right: 10px;
 }
 .stories__video {
     grid-area: none;
-    min-width: 580px;
-    height: 300px;
+    min-width: 290px;
+    height: 150px;
 }
 .stories__description {
     display: none;
+}
+.stories__button_backward {
+  background-color: #EDEDED;
+}
+.stories__button_forward {
+  background-color: #EDEDED;
 }
 }
 </style>
