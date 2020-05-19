@@ -2,7 +2,7 @@
   <header class="header">
     <container class="header__container">
       <logo />
-      <header-menu>
+      <header-menu type="link">
         <button @click="showPopup" class="header__button">
           Рассказать историю
         </button>

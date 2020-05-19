@@ -7,7 +7,7 @@
             Спасибо всем, кто помог состояться этому проекту
           </h3>
 
-          <navigation class="footer__pages footer__fonts"/>
+          <navigation class="footer__pages footer__fonts" type="footer"/>
         </div>
 
         <ul class="footer__social">
@@ -91,6 +91,7 @@ export default {
   margin-right: 120px;
 }
 .footer__pages {
+  align-items: flex-start;
   margin: 0;
 }
 .footer__social {
@@ -171,6 +172,9 @@ export default {
   font-size: 24px;
   line-height: 28px;
   margin-right: 25px;
+}
+.footer__pages {
+  flex-direction: column;
 }
 .footer__share {
   margin-top: 15px;

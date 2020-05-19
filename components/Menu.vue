@@ -1,9 +1,7 @@
 <template>
-  <nav class="menu">
-    <ul class="menu__list">
-      <li class="menu__item" v-for="menuItem in menuItems" :key="menuItem.id">
-        <nuxt-link
-          v-if="menuItem.type === 'link'"
+    <nav class="menu__list">
+        <nuxt-link v-for="menuItem in menuItems" :key="menuItem.id"
+          v-show="type === 'link'"
           :class="{
             menu__link: true,
             menu__link_open: $route.path === menuItem.href,
@@ -12,15 +10,21 @@
         >
           {{ menuItem.title }}
         </nuxt-link>
-      </li>
-    </ul>
-    <slot></slot>
-  </nav>
+
+        <nuxt-link v-for="menuItem in menuItems" :key="menuItem.id"
+          v-show="type === 'footer'"
+          class="menu__link menu__link_footer"
+          :to="menuItem.href"
+        >
+          {{ menuItem.title }}
+        </nuxt-link>
+        <slot></slot>
+    </nav>
 </template>
 
 <script>
 export default {
-  props: ['title', 'href'],
+  props: ['title', 'href', 'type'],
   data() {
     return {
       menuItems: [
@@ -33,17 +37,12 @@ export default {
 </script>
 
 <style scoped>
-.menu {
-  display: flex;
-  margin: auto 0;
-}
 .menu__list {
+  height: 100%;
   display: flex;
-  list-style: none;
-  padding: 0;
-}
-.menu__item {
-  margin-right: 40px;
+  flex-direction: row;
+  margin: auto 0;
+  align-items: center;
 }
 .menu__link {
   font-style: normal;
@@ -52,6 +51,7 @@ export default {
   line-height: 1.5rem;
   color: #000;
   text-decoration: none;
+  margin-right: 40px;
 }
 .menu__link_open {
   text-decoration: underline;
@@ -62,8 +62,15 @@ export default {
   }
 }
 @media screen and (max-width: 1024px) {
-  .menu__item {
+  .menu__link {
     margin-right: 30px;
+  }
+}
+@media screen and (max-width: 580px) {
+  .menu__link_footer {
+    margin: 18px 30px 0 0;
+    font-size: 13px;
+  line-height: 15px;
   }
 }
 </style>
