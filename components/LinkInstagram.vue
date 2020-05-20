@@ -101,16 +101,13 @@ export default {
 
 <style scoped>
 .container {
-  display: flex;
-  justify-content: space-between;
+  display: grid;
+  grid-template-columns: 300px auto;
+  grid-gap: 110px;
 }
 
 .text-block__title {
   margin-bottom: 32px;
-}
-
-.grid__element {
-  width: 13.54vw;
 }
 
 .grid {
@@ -137,7 +134,7 @@ export default {
 }
 
 .instagram__text {
-  margin-right: 110px;
+  max-width: 340px;
 }
 
 @media screen and (max-width: 1280px) {
@@ -149,8 +146,8 @@ export default {
     grid-gap: 27px;
   }
 
-  .grid__element {
-    width: 13.36vw;
+  .container {
+    grid-gap: 80px;
   }
 
   .text-block__paragraph {
@@ -160,6 +157,10 @@ export default {
 }
 
 @media screen and (max-width: 1024px) {
+  .instagram {
+    padding: 80px 51px 80px 51px;
+  }
+
   .grid {
     grid-gap: 20px;
   }
@@ -169,18 +170,22 @@ export default {
     line-height: 1rem;
   }
 
-  .instagram__text {
-    margin-right: 60px;
+  .container {
+    grid-template-columns: 260px auto;
+    grid-gap: 40px;
   }
+}
 
-  .grid__element {
-    width: 13.28vw;
+@media screen and (max-width: 900px) {
+  .container {
+    grid-gap: 30px;
   }
 }
 
 @media screen and (max-width: 768px) {
   .instagram {
-    padding: 80px 40px 80px 40px;
+    padding-left: 40px;
+    padding-right: 40px;
   }
 
   .container {
@@ -193,20 +198,20 @@ export default {
   }
 
   .instagram__text {
-    margin: 0;
+    max-width: 100%;
   }
 
   .text-block__paragraph {
     margin: 0 auto 60px;
-    width: 380px;
+    max-width: 380px;
   }
 
   .grid__element {
-    width: 20.44vw;
+    width: 100%;
   }
 }
 
-@media screen and (max-width: 320px) {
+@media screen and (max-width: 420px) {
   .instagram {
     padding: 50px 15px 50px 15px;
   }
@@ -215,19 +220,18 @@ export default {
     grid-template-columns: repeat(2, 1fr);
     grid-gap: 10px;
   }
+}
 
+@media screen and (max-width: 320px) {
   .text-block__title {
     margin-bottom: 16px;
     text-align: left;
+    max-width: 100%;
   }
 
   .text-block__paragraph {
     margin-bottom: 40px;
-    width: 290px;
-  }
-
-  .grid__element {
-    width: 43.75vw;
+    width: 100%;
   }
 }
 </style>
