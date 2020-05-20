@@ -40,4 +40,20 @@ export default {
     line-height: 2rem;
   }
 }
+
+@media screen and (max-width: 1024px) {
+  .title {
+    font-size: 1.5rem;
+    line-height: 1.75rem;
+    max-width: 288px;
+  }
+}
+
+@media screen and (max-width: 420px) {
+  .title {
+    font-size: 1.125rem;
+    line-height: 1.3125rem;
+    max-width: 290px;
+  }
+}
 </style>
