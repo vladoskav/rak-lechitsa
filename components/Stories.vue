@@ -1,6 +1,7 @@
 <template>
   <section class="stories-section">
     <container class="container">
+      <slot></slot>
       <st-title class="stories-section__title"
         >Истории неизлечимых привычек</st-title
       >
@@ -8,7 +9,6 @@
         <li v-for="story in stories" :key="story.id" class="grid-item">
           <story
             @cardClick="goToStory(story.id)"
-            :alt="story.alt"
             :author="story.author"
             :image="story.url"
             :text="story.text"
@@ -39,83 +39,22 @@ export default {
       this.$router.push(`/stories/${id}`);
     },
   },
-  data() {
-    return {
-      stories: [
-        {
-          id: '1',
-          alt: 'фотография героя',
-          author: 'Владимир Тен',
-          url:
-            'https://images.unsplash.com/photo-1588964258146-787046c32910?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=600&q=60',
-          text:
-            'Я всегда читаю книги с конца, - и это не лечится, в отличие от рака.',
-        },
-        {
-          id: '2',
-          alt: 'фотография героя',
-          author: 'Владимир Тен',
-          url:
-            'https://images.unsplash.com/photo-1588967186823-db799005a671?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=634&q=80',
-          text:
-            'Я всегда читаю книги с конца, - и это не лечится, в отличие от рака.',
-        },
-        {
-          id: '3',
-          alt: 'фотография героя',
-          author: 'Владимир Тен',
-          url:
-            'https://images.unsplash.com/photo-1588967186823-db799005a671?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=634&q=80',
-          text:
-            'Я всегда читаю книги с конца, - и это не лечится, в отличие от рака.',
-        },
-        {
-          id: '4',
-          alt: 'фотография героя',
-          author: 'Владимир Тен',
-          url:
-            'https://images.unsplash.com/photo-1588967186823-db799005a671?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=634&q=80',
-          text:
-            'Я всегда читаю книги с конца, - и это не лечится, в отличие от рака.',
-        },
-        {
-          id: '5',
-          alt: 'фотография героя',
-          author: 'Владимир Тен',
-          url:
-            'https://images.unsplash.com/photo-1588967186823-db799005a671?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=634&q=80',
-          text:
-            'Я всегда читаю книги с конца, - и это не лечится, в отличие от рака.',
-        },
-        {
-          id: '6',
-          alt: 'фотография героя',
-          author: 'Владимир Тен',
-          url:
-            'https://images.unsplash.com/photo-1588967186823-db799005a671?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=634&q=80',
-          text:
-            'Я всегда читаю книги с конца, - и это не лечится, в отличие от рака.',
-        },
-        {
-          id: '7',
-          alt: 'фотография героя',
-          author: 'Владимир Тен',
-          url:
-            'https://images.unsplash.com/photo-1588967186823-db799005a671?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=634&q=80',
-          text:
-            'Я всегда читаю книги с конца, - и это не лечится, в отличие от рака.',
-        },
-        {
-          id: '8',
-          alt: 'фотография героя',
-          author: 'Владимир Тен',
-          url:
-            'https://images.unsplash.com/photo-1588967186823-db799005a671?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=634&q=80',
-          text:
-            'Я всегда читаю книги с конца, - и это не лечится, в отличие от рака.',
-        },
-      ],
-    };
+  computed: {
+    stories() {
+      if (process.browser) {
+        if (window.innerWidth <= 768) {
+          return this.$store.getters['stories/getStories'].filter(
+            (item, index) => index < 9
+          );
+        } else {
+          return this.$store.getters['stories/getStories'].filter(
+            (item, index) => index < 8
+          );
+        }
+      } else {
+        return this.$store.getters['stories/getStories'];
+      }
+    },
   },
 };
 </script>

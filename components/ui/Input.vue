@@ -1,11 +1,12 @@
 <template>
-  <input class="input"
-      :placeholder="placeholder"
-      :name="name"
-      :required="required"
-      v-bind:value="value"
-      v-on:input="$emit('input', $event.target.value)"
-  >
+  <input
+    class="input"
+    :placeholder="placeholder"
+    :name="name"
+    :required="required"
+    v-bind:value="value"
+    v-on:input="$emit('input', $event.target.value)"
+  />
 </template>
 
 <script>

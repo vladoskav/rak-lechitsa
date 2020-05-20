@@ -1,14 +1,26 @@
 <template>
   <div>
     <mobile-menu v-if="isMobileMenuOpened" class="main-mobile-menu" />
-    <main-header/>
-    <pop-up v-if="popupShown" @overlayClick="closePopup('popupShown')" @closeClick="closePopup('popupShown')" >
+    <main-header />
+    <pop-up
+      v-if="popupShown"
+      @overlayClick="closePopup('popupShown')"
+      @closeClick="closePopup('popupShown')"
+    >
       <form-inputs v-if="popupShown" />
-    </pop-up>  
-    <pop-up v-if="popupSocial" @overlayClick="closePopup('popupSocial')" @closeClick="closePopup('popupSocial')">
+    </pop-up>
+    <pop-up
+      v-if="popupSocial"
+      @overlayClick="closePopup('popupSocial')"
+      @closeClick="closePopup('popupSocial')"
+    >
       <form-social v-if="popupSocial" />
     </pop-up>
-    <pop-up v-if="popupContact" @overlayClick="closePopup('popupContact')" @closeClick="closePopup('popupContact')">
+    <pop-up
+      v-if="popupContact"
+      @overlayClick="closePopup('popupContact')"
+      @closeClick="closePopup('popupContact')"
+    >
       <form-contact v-if="popupContact" />
     </pop-up>
     <nuxt />
@@ -33,20 +45,20 @@ export default {
     'mobile-menu': MobileMenu,
     'form-inputs': Form,
     'form-social': FormSocial,
-    'form-contact': FormContact
+    'form-contact': FormContact,
   },
   computed: {
     popupShown() {
-      return this.$store.getters['popup/getPopupShown']
+      return this.$store.getters['popup/getPopupShown'];
     },
     isMobileMenuOpened() {
-      return this.$store.getters['mobile-menu/getMobileMenuState']
+      return this.$store.getters['mobile-menu/getMobileMenuState'];
     },
     popupSocial() {
-      return this.$store.getters[`popup/getPopupSocial`]
+      return this.$store.getters[`popup/getPopupSocial`];
     },
     popupContact() {
-      return this.$store.getters[`popup/getPopupContact`]
+      return this.$store.getters[`popup/getPopupContact`];
     },
   },
   methods: {
