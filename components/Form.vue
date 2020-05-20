@@ -1,14 +1,21 @@
 <template>
   <form @submit.prevent="prevent" class="story-form">
-    <story-title :class="{
-                'story-form__step': true,
-                'story-form__last_step': formArr.last,
-              }">{{formArr.title}}</story-title>
-    <span class="story-form__question">{{formArr.question}}
-      <span v-if='formArr.questionAdditional' class='story-form__additional'>{{formArr.questionAdditional}}</span>
+    <story-title
+      :class="{
+        'story-form__step': true,
+        'story-form__last_step': formArr.last,
+      }"
+      >{{ formArr.title }}</story-title
+    >
+    <span class="story-form__question"
+      >{{ formArr.question }}
+      <span v-if="formArr.questionAdditional" class="story-form__additional">{{
+        formArr.questionAdditional
+      }}</span>
     </span>
-    <nxt-input v-if="!formArr.last"
-      placeholder='Напишите тут'
+    <nxt-input
+      v-if="!formArr.last"
+      placeholder="Напишите тут"
       required
       class="story-form__textarea"
       v-model="answer"
@@ -43,14 +50,14 @@ export default {
   },
   computed: {
     formArr() {
-      const index = this.$store.getters['stages/index']
-      const arr = this.$store.getters['stages/question']
-      return arr[index]
+      const index = this.$store.getters['stages/index'];
+      const arr = this.$store.getters['stages/question'];
+      return arr[index];
     },
     initialAnswer() {
-      const index = this.$store.getters['stages/index']
-      const arr = this.$store.getters['stages/answer']
-      return arr[index] || ''
+      const index = this.$store.getters['stages/index'];
+      const arr = this.$store.getters['stages/answer'];
+      return arr[index] || '';
     },
   },
   methods: {
@@ -62,14 +69,14 @@ export default {
     },
     async prevQuestion() {
       await this.$store.dispatch('stages/PREV_QUESTION');
-      this.answer = this.initialAnswer 
+      this.answer = this.initialAnswer;
     },
     async nextQuestion() {
       await this.$store.dispatch('stages/NEXT_QUESTION', {
-        answer: this.answer
+        answer: this.answer,
       });
-      this.answer = this.initialAnswer
-    }
+      this.answer = this.initialAnswer;
+    },
   },
 };
 </script>

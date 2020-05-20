@@ -14,7 +14,7 @@ import Overlay from '@/components/ui/Overlay';
 export default {
   props: ['popup'],
   components: {
-    'overlay': Overlay,
+    overlay: Overlay,
   },
   methods: {
     closePopup(elem) {
@@ -23,14 +23,14 @@ export default {
   },
   computed: {
     popupShown() {
-      return this.$store.getters['popup/getPopupShown']
+      return this.$store.getters['popup/getPopupShown'];
     },
     popupSocial() {
-      return this.$store.getters['popup/getPopupSocial']
+      return this.$store.getters['popup/getPopupSocial'];
     },
     popupContact() {
-      return this.$store.getters['popup/getPopupContact']
-    }
+      return this.$store.getters['popup/getPopupContact'];
+    },
   },
 };
 </script>

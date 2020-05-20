@@ -2,7 +2,6 @@
   <div @click="$emit('cardClick')" class="story">
     <div
       :style="{ backgroundImage: `url('${image}')` }"
-      :alt="alt"
       :disabled="disabled"
       class="story__photo"
     ></div>
@@ -13,7 +12,7 @@
 
 <script>
 export default {
-  props: ['image', 'alt', 'author', 'text', 'disabled'],
+  props: ['image', 'author', 'text', 'disabled'],
 };
 </script>
 <style scoped>
@@ -32,7 +31,6 @@ export default {
 }
 .story__title {
   margin-bottom: 14px;
-  font-family: Inter;
   font-style: normal;
   font-weight: 600;
   font-size: 22px;
@@ -40,7 +38,6 @@ export default {
   color: #000000;
 }
 .story__text {
-  font-family: Inter;
   font-style: normal;
   font-weight: normal;
   font-size: 14px;
