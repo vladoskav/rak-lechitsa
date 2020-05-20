@@ -19,9 +19,7 @@ export default {
   display: block;
   border: 0;
   border-bottom: 1px solid #e7e7e7;
-  width: 90%;
-  margin: 0 40px auto 40px;
-  padding: 5px;
+  padding-bottom: 10px;
   font-size: 14px;
   box-sizing: border-box;
   font-family: inherit;
