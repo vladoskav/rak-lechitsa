@@ -3,7 +3,7 @@
     <overlay @overlayClick="$emit('overlayClick')" />
     <div class="popup">
       <div class="close" @click="$emit('closeClick')"></div>
-      
+
       <slot></slot>
     </div>
   </div>
@@ -42,10 +42,10 @@ export default {
   left: 50%;
   transform: translate(-50%, -50%);
   width: 920px;
-  min-height: 324px;
+  /* min-height: 324px; */
   border: none;
   box-sizing: border-box;
-  padding: 20px;
+  padding: 40px;
   background-color: #fff;
   z-index: 2;
 }
@@ -68,7 +68,7 @@ export default {
   }
 }
 
-@media screen and (max-width: 810px) {
+@media screen and (max-width: 768px) {
   .popup {
     width: 580px;
   }
@@ -77,6 +77,12 @@ export default {
 @media screen and (max-width: 600px) {
   .popup {
     width: 290px;
+    padding: 15px;
+  }
+
+  .close {
+    top: 15px;
+    right: 15px;
   }
 }
 </style>
