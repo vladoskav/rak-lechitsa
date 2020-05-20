@@ -84,7 +84,6 @@ export default {
   background-color: #fbfbfb;
 }
 .footer__contain {
-  margin: 0 60px;
   padding: 60px 0;
   max-width: 1320px;
   display: flex;
@@ -142,15 +141,18 @@ export default {
   line-height: 18px;
   color: #898989;
 }
-
+@media screen and (max-width: 1440px) {
+  .footer__contain {
+    padding: 50px;
+  }
+}
 @media screen and (max-width: 1280px) {
   .footer__fonts {
     font-size: 16px;
     line-height: 24px;
   }
   .footer__contain {
-    margin: 0 50px;
-    padding: 50px 0;
+    padding: 50px;
   }
   .footer__appreciation {
     font-size: 28px;

@@ -99,7 +99,6 @@ export default {
 }
 .your-story__container {
   padding: 100px 0 90px 0;
-  margin: 0 60px;
 }
 .your-story__title {
   font-weight: 600;
@@ -165,6 +164,11 @@ export default {
   grid-area: button;
   grid-row: 2/3;
   grid-column: 2/3;
+}
+@media screen and (max-width: 1440px) {
+.your-story__container {
+  padding: 100px 60px 90px 60px;
+}
 }
 @media screen and (max-width: 1280px) {
   .your-story__container {

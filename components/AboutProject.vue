@@ -83,7 +83,6 @@ export default {
 }
 
 .about-project__container {
-  margin: 0 60px;
   padding: 90px 0 100px 0;
 }
 
@@ -151,10 +150,15 @@ export default {
   line-height: 22px;
   font-weight: normal;
 }
+@media screen and (max-width: 1440px) {
+.about-project__container {
+  padding: 90px 60px 100px 60px;
+}
+}
+
 @media screen and (max-width: 1280px) {
   .about-project__container {
-    padding: 90px 0;
-    margin: 0 50px;
+    padding: 90px 50px;
   }
   .about-project__title {
     font-size: 58px;
@@ -172,7 +176,7 @@ export default {
 
 @media screen and (max-width: 1024px) {
   .about-project__container {
-    padding: 80px 0;
+    padding: 80px 50px;
   }
   .about-project__title {
     font-size: 52px;
