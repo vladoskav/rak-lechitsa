@@ -77,6 +77,12 @@ export default {
 }
 
 @media screen and (max-width: 768px) {
+  .header {
+    min-height: 76px;
+    padding: 18px 50px;
+    border-bottom: 1px solid #e8e8e8;
+    border-top: 1px solid #e8e8e8;
+  }
   .header__menu {
     display: none;
   }
@@ -86,7 +92,7 @@ export default {
   }
 }
 
-@media screen and (max-width: 320px) {
+@media screen and (max-width: 480px) {
   .header {
     max-height: 64px;
     padding: 18px 15px;

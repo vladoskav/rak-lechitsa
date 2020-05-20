@@ -454,6 +454,7 @@ export default {};
 }
 @media screen and (max-width: 768px) {
   .politic__container {
+    padding: 80px 15px 230px 15px;
     max-width: 640px;
   }
 }

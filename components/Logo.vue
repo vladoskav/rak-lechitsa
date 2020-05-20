@@ -26,7 +26,7 @@ export default {};
   }
 }
 
-@media screen and (max-width: 320px) {
+@media screen and (max-width: 480px) {
   .logo {
     font-size: 0.75rem;
     line-height: 0.875rem;

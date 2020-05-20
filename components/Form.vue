@@ -109,7 +109,7 @@ export default {
 }
 
 .story-form__question {
-  margin: 40px 40px 134px 40px;
+  margin: 40px 40px 134px 0;
   font-style: normal;
   font-weight: 500;
   font-size: 18px;
@@ -122,7 +122,7 @@ export default {
 }
 
 .story-form__step {
-  margin: 40px auto 0 40px;
+  margin: 40px auto 0 0;
   font-size: 32px;
   line-height: 36px;
   color: #000;
@@ -139,7 +139,7 @@ export default {
   display: flex;
   flex-direction: row;
   justify-self: flex-end;
-  margin: 200px auto 40px 40px;
+  margin: 200px auto 0 0;
 }
 
 .story-form__back {
@@ -172,5 +172,24 @@ export default {
   left: 38%;
   right: 38%;
   bottom: 40px;
+}
+
+@media screen and (max-width: 600px) {
+.story-form__buttons {
+  display: flex;
+  flex-direction: row;
+  justify-self: flex-end;
+  margin: 200px 0 0 0;
+}
+.story-form__back {
+  margin: auto 15px auto 0;
+}
+
+.story-form__forward {
+  margin: 0;
+  padding: 0;
+  min-width: 206px;
+  min-height: 40px;
+}
 }
 </style>

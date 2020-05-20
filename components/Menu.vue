@@ -70,7 +70,22 @@ export default {
     margin-right: 30px;
   }
 }
+@media screen and (max-width: 480px) {
+  .menu__link {
+    margin: 0 30px 18px 0;
+    font-size: 13px;
+    line-height: 16px;
+  }
+}
+
 @media screen and (max-width: 580px) {
+  .menu__list {
+    height: 100%;
+    display: flex;
+    flex-direction: row;
+    margin: 0;
+    align-items: center;
+  }
   .menu__link_footer {
     margin: 18px 30px 0 0;
     font-size: 13px;

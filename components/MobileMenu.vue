@@ -17,13 +17,8 @@ export default {
     container: Container,
   },
   methods: {
-    showPopup() {
-      this.$store.commit('popup/togglePopup');
-    },
-    methods: {
-      showPopup(popup) {
-        this.$store.commit('popup/togglePopup', popup);
-      },
+    showPopup(popup) {
+      this.$store.commit('popup/togglePopup', popup);
     },
   },
 };
@@ -31,7 +26,7 @@ export default {
 
 <style scoped>
 .header__container {
-  padding: 18px 50px;
+  margin: 18px 50px;
 }
 .header__button {
   font-family: 'Inter';
@@ -48,5 +43,24 @@ export default {
 
 .header__button:focus {
   outline: 0;
+}
+@media screen and (max-width: 768px) {
+.header__button {
+  font-size: 16px;
+  line-height: 24px;
+}
+}
+@media screen and (max-width: 480px) {
+.header__container {
+  margin: 18px 15px;
+}
+.header__menu {
+  flex-direction: column;
+  align-items: flex-start;
+}
+.header__button {
+  font-size: 13px;
+  line-height: 16px;
+}
 }
 </style>
