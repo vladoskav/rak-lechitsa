@@ -11,6 +11,7 @@ export default {};
 <style scoped>
 .logo {
   max-width: 340px;
+  font-family: 'Inter';
   font-style: normal;
   font-weight: 600;
   font-size: 1rem;
@@ -18,9 +19,18 @@ export default {};
   color: #000;
   text-decoration: none;
 }
-@media screen and (max-width: 1320px) {
+
+@media screen and (max-width: 1280px) {
   .logo {
-    line-height: 1.125.rem;
+    line-height: 1.125rem;
+  }
+}
+
+@media screen and (max-width: 320px) {
+  .logo {
+    font-size: 0.75rem;
+    line-height: 0.875rem;
+    max-width: 216px;
   }
 }
 </style>
