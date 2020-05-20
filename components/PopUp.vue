@@ -42,7 +42,6 @@ export default {
   left: 50%;
   transform: translate(-50%, -50%);
   width: 920px;
-  /* min-height: 324px; */
   border: none;
   box-sizing: border-box;
   padding: 40px;
@@ -68,7 +67,7 @@ export default {
   }
 }
 
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 800px) {
   .popup {
     width: 580px;
   }
@@ -76,7 +75,7 @@ export default {
 
 @media screen and (max-width: 600px) {
   .popup {
-    width: 290px;
+    width: 320px;
     padding: 15px;
   }
 
