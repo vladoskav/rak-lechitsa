@@ -151,9 +151,9 @@ export default {
   font-weight: normal;
 }
 @media screen and (max-width: 1440px) {
-.about-project__container {
-  padding: 90px 60px 100px 60px;
-}
+  .about-project__container {
+    padding: 90px 60px 100px 60px;
+  }
 }
 
 @media screen and (max-width: 1280px) {
