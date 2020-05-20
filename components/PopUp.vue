@@ -38,6 +38,8 @@ export default {
 <style scoped>
 .popup {
   position: fixed;
+  max-height: 100%;
+  overflow: scroll;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
