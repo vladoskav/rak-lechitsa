@@ -40,7 +40,7 @@ export default {
   components: {
     'insta-element': InstaElement,
     'insta-title': Title,
-    'container': Container,
+    container: Container,
   },
   data() {
     return {

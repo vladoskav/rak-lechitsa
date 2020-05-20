@@ -1,34 +1,66 @@
 <template>
   <form @submit.prevent="prevent" class="contact-form">
-    <story-title class="contact-form__title">Оставьте контакт для связи</story-title>
-    <span class="contact-form__feedback">Мы свяжемся с вами в течение недели, чтобы задать вопросы о вашей истории и разместить ее на сайте.</span>
+    <story-title class="contact-form__title"
+      >Оставьте контакт для связи</story-title
+    >
+    <span class="contact-form__feedback"
+      >Мы свяжемся с вами в течение недели, чтобы задать вопросы о вашей истории
+      и разместить ее на сайте.</span
+    >
 
     <div class="contact-form__container-column">
       <span class="contact-form__question">Как вас зовут?</span>
-      <nxt-input placeholder='Напишите тут' required class="contact-form__textarea" v-model="answer" />
+      <nxt-input
+        placeholder="Напишите тут"
+        required
+        class="contact-form__textarea"
+        v-model="answer"
+      />
     </div>
 
     <div class="contact-form__container-grid">
       <div class="contact-form__container-column">
         <span class="contact-form__question">Электронная почта</span>
-        <nxt-input placeholder='pochta@example.com' required class="contact-form__textarea" v-model="answer" />
+        <nxt-input
+          placeholder="pochta@example.com"
+          required
+          class="contact-form__textarea"
+          v-model="answer"
+        />
       </div>
       <div class="contact-form__container-column">
         <span class="contact-form__question">Телефон</span>
-        <nxt-input placeholder='+7 000 000 00 00' required class="contact-form__textarea" v-model="answer" />
+        <nxt-input
+          placeholder="+7 000 000 00 00"
+          required
+          class="contact-form__textarea"
+          v-model="answer"
+        />
       </div>
     </div>
 
     <div class="contact-form__container-column">
-      <span class="contact-form__question">Напишите, если есть предпочтительный способ связи и удобное время</span>
-      <nxt-input placeholder='Телефон / почта и удобное время' required class="contact-form__textarea" v-model="answer" />
+      <span class="contact-form__question"
+        >Напишите, если есть предпочтительный способ связи и удобное время</span
+      >
+      <nxt-input
+        placeholder="Телефон / почта и удобное время"
+        required
+        class="contact-form__textarea"
+        v-model="answer"
+      />
     </div>
 
     <div class="contact-form__buttons">
-      <button @click='nextQuestion' class="contact-form__forward" >Отправить</button>
+      <button @click="nextQuestion" class="contact-form__forward">
+        Отправить
+      </button>
       <div class="contact-form__container">
-        <span class='contact-form__additional'>Нажимая на кнопку «отправить», вы даете согласие на
-          <a href="/policy" class="contact-form__additional">обработку персональных данных</a>
+        <span class="contact-form__additional"
+          >Нажимая на кнопку «отправить», вы даете согласие на
+          <a href="/policy" class="contact-form__additional"
+            >обработку персональных данных</a
+          >
         </span>
       </div>
     </div>

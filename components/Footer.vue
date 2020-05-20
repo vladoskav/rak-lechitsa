@@ -7,28 +7,46 @@
             Спасибо всем, кто помог состояться этому проекту
           </h3>
 
-          <navigation class="footer__pages footer__fonts" type="footer"/>
+          <navigation class="footer__pages footer__fonts" type="footer" />
         </div>
 
         <ul class="footer__social">
           <li>
-            <p class="footer__fonts">Мы&nbsp;в&nbsp;<a class="footer__link footer__fonts footer__social-link" href="/">Инстаграме</a>
-            и&nbsp;<a class="footer__link footer__fonts footer__social-link" href="/"
+            <p class="footer__fonts">
+              Мы&nbsp;в&nbsp;<a
+                class="footer__link footer__fonts footer__social-link"
+                href="/"
+                >Инстаграме</a
+              >
+              и&nbsp;<a
+                class="footer__link footer__fonts footer__social-link"
+                href="/"
                 >Youtube</a
               >
             </p>
           </li>
           <li>
-            <p class="footer__link footer__fonts footer__share" @click="showPopup('popupSocial')">Поделитесь &#8599;</p>
+            <p
+              class="footer__link footer__fonts footer__share"
+              @click="showPopup('popupSocial')"
+            >
+              Поделитесь &#8599;
+            </p>
           </li>
         </ul>
       </div>
 
       <div class="footer__copyright">
-        <p class="footer__author">Рак Лечится {{year}}</p>
-        <p class="footer__author">Сделано студентами <a class="footer__link footer__author" href="https://praktikum.yandex.ru/">Яндекс Практикум</a></p>
+        <p class="footer__author">Рак Лечится {{ year }}</p>
+        <p class="footer__author">
+          Сделано студентами
+          <a
+            class="footer__link footer__author"
+            href="https://praktikum.yandex.ru/"
+            >Яндекс Практикум</a
+          >
+        </p>
       </div>
-
     </container>
   </section>
 </template>
@@ -40,11 +58,11 @@ export default {
   data() {
     return {
       year: 2020,
-    }
+    };
   },
   components: {
-    'container': Container,
-    'navigation': Menu,
+    container: Container,
+    navigation: Menu,
   },
   methods: {
     showPopup(popup) {
@@ -126,96 +144,96 @@ export default {
 }
 
 @media screen and (max-width: 1280px) {
-.footer__fonts {
-  font-size: 16px;
-  line-height: 24px;
-}
-.footer__contain {
-  margin: 0 50px;
-  padding: 50px 0;
-}
-.footer__appreciation {
-  font-size: 28px;
-  line-height: 32px;
-  margin-right: 100px;
-}
-.footer__link {
-  font-size: 16px;
-  line-height: 24px;
-}
-.footer__copyright {
-  margin: 104px 0 0 0;
-}
-.footer__author {
-  font-size: 16px;
-  line-height: 18px;
-}
+  .footer__fonts {
+    font-size: 16px;
+    line-height: 24px;
+  }
+  .footer__contain {
+    margin: 0 50px;
+    padding: 50px 0;
+  }
+  .footer__appreciation {
+    font-size: 28px;
+    line-height: 32px;
+    margin-right: 100px;
+  }
+  .footer__link {
+    font-size: 16px;
+    line-height: 24px;
+  }
+  .footer__copyright {
+    margin: 104px 0 0 0;
+  }
+  .footer__author {
+    font-size: 16px;
+    line-height: 18px;
+  }
 }
 
 @media screen and (max-width: 1024px) {
-.footer__appreciation {
-  font-size: 24px;
-  line-height: 28px;
-  max-width: 230px;
-  margin-right: 50px;
-}
-.footer__share {
-  margin-top: 30px;
-}
-.footer__copyright {
-  margin: 90px 0 0 0;
-}
+  .footer__appreciation {
+    font-size: 24px;
+    line-height: 28px;
+    max-width: 230px;
+    margin-right: 50px;
+  }
+  .footer__share {
+    margin-top: 30px;
+  }
+  .footer__copyright {
+    margin: 90px 0 0 0;
+  }
 }
 
 @media screen and (max-width: 768px) {
-.footer__appreciation {
-  font-size: 24px;
-  line-height: 28px;
-  margin-right: 25px;
-}
-.footer__pages {
-  flex-direction: column;
-}
-.footer__share {
-  margin-top: 15px;
-}
+  .footer__appreciation {
+    font-size: 24px;
+    line-height: 28px;
+    margin-right: 25px;
+  }
+  .footer__pages {
+    flex-direction: column;
+  }
+  .footer__share {
+    margin-top: 15px;
+  }
 }
 
 @media screen and (max-width: 580px) {
-.footer__main {
-  flex-direction: column;
-}
-.footer__flexNav {
-  flex-direction: column;
-  margin-bottom: 18px;
-}
-.footer__fonts {
-  font-size: 13px;
-  line-height: 15px;
-}
-.footer__contain {
-  margin: 0 auto;
-  padding: 50px 0;
-  max-width: 290px;
-}
-.footer__appreciation {
-  font-size: 18px;
-  line-height: 21px;
-  margin-bottom: 50px;
-}
-.footer__link {
-  font-size: 13px;
-  line-height: 15px;
-}
-.footer__share {
-  margin-top: 18px;
-}
-.footer__copyright {
-  margin: 50px 0 0 0;
-}
-.footer__author {
-  font-size: 13px;
-  line-height: 18px;
-}
+  .footer__main {
+    flex-direction: column;
+  }
+  .footer__flexNav {
+    flex-direction: column;
+    margin-bottom: 18px;
+  }
+  .footer__fonts {
+    font-size: 13px;
+    line-height: 15px;
+  }
+  .footer__contain {
+    margin: 0 auto;
+    padding: 50px 0;
+    max-width: 290px;
+  }
+  .footer__appreciation {
+    font-size: 18px;
+    line-height: 21px;
+    margin-bottom: 50px;
+  }
+  .footer__link {
+    font-size: 13px;
+    line-height: 15px;
+  }
+  .footer__share {
+    margin-top: 18px;
+  }
+  .footer__copyright {
+    margin: 50px 0 0 0;
+  }
+  .footer__author {
+    font-size: 13px;
+    line-height: 18px;
+  }
 }
 </style>

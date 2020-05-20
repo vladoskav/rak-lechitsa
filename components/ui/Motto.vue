@@ -84,6 +84,9 @@ export default {
   .container {
     padding: 12px 40px;
   }
+  .motto {
+    padding: 0 40px;
+  }
 }
 @media screen and (max-width: 320px) {
   .motto__text {
@@ -96,6 +99,9 @@ export default {
   }
   .container {
     padding: 15px 35px;
+  }
+  .motto {
+    padding: 0 15px;
   }
 }
 </style>

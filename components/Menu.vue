@@ -1,25 +1,29 @@
 <template>
-    <nav class="menu__list">
-        <nuxt-link v-for="menuItem in menuItems" :key="menuItem.id"
-          v-show="type === 'link'"
-          :class="{
-            menu__link: true,
-            menu__link_open: $route.path === menuItem.href,
-          }"
-          :to="menuItem.href"
-        >
-          {{ menuItem.title }}
-        </nuxt-link>
+  <nav class="menu__list">
+    <nuxt-link
+      v-for="menuItem in menuItems"
+      :key="menuItem.id"
+      v-show="type === 'link'"
+      :class="{
+        menu__link: true,
+        menu__link_open: $route.path === menuItem.href,
+      }"
+      :to="menuItem.href"
+    >
+      {{ menuItem.title }}
+    </nuxt-link>
 
-        <nuxt-link v-for="menuItem in menuItems" :key="menuItem.id"
-          v-show="type === 'footer'"
-          class="menu__link menu__link_footer"
-          :to="menuItem.href"
-        >
-          {{ menuItem.title }}
-        </nuxt-link>
-        <slot></slot>
-    </nav>
+    <nuxt-link
+      v-for="menuItem in menuItems"
+      :key="menuItem.id"
+      v-show="type === 'footer'"
+      class="menu__link menu__link_footer"
+      :to="menuItem.href"
+    >
+      {{ menuItem.title }}
+    </nuxt-link>
+    <slot></slot>
+  </nav>
 </template>
 
 <script>
@@ -70,7 +74,7 @@ export default {
   .menu__link_footer {
     margin: 18px 30px 0 0;
     font-size: 13px;
-  line-height: 15px;
+    line-height: 15px;
   }
 }
 </style>

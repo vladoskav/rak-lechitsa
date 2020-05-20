@@ -9,12 +9,16 @@
 </template>
 
 <script>
-  import Menu from './Menu';
-  import Container from './Container';
-  export default {
-    components: {
-      'header-menu': Menu,
-      'container': Container,
+import Menu from './Menu';
+import Container from './Container';
+export default {
+  components: {
+    'header-menu': Menu,
+    container: Container,
+  },
+  methods: {
+    showPopup() {
+      this.$store.commit('popup/togglePopup');
     },
     methods: {
       showPopup(popup) {
@@ -22,6 +26,7 @@
       },
     },
   }
+};
 </script>
 
 <style scoped>

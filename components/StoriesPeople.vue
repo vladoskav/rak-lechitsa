@@ -40,10 +40,10 @@ import Play from '@/components/svg/Play';
 
 export default {
   components: {
-    'container': Container,
-    'play': Play,
+    container: Container,
+    play: Play,
   },
-}
+};
 </script>
 
 <style scoped>
@@ -145,9 +145,9 @@ export default {
     height: 400px;
   }
   .stories__video-play {
-  width: 76px;
-  height: 76px;
-}
+    width: 76px;
+    height: 76px;
+  }
 }
 @media screen and (max-width: 1180px) {
   .stories__main {
@@ -228,47 +228,47 @@ export default {
 }
 
 @media screen and (max-width: 670px) {
-.stories__main {
-  padding: 100px 15px 74px 15px;
-}
-.stories__title {
-  text-align: left;
-}
-.stories__video-container {
+  .stories__main {
+    padding: 100px 15px 74px 15px;
+  }
+  .stories__title {
+    text-align: left;
+  }
+  .stories__video-container {
     margin: 40px auto 0 auto;
     display: flex;
     flex-direction: row;
     position: relative;
-}
-.stories__button_backward {
+  }
+  .stories__button_backward {
     align-self: center;
     grid-area: none;
     position: absolute;
     left: 10px;
-}
-.stories__button_forward {
+  }
+  .stories__button_forward {
     align-self: center;
     grid-area: none;
     position: absolute;
     right: 10px;
-}
-.stories__video {
+  }
+  .stories__video {
     grid-area: none;
     min-width: 290px;
     height: 150px;
-}
-.stories__description {
+  }
+  .stories__description {
     display: none;
-}
-.stories__button_backward {
-  background-color: #EDEDED;
-}
-.stories__button_forward {
-  background-color: #EDEDED;
-}
-.stories__video-play {
-  width: 38px;
-  height: 38px;
-}
+  }
+  .stories__button_backward {
+    background-color: #ededed;
+  }
+  .stories__button_forward {
+    background-color: #ededed;
+  }
+  .stories__video-play {
+    width: 38px;
+    height: 38px;
+  }
 }
 </style>
