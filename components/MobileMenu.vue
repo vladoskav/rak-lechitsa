@@ -25,7 +25,7 @@ export default {
         this.$store.commit('popup/togglePopup', popup);
       },
     },
-  }
+  },
 };
 </script>
 

@@ -24,7 +24,7 @@ export default {
   background-color: #613a93;
 }
 .cover__title {
-  font-family: Inter;
+  margin: 0;
   font-style: normal;
   font-weight: 800;
   font-size: 92px;
@@ -52,8 +52,11 @@ export default {
     font-size: 64px;
     line-height: 77px;
   }
+  .cover {
+    min-height: calc(100vh - 76px);
+  }
 }
-@media screen and (max-width: 320px) {
+@media screen and (max-width: 500px) {
   .cover__title {
     font-size: 36px;
     line-height: 44px;
