@@ -105,6 +105,7 @@ export default {
   display: none;
   margin: 0;
   padding: 15px;
+  border: 0;
 }
 .mobile__button:hover {
   background-color: rgb(97, 58, 147, 0.9);
