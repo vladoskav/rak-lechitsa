@@ -21,11 +21,32 @@
       v-model="answer"
     />
     <div class="story-form__buttons">
-      <button v-if="!formArr.last" @click='prevQuestion' class="story-form__back">Назад</button>
-      <button v-if="!formArr.last" @click='nextQuestion' class="story-form__forward" >{{formArr.btn}}</button>
-      <button v-if="formArr.last" @click="showPopup('popupShown')" class="story-form__forward story-form__close">Закрыть</button>
-      <span v-if='formArr.policy' class='story-form__additional'>{{formArr.policy}}
-        <a href="/policy" class="story-form__additional">обработку персональных данных</a>
+      <button
+        v-if="!formArr.last"
+        @click="prevQuestion"
+        class="story-form__back"
+      >
+        Назад
+      </button>
+      <button
+        v-if="!formArr.last"
+        @click="nextQuestion"
+        class="story-form__forward"
+      >
+        {{ formArr.btn }}
+      </button>
+      <button
+        v-if="formArr.last"
+        @click="showPopup('popupShown')"
+        class="story-form__forward story-form__close"
+      >
+        Закрыть
+      </button>
+      <span v-if="formArr.policy" class="story-form__additional"
+        >{{ formArr.policy }}
+        <a href="/policy" class="story-form__additional"
+          >обработку персональных данных</a
+        >
       </span>
     </div>
   </form>

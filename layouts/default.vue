@@ -1,8 +1,12 @@
 <template>
   <div>
     <mobile-menu v-if="isMobileMenuOpened" class="main-mobile-menu" />
-    <main-header/>
-    <pop-up v-if="popupShown" @overlayClick="closePopup('popupShown')" @closeClick="closePopup('popupShown')" >
+    <main-header />
+    <pop-up
+      v-if="popupShown"
+      @overlayClick="closePopup('popupShown')"
+      @closeClick="closePopup('popupShown')"
+    >
       <form-inputs v-if="popupShown" />
     </pop-up>
     <pop-up
@@ -45,10 +49,10 @@ export default {
   },
   computed: {
     popupShown() {
-      return this.$store.getters['popup/getPopupShown']
+      return this.$store.getters['popup/getPopupShown'];
     },
     isMobileMenuOpened() {
-      return this.$store.getters['mobile-menu/getMobileMenuState']
+      return this.$store.getters['mobile-menu/getMobileMenuState'];
     },
     popupSocial() {
       return this.$store.getters[`popup/getPopupSocial`];
