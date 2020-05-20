@@ -88,7 +88,7 @@ export default {
     padding: 0 40px;
   }
 }
-@media screen and (max-width: 320px) {
+@media screen and (max-width: 420px) {
   .motto__text {
     font-size: 16px;
     line-height: 18px;

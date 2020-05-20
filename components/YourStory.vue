@@ -166,9 +166,9 @@ export default {
   grid-column: 2/3;
 }
 @media screen and (max-width: 1440px) {
-.your-story__container {
-  padding: 100px 60px 90px 60px;
-}
+  .your-story__container {
+    padding: 100px 60px 90px 60px;
+  }
 }
 @media screen and (max-width: 1280px) {
   .your-story__container {
