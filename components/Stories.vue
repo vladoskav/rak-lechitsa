@@ -69,7 +69,6 @@ export default {
   margin-bottom: 70px;
 }
 .stories-section__title {
-  font-family: Inter;
   font-style: normal;
   font-weight: 600;
   font-size: 32px;
@@ -84,7 +83,7 @@ export default {
   flex-direction: column;
 }
 .stories-section {
-  padding: 100px 60px 100px 60px;
+  padding: 100px 0;
 }
 @media screen and (max-width: 1280px) {
   .stories-section__title {
@@ -93,12 +92,12 @@ export default {
     margin-bottom: 60px;
   }
   .stories-section {
-    padding: 90px 50px 90px 50px;
+    padding: 90px 0;
   }
 }
 @media screen and (max-width: 1024px) {
   .stories-section {
-    padding: 80px 51px 80px 51px;
+    padding: 80px 0;
   }
   .stories-section__grid {
     grid-gap: 30px;
@@ -116,10 +115,6 @@ export default {
     grid-template-columns: repeat(3, 1fr);
     margin-bottom: 40px;
     width: 100%;
-  }
-  .stories-section {
-    padding-left: 40px;
-    padding-right: 40px;
   }
   .stories-section__title {
     margin: 0 auto 60px auto;
@@ -143,7 +138,7 @@ export default {
     margin-bottom: 0;
   }
   .stories-section {
-    padding: 50px 15px 50px 15px;
+    padding: 50px 0;
   }
 }
 </style>

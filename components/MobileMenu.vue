@@ -45,22 +45,22 @@ export default {
   outline: 0;
 }
 @media screen and (max-width: 768px) {
-.header__button {
-  font-size: 16px;
-  line-height: 24px;
-}
+  .header__button {
+    font-size: 16px;
+    line-height: 24px;
+  }
 }
 @media screen and (max-width: 480px) {
-.header__container {
-  margin: 18px 15px;
-}
-.header__menu {
-  flex-direction: column;
-  align-items: flex-start;
-}
-.header__button {
-  font-size: 13px;
-  line-height: 16px;
-}
+  .header__container {
+    margin: 18px 15px;
+  }
+  .header__menu {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  .header__button {
+    font-size: 13px;
+    line-height: 16px;
+  }
 }
 </style>
