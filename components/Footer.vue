@@ -2,7 +2,7 @@
   <section class="footer">
     <container class="footer__contain">
       <div class="footer__main">
-        <div class="footer__flexNav">
+        <div class="footer__main-nav">
           <h3 class="footer__appreciation footer__fonts">
             Спасибо всем, кто помог состояться этому проекту
           </h3>
@@ -14,11 +14,13 @@
           <li>
             <p class="footer__fonts">
               Мы&nbsp;в&nbsp;<a
+                target='_blank'
                 class="footer__link footer__fonts footer__social-link"
                 href="https://www.instagram.com/raklechitsa"
                 >Инстаграме</a
               >
               и&nbsp;<a
+                target='_blank'
                 class="footer__link footer__fonts footer__social-link"
                 href="https://www.youtube.com/channel/UCcxMSzN1R4JfW1vLu3swCaQ"
                 >Youtube</a
@@ -37,11 +39,11 @@
       </div>
 
       <div class="footer__copyright">
-        <p class="footer__author">Рак Лечится {{ year }}</p>
+        <p class="footer__date">Рак Лечится {{ year }}</p>
         <p class="footer__author">
           Сделано студентами
           <a
-            class="footer__link footer__author"
+            class="footer__link"
             href="https://praktikum.yandex.ru/"
             >Яндекс Практикум</a
           >
@@ -57,8 +59,13 @@ import Menu from '@/components/Menu';
 export default {
   data() {
     return {
-      year: 2020,
+      date: new Date(),
     };
+  },
+  computed: {
+    year() {
+      return this.date.getFullYear()
+    }
   },
   components: {
     container: Container,
@@ -84,8 +91,8 @@ export default {
   background-color: #fbfbfb;
 }
 .footer__contain {
-  padding: 60px 0;
-  max-width: 1320px;
+  padding-top: 60px;
+  padding-bottom: 60px;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -95,7 +102,7 @@ export default {
   flex-direction: row;
   justify-content: space-between;
 }
-.footer__flexNav {
+.footer__main-nav {
   display: flex;
   flex-direction: row;
   margin: 0;
@@ -117,17 +124,20 @@ export default {
   list-style-type: none;
   padding: 0;
 }
-.footer__share {
-  margin-top: 44px;
-}
 .footer__link {
   font-size: 18px;
   line-height: 24px;
   text-decoration: none;
+  color: #898989;
+  cursor: pointer;
+}
+.footer__share {
+  margin-top: 44px;
   color: #000;
 }
 .footer__social-link {
   text-decoration: underline;
+  color: #000;
 }
 .footer__copyright {
   display: flex;
@@ -141,18 +151,21 @@ export default {
   line-height: 18px;
   color: #898989;
 }
+.footer__date {
+  font-size: 18px;
+  line-height: 18px;
+  color: #898989;
+}
 @media screen and (max-width: 1440px) {
   .footer__contain {
-    padding: 50px;
+    padding-top: 50px;
+    padding-bottom: 50px;
   }
 }
 @media screen and (max-width: 1280px) {
   .footer__fonts {
     font-size: 16px;
     line-height: 24px;
-  }
-  .footer__contain {
-    padding: 50px;
   }
   .footer__appreciation {
     font-size: 28px;
@@ -167,6 +180,10 @@ export default {
     margin: 104px 0 0 0;
   }
   .footer__author {
+    font-size: 16px;
+    line-height: 18px;
+  }
+  .footer__date {
     font-size: 16px;
     line-height: 18px;
   }
@@ -205,7 +222,7 @@ export default {
   .footer__main {
     flex-direction: column;
   }
-  .footer__flexNav {
+  .footer__main-nav {
     flex-direction: column;
     margin-bottom: 18px;
   }
@@ -215,7 +232,6 @@ export default {
   }
   .footer__contain {
     margin: 0 auto;
-    padding: 50px 0;
     max-width: 290px;
   }
   .footer__appreciation {
@@ -234,6 +250,10 @@ export default {
     margin: 50px 0 0 0;
   }
   .footer__author {
+    font-size: 13px;
+    line-height: 18px;
+  }
+  .footer__date {
     font-size: 13px;
     line-height: 18px;
   }

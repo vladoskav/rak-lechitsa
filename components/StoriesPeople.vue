@@ -50,7 +50,8 @@ export default {
 .stories__main {
   color: #e5e5e5;
   display: grid;
-  padding: 100px 0 74px 0;
+  padding-top: 100px;
+  padding-bottom: 74px;
   grid-template-columns: 1fr 2fr;
 }
 .stories__text-container {
@@ -97,10 +98,10 @@ export default {
   cursor: pointer;
 }
 .stories__button_backward {
-  background-image: url('../static/backward.png');
+  background-image: url('/images/backward.png');
 }
 .stories__button_forward {
-  background-image: url('../static/forward.png');
+  background-image: url('/images/forward.png');
 }
 .stories__video {
   display: flex;
@@ -173,7 +174,7 @@ export default {
     display: flex;
     flex-direction: column;
     max-width: 688px;
-    padding: 80px 0 74px 0;
+    padding-top: 80px;
   }
   .stories__text {
     max-width: 380px;

@@ -44,22 +44,20 @@
               зададим вопросы, уточним детали вашей истории.
             </p>
           </div>
-          <div class="button-container">
-            <dark-button
-              class="button-container-button"
-              @darkClick="showPopup('popupShown')"
-              v-if="optionSelected === 1"
-            >
-              Заполнить форму
-            </dark-button>
-            <dark-button
-              class="button-container-button"
-              @darkClick="showPopup('popupContact')"
-              v-if="optionSelected === 2"
-            >
-              Оставить контакт
-            </dark-button>
-          </div>
+          <dark-button
+            class="your-story__button"
+            @darkClick="showPopup('popupShown')"
+            v-if="optionSelected === 1"
+          >
+            Заполнить форму
+          </dark-button>
+          <dark-button
+            class="your-story__button"
+            @darkClick="showPopup('popupContact')"
+            v-if="optionSelected === 2"
+          >
+            Оставить контакт
+          </dark-button>
         </div>
       </div>
     </container>
@@ -98,7 +96,8 @@ export default {
   display: flex;
 }
 .your-story__container {
-  padding: 100px 0 90px 0;
+  padding-top: 90px;
+  padding-bottom: 100px;
 }
 .your-story__title {
   font-weight: 600;
@@ -155,31 +154,27 @@ export default {
   max-width: 640px;
 }
 .your-story__option-description {
+  min-height: 87px;
   font-size: 18px;
   line-height: 22px;
   font-weight: normal;
   color: #666;
 }
-.button-container {
+.your-story__button {
   grid-area: button;
   grid-row: 2/3;
   grid-column: 2/3;
 }
-@media screen and (max-width: 1440px) {
-  .your-story__container {
-    padding: 100px 60px 90px 60px;
-  }
-}
 @media screen and (max-width: 1280px) {
-  .your-story__container {
-    padding: 90px 0;
-    margin: 0 50px;
-  }
-  .your-story__title {
+.your-story__container {
+  padding-top: 90px;
+  padding-bottom: 90px;
+}
+.your-story__title {
     font-size: 28px;
     line-height: 32px;
-  }
-  .your-story__paragraph {
+}
+.your-story__paragraph {
     font-size: 16px;
     line-height: 20px;
   }
@@ -187,7 +182,8 @@ export default {
 
 @media screen and (max-width: 1024px) {
   .your-story__container {
-    padding: 80px 0;
+    padding-top: 80px;
+    padding-bottom: 80px;
   }
   .your-story__title {
     font-size: 24px;
@@ -202,7 +198,7 @@ export default {
     line-height: 19px;
   }
   .your-story__option-description {
-    min-height: 100%;
+    min-height: 92px;
     font-size: 15px;
     line-height: 19px;
   }
@@ -210,7 +206,6 @@ export default {
 
 @media screen and (max-width: 768px) {
   .your-story__container {
-    padding: 80px 15px;
     margin: 0 auto;
     max-width: 380px;
   }
@@ -244,8 +239,11 @@ export default {
   .your-story__option-label_active {
     border-bottom: 2px solid #613a93;
   }
-  .button-container-button {
+  .your-story__button {
     margin-top: 50px;
+  }
+  .your-story__option-description {
+    min-height: 110px;
   }
 }
 
