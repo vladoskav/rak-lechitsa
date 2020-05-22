@@ -175,21 +175,21 @@ export default {
 }
 
 @media screen and (max-width: 600px) {
-.story-form__buttons {
-  display: flex;
-  flex-direction: row;
-  justify-self: flex-end;
-  margin: 200px 0 0 0;
-}
-.story-form__back {
-  margin: auto 15px auto 0;
-}
+  .story-form__buttons {
+    display: flex;
+    flex-direction: row;
+    justify-self: flex-end;
+    margin: 200px 0 0 0;
+  }
+  .story-form__back {
+    margin: auto 15px auto 0;
+  }
 
-.story-form__forward {
-  margin: 0;
-  padding: 0;
-  min-width: 206px;
-  min-height: 40px;
-}
+  .story-form__forward {
+    margin: 0;
+    padding: 0;
+    min-width: 206px;
+    min-height: 40px;
+  }
 }
 </style>

@@ -23,6 +23,14 @@ export default {
   width: 100%;
   text-decoration: none;
 }
+.story:hover {
+  transition: box-shadow 0.8s;
+  box-shadow: 20px 20px 30px -10px #192824;
+  transform: scale(1.2, 1.2);
+}
+.story:hover::after {
+  opacity: 1;
+}
 .story__photo {
   width: 100%;
   padding-bottom: 100%;
