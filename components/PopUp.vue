@@ -11,8 +11,7 @@
 
 <script>
 import Overlay from '@/components/ui/Overlay';
-export default {
-  props: ['popup'],
+export default {  
   components: {
     overlay: Overlay,
   },

@@ -83,7 +83,8 @@ export default {
 }
 
 .about-project__container {
-  padding: 90px 0 100px 0;
+  padding-top: 90px;
+  padding-bottom: 100px;
 }
 
 .about-project__title {
@@ -145,20 +146,16 @@ export default {
   flex-direction: column;
 }
 .about__detailed {
+  min-height: 130px;
   width: 100%;
   font-size: 18px;
   line-height: 22px;
   font-weight: normal;
 }
-@media screen and (max-width: 1440px) {
-  .about-project__container {
-    padding: 90px 60px 100px 60px;
-  }
-}
 
 @media screen and (max-width: 1280px) {
   .about-project__container {
-    padding: 90px 50px;
+    padding-bottom: 90px;
   }
   .about-project__title {
     font-size: 58px;
@@ -176,7 +173,8 @@ export default {
 
 @media screen and (max-width: 1024px) {
   .about-project__container {
-    padding: 80px 50px;
+    padding-top: 80px;
+    padding-bottom: 80px;
   }
   .about-project__title {
     font-size: 52px;
@@ -190,6 +188,9 @@ export default {
     font-size: 13px;
     line-height: 16px;
   }
+  .about__detailed {
+    min-height: 259px;
+  }
   .about__tumbler {
     font-size: 15px;
     line-height: 19px;
@@ -202,7 +203,7 @@ export default {
 
 @media screen and (max-width: 768px) {
   .about-project__container {
-    padding: 80px 15px;
+    padding: 80px 0;
     margin: 0 auto;
     max-width: 380px;
   }
@@ -215,6 +216,9 @@ export default {
   .about__paragraph {
     margin: 0;
     max-width: 100%;
+  }
+  .about__detailed {
+    min-height: 238px;
   }
   .about__columns {
     margin-top: 26px;
@@ -241,14 +245,26 @@ export default {
   }
 }
 
-@media screen and (max-width: 320px) {
+@media screen and (max-width: 480px) {
+  .about-project__container {
+    padding: 50px 15px;
+    margin: 0 auto;
+    max-width: 380px;
+  }
   .about-project__about {
     font-size: 18px;
     line-height: 21px;
   }
   .about__tumbler {
+    margin: 0 20px 0 0;
     font-size: 13px;
     line-height: 19px;
+  }
+  .about__detailed {
+    min-height: 324px;
+  }
+  .about__texts {
+    margin-top: 40px;
   }
   .about__text {
     font-size: 15px;

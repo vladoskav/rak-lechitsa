@@ -3,7 +3,7 @@
     <story-title
       :class="{
         'story-form__step': true,
-        'story-form__last_step': formArr.last,
+        'story-form__step_last': formArr.last,
       }"
       >{{ formArr.title }}</story-title
     >
@@ -16,7 +16,6 @@
     <nxt-input
       v-if="!formArr.last"
       placeholder="Напишите тут"
-      required
       class="story-form__textarea"
       v-model="answer"
     />
@@ -44,7 +43,7 @@
       </button>
       <span v-if="formArr.policy" class="story-form__additional"
         >{{ formArr.policy }}
-        <a href="/policy" class="story-form__additional"
+        <a target="_blanc" href="/policy" class="story-form__additional_link"
           >обработку персональных данных</a
         >
       </span>
@@ -120,6 +119,10 @@ export default {
 .story-form__additional {
   color: #666;
 }
+.story-form__additional_link {
+  color: #666;
+  cursor: pointer;
+}
 
 .story-form__step {
   margin: 40px auto 0 0;
@@ -148,6 +151,7 @@ export default {
   background-color: #fff;
   color: #c0c0c0;
   margin: auto 30px auto 0;
+  cursor: pointer;
 }
 
 .story-form__forward {
@@ -158,9 +162,10 @@ export default {
   min-width: 226px;
   min-height: 56px;
   color: #fff;
+  cursor: pointer;
 }
 
-.story-form__last_step {
+.story-form__step_last {
   text-align: center;
   max-width: 100%;
   margin: 40px auto auto auto;
