@@ -202,6 +202,7 @@ export default {
     line-height: 19px;
   }
   .your-story__option-description {
+    min-height: 100%;
     font-size: 15px;
     line-height: 19px;
   }

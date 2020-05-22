@@ -15,12 +15,12 @@
             <p class="footer__fonts">
               Мы&nbsp;в&nbsp;<a
                 class="footer__link footer__fonts footer__social-link"
-                href="/"
+                href="https://www.instagram.com/raklechitsa"
                 >Инстаграме</a
               >
               и&nbsp;<a
                 class="footer__link footer__fonts footer__social-link"
-                href="/"
+                href="https://www.youtube.com/channel/UCcxMSzN1R4JfW1vLu3swCaQ"
                 >Youtube</a
               >
             </p>

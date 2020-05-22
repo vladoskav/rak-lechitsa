@@ -89,7 +89,7 @@ export default {
 .stories__button {
   max-width: 40px;
   height: 40px;
-  background: #fbfbfb;
+  background: #FBFBFB;
   background-repeat: no-repeat;
   background-position: center;
   border: none;
@@ -98,11 +98,9 @@ export default {
 }
 .stories__button_backward {
   background-image: url('../static/backward.png');
-  background-color: #fff;
 }
 .stories__button_forward {
   background-image: url('../static/forward.png');
-  background-color: #fff;
 }
 .stories__video {
   display: flex;
