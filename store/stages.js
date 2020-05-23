@@ -55,6 +55,10 @@ export const actions = {
     }
     await commit('setIndex', { index: index - 1 });
   },
+
+  async CLOSE_QUESTION({ commit, state }, newIndex) {
+    await commit('setIndex', { index: newIndex });
+  },
 };
 
 const QUESTIONS = {

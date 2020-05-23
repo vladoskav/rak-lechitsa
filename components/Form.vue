@@ -27,16 +27,17 @@
       >
         Назад
       </button>
-      <button
+      <nxt-button
         v-if="!formArr.last"
-        @click="nextQuestion"
+        @darkClick="nextQuestion"
         class="story-form__forward"
+        v-bind:isDisabled="isDisabled()"
       >
         {{ formArr.btn }}
-      </button>
+      </nxt-button>
       <button
         v-if="formArr.last"
-        @click="showPopup('popupShown')"
+        @click="closeQuestion"
         class="story-form__forward story-form__close"
       >
         Закрыть
@@ -84,6 +85,13 @@ export default {
     prevent(event) {
       event.preventDefault();
     },
+    isDisabled() {
+      if(this.answer.length === 0) {
+        return true;
+      } else {
+        return false;
+      }
+    },
     showPopup(popup) {
       this.$store.commit('popup/togglePopup', popup);
     },
@@ -96,6 +104,11 @@ export default {
         answer: this.answer,
       });
       this.answer = this.initialAnswer;
+    },
+    async closeQuestion() {
+      await this.$store.dispatch('stages/CLOSE_QUESTION', 1);
+      this.answer = '';
+      this.showPopup('popupShown');
     },
   },
 };
@@ -155,7 +168,7 @@ export default {
 }
 
 .story-form__forward {
-  margin-right: 30px;
+  margin: auto 30px auto auto;
   background: #613a93;
   border: none;
   outline: none;

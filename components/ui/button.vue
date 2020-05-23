@@ -1,8 +1,16 @@
 <template>
-  <button @click="$emit('darkClick')" class="button">
+  <button @click="$emit('darkClick')" class="button" :disabled="isDisabled">
     <slot></slot>
   </button>
 </template>
+
+<script>
+export default {
+  props: {
+    isDisabled: Boolean,
+  }
+}
+</script>
 
 <style scoped>
 .button {
