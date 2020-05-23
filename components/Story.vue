@@ -12,7 +12,12 @@
 
 <script>
 export default {
-  props: ['image', 'author', 'text', 'disabled'],
+  props: {
+    image: String,
+    disabled: Boolean,
+    author: String,
+    text: String,
+  },
 };
 </script>
 <style scoped>
@@ -43,14 +48,14 @@ export default {
   font-weight: 600;
   font-size: 22px;
   line-height: 100%;
-  color: #000000;
+  color: #000;
 }
 .story__text {
   font-style: normal;
   font-weight: normal;
   font-size: 14px;
   line-height: 18px;
-  color: #666666;
+  color: #666;
 }
 @media screen and (max-width: 1024px) {
   .story__photo {

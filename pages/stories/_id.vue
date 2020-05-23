@@ -3,27 +3,27 @@
     <container class="container">
       <div class="upper-block">
         <div
-          class="story__photo"
+          class="single-story__photo"
           :style="{ backgroundImage: `url('${story.url}')` }"
         ></div>
         <div class="text-block">
-          <h2 class="story__title">
+          <h2 class="single-story__title">
             Александр Тарханов: «Я не могу победить свою пунктуальность в
             отличии от рака»
           </h2>
           <div class="wrapper">
             <div
-              class="story__photo_mini"
+              class="single-story__photo_mini"
               :style="{ backgroundImage: `url('${story.url}')` }"
             ></div>
           </div>
           <a class="text-block__link" @click="showPopup('popupSocial')"
             >Поделитесь &#8599;</a
           >
-          <p class="story__date">20 апреля 2018</p>
+          <p class="single-story__date">20 апреля 2018</p>
         </div>
       </div>
-      <p class="story__text">
+      <p class="single-story__text">
         Я из военной семьи. Отец хоть и не был военным сам, но нас всех держал в
         ежовых рукавицах. Думаю, поэтому мы и выросли такими ответственными. У
         меня дома до сих пор стоят часы в каждой комнате, хотя они и не нужны
@@ -51,12 +51,12 @@
         пунктуальность уже не лечится»
       </p>
       <div class="link-box">
-        <a class="link" @click="showPopup('popupSocial')"
+        <a class="link-box__text" @click="showPopup('popupSocial')"
           >Поделитесь этой статьей в своих социальных сетях &#8599;</a
         >
       </div>
-      <ul class="stories-section__grid">
-        <li v-for="story in stories" :key="story.id" class="grid-item">
+      <ul class="grid">
+        <li v-for="story in stories" :key="story.id" class="grid__item">
           <Story
             @cardClick="goToStory(story.id)"
             :author="story.author"
@@ -73,9 +73,9 @@
 </template>
 
 <script>
-import Container from '../../components/Container';
-import Story from '../../components/Story';
-import StoriesButton from '../../components/ui/StoriesButton';
+import Container from '@/components/Container';
+import Story from '@/components/Story';
+import StoriesButton from '@/components/ui/StoriesButton';
 export default {
   computed: {
     stories() {
@@ -117,7 +117,7 @@ export default {
 </script>
 
 <style scoped>
-.stories-section__grid {
+.grid {
   list-style-type: none;
   padding: 0;
   margin: 0 auto;
@@ -135,7 +135,7 @@ export default {
   text-align: center;
   margin-bottom: 170px;
 }
-.link {
+.link-box__text {
   font-style: normal;
   font-weight: normal;
   font-size: 18px;
@@ -144,7 +144,7 @@ export default {
   text-decoration: none;
   transition: opacity 0.3s linear;
 }
-.link:hover {
+.link-box__text:hover {
   opacity: 0.8;
   transition: opacity 0.3s linear;
 }
@@ -164,7 +164,7 @@ export default {
   border-top: 1px solid #efefef;
   border-bottom: 1px solid #efefef;
 }
-.story__date {
+.single-story__date {
   position: absolute;
   right: 0;
   bottom: 30px;
@@ -176,6 +176,7 @@ export default {
 }
 .text-block__link {
   position: absolute;
+  cursor: pointer;
   left: 0;
   bottom: 30px;
   font-style: normal;
@@ -190,20 +191,20 @@ export default {
   opacity: 0.8;
   transition: opacity 0.3s linear;
 }
-.story__photo {
+.single-story__photo {
   width: 100%;
   height: 100%;
   padding-bottom: 100%;
   background-size: cover;
 }
-.story__title {
+.single-story__title {
   font-style: normal;
   font-weight: 500;
   font-size: 38px;
   line-height: 48px;
   color: #000;
 }
-.story__text {
+.single-story__text {
   margin: 0 auto;
   max-width: 780px;
   text-align: left;
@@ -221,17 +222,17 @@ export default {
   .single-story {
     padding: 100px 50px 90px 50px;
   }
-  .story__text {
+  .single-story__text {
     font-size: 20px;
     line-height: 28px;
   }
-  .story__text {
+  .single-story__text {
     margin-bottom: 60px;
   }
   .link-box {
     margin-bottom: 150px;
   }
-  .stories-section__grid {
+  .grid {
     margin-bottom: 60px;
   }
 }
@@ -240,7 +241,7 @@ export default {
     grid-template-columns: minmax(180px, 407px) minmax(300px, 477px);
     grid-gap: 40px;
   }
-  .story__title {
+  .single-story__title {
     font-size: 30px;
     line-height: 38px;
   }
@@ -248,15 +249,15 @@ export default {
     font-size: 16px;
     line-height: 24px;
   }
-  .story__date {
+  .single-story__date {
     font-size: 16px;
     line-height: 24px;
   }
-  .story__text {
+  .single-story__text {
     font-size: 18px;
     line-height: 27px;
   }
-  .stories-section__grid {
+  .grid {
     grid-gap: 30px;
   }
   .single-story {
@@ -266,7 +267,7 @@ export default {
     margin-bottom: 120px;
     padding: 24px 0;
   }
-  .link {
+  .link-box__text {
     font-size: 16px;
     line-height: 22px;
   }
@@ -279,14 +280,14 @@ export default {
     display: flex;
     flex-direction: column;
   }
-  .story__photo {
+  .single-story__photo {
     display: none;
   }
   .wrapper {
     width: 100%;
     padding: 60px 110px;
   }
-  .story__photo_mini {
+  .single-story__photo_mini {
     width: 100%;
     padding-bottom: 100%;
     background-size: cover;
@@ -294,7 +295,7 @@ export default {
   .single-story {
     padding: 80px 40px;
   }
-  .stories-section__grid {
+  .grid {
     grid-gap: 20px;
     grid-template-columns: 1fr 1fr 1fr;
   }
@@ -305,10 +306,10 @@ export default {
     max-width: 640px;
     margin: 0 auto;
   }
-  .story__title {
+  .single-story__title {
     text-align: center;
   }
-  .story__text {
+  .single-story__text {
     max-width: 640px;
   }
   .link-box {
@@ -316,11 +317,11 @@ export default {
   }
 }
 @media screen and (max-width: 320px) {
-  .story__title {
+  .single-story__title {
     font-size: 18px;
     line-height: 21px;
   }
-  .story__text {
+  .single-story__text {
     font-size: 13px;
     line-height: 16px;
   }
@@ -328,22 +329,22 @@ export default {
     font-size: 13px;
     line-height: 16px;
   }
-  .story__date {
+  .single-story__date {
     font-size: 13px;
     line-height: 16px;
   }
   .wrapper {
     padding: 30px 0;
   }
-  .stories-section__grid {
+  .grid {
     display: flex;
     flex-direction: column;
     margin-bottom: 40px;
   }
-  .grid-item {
+  .grid__item {
     margin-bottom: 30px;
   }
-  .grid-item:last-child {
+  .grid__item:last-child {
     margin-bottom: 0;
   }
   .single-story {
