@@ -5,27 +5,12 @@
       <form class="search">
         <search-input class="search__input" />
         <search-button class="search__button">Поиск</search-button>
-        <button class="mobile__button">
-          <svg
-            width="17"
-            height="17"
-            viewBox="0 0 17 17"
-            fill="none"
-            xmlns="http://www.w3.org/2000/svg"
-          >
-            <circle cx="5.91304" cy="5.91304" r="5.41304" stroke="white" />
-            <line
-              x1="10.0918"
-              y1="10.0813"
-              x2="16.3527"
-              y2="16.3421"
-              stroke="white"
-            />
-          </svg>
+        <button class="search__mobile-button">
+          <magnifier />
         </button>
       </form>
-      <ul class="stories-section__grid">
-        <li v-for="story in allStories" :key="story.id" class="grid-item">
+      <ul class="grid">
+        <li v-for="story in allStories" :key="story.id" class="grid__item">
           <story
             @cardClick="goToStory(story.id)"
             :author="story.author"
@@ -44,13 +29,13 @@
 </template>
 
 <script>
-import Title from '../../components/ui/Title';
-import Container from '../../components/Container';
-import Pagination from '../../components/Pagination';
-import Story from '../../components/Story';
-import Input from '../../components/ui/Input';
+import Title from '@/components/ui/Title';
+import Container from '@/components/Container';
+import Pagination from '@/components/Pagination';
+import Story from '@/components/Story';
+import Input from '@/components/ui/Input';
 import Button from '@/components/ui/Button';
-
+import Magnifier from '@/components/svg/Magnifier';
 export default {
   components: {
     'st-title': Title,
@@ -59,6 +44,7 @@ export default {
     story: Story,
     'search-input': Input,
     'search-button': Button,
+    magnifier: Magnifier,
   },
   data() {
     return {
@@ -97,7 +83,7 @@ export default {
 </script>
 
 <style scoped>
-.mobile__button {
+.search__mobile-button {
   width: 46px;
   height: 46px;
   background-color: rgb(97, 58, 147, 1);
@@ -107,13 +93,13 @@ export default {
   padding: 15px;
   border: 0;
 }
-.mobile__button:hover {
+.search__mobile-button:hover {
   background-color: rgb(97, 58, 147, 0.9);
 }
 .stories {
   padding: 100px 60px;
 }
-.stories-section__grid {
+.grid {
   list-style-type: none;
   padding: 0;
   display: grid;
@@ -155,7 +141,7 @@ export default {
   .search {
     margin-bottom: 60px;
   }
-  .stories-section__grid {
+  .grid {
     margin-bottom: 130px;
   }
 }
@@ -166,7 +152,7 @@ export default {
   .stories {
     padding: 80px 51px 80px 51px;
   }
-  .stories-section__grid {
+  .grid {
     grid-gap: 30px;
     margin-bottom: 110px;
   }
@@ -186,7 +172,7 @@ export default {
   }
 }
 @media screen and (max-width: 768px) {
-  .stories-section__grid {
+  .grid {
     grid-gap: 20px;
     grid-template-columns: repeat(3, 1fr);
     margin-bottom: 130px;
@@ -217,20 +203,20 @@ export default {
     line-height: 21px;
     margin: 0 0 40px 0;
   }
-  .stories-section__grid {
+  .grid {
     display: flex;
     flex-direction: column;
   }
   .search__button {
     display: none;
   }
-  .mobile__button {
+  .search__mobile-button {
     display: block;
   }
-  .grid-item {
+  .grid__item {
     margin-bottom: 30px;
   }
-  .grid-item:last-child {
+  .grid__item:last-child {
     margin-bottom: 0;
   }
   .stories {
