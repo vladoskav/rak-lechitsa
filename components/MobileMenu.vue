@@ -1,5 +1,5 @@
 <template>
-  <container class="header__container">
+  <container class="header">
     <header-menu class="header__menu" type="link">
       <button @click="showPopup('popupShown')" class="header__button">
         Рассказать историю
@@ -25,11 +25,11 @@ export default {
 </script>
 
 <style scoped>
-.header__container {
+.header {
   margin: 18px 50px;
 }
 .header__button {
-  font-family: 'Inter';
+  font-family: 'Inter', Helvetica, Arial, sans-serif;
   font-style: normal;
   font-weight: normal;
   font-size: 1.125rem;
@@ -51,7 +51,7 @@ export default {
   }
 }
 @media screen and (max-width: 480px) {
-  .header__container {
+  .header {
     margin: 18px 15px;
   }
   .header__menu {
