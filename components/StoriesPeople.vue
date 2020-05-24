@@ -3,13 +3,9 @@
     <div class="stories__text-container">
       <div class="stories__text stories__font">
         <h2 class="stories__title">
-          Истории людей, победивших рак, но&nbsp;не&nbsp;свои привычки
+          {{ video.title }}
         </h2>
-        <p class="stories__paragraph">
-          Есть вещи, которые не&nbsp;лечатся. Вещи ставшие частью нашего
-          &laquo;я&raquo;, фобии, страхи. Но&nbsp;это точно не&nbsp;рак. Рак
-          лечится. Лучшее доказательство&nbsp;&mdash; люди
-          с&nbsp;их&nbsp;историями.
+        <p class="stories__paragraph" v-html="video.text">
         </p>
       </div>
       <div class="stories__buttons">
@@ -27,8 +23,7 @@
         class="stories__button stories__button_forward stories__button_video"
       ></button>
       <p class="stories__description stories__font">
-        Все видео вы&nbsp;можете найте на&nbsp;нашем
-        <a href="#" class="stories__link stories__font">YouTube канале.</a>
+        <a href="https://www.youtube.com/channel/UCcxMSzN1R4JfW1vLu3swCaQ" target="_blanc" class="stories__font">{{video.note}}</a>
       </p>
     </div>
   </container>
@@ -43,6 +38,12 @@ export default {
     container: Container,
     play: Play,
   },
+  computed: {
+    video() {
+      const arr = this.$store.getters['texts/getText'];
+      return arr.find(el => el.block === 'videos');
+    }
+  }
 };
 </script>
 
@@ -115,9 +116,6 @@ export default {
 }
 .stories__description {
   margin-top: 10px;
-}
-.stories__link {
-  text-decoration: underline;
 }
 .stories__button_video {
   display: none;

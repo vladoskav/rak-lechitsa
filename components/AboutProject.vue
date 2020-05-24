@@ -1,12 +1,10 @@
 <template>
   <section class="about-project">
     <container class="about-project__container">
-      <h2 class="about-project__title">#РАКЛЕЧИТСЯ</h2>
-      <st-title class="about-project__about">О проекте</st-title>
+      <h2 class="about-project__title">{{about.hashtag}}</h2>
+      <st-title class="about-project__about">{{about.title}}</st-title>
       <div class="about__columns">
-        <p class="about__paragraph">
-          Этот проект был создан благотворительным фондом Константина
-          Хабенского.
+        <p class="about__paragraph" v-html="about.text">
         </p>
 
         <div class="about__texts">
@@ -17,7 +15,7 @@
                 about__tumbler: true,
                 about__tumbler_active: optionSelected === 1,
               }"
-              >Рак Лечится</label
+              >{{about.extraTexts[0].title}}</label
             >
             <label
               @click="selectOption(2)"
@@ -25,28 +23,15 @@
                 about__tumbler: true,
                 about__tumbler_active: optionSelected === 2,
               }"
-              >Фонд Хабенского</label
+              >{{about.extraTexts[1].title}}</label
             >
           </div>
           <div class="about__text" v-if="optionSelected === 1">
-            <p class="about__detailed">
-              Есть вещи, которые не&nbsp;лечатся. Особенности характера,
-              страстные увлечения, привычки, ставшие частью нашего
-              &laquo;я&raquo;, фобии, которые мы&nbsp;приобрели в&nbsp;детстве.
-              Список можно продолжать до&nbsp;бесконечности, но&nbsp;одна
-              болезнь в&nbsp;него точно не&nbsp;войдет. Эта болезнь&nbsp;&mdash;
-              рак. Рак лечится, и&nbsp;лучшее доказательство&nbsp;&mdash; люди
-              с&nbsp;их&nbsp;неизлечимыми особенностями, которые сумели победить
-              рак.
+            <p class="about__detailed" v-html="about.extraTexts[0].text">
             </p>
           </div>
           <div class="about__text" v-if="optionSelected === 2">
-            <p class="about__detailed">
-              Рак лечится&nbsp;&mdash; проект Благотворительного Фонда
-              Константина Хабенского и&nbsp;Leo Burnett Moscow. С&nbsp;его
-              помощью мы&nbsp;надеемся изменить отношение людей к&nbsp;раку
-              и&nbsp;заставить каждого поверить: онкологическое
-              заболевание&nbsp;&mdash; это не&nbsp;приговор.
+            <p class="about__detailed" v-html="about.extraTexts[1].text">
             </p>
           </div>
         </div>
@@ -67,6 +52,12 @@ export default {
     selectOption(option) {
       this.optionSelected = option;
     },
+  },
+  computed: {
+    about() {
+      const arr = this.$store.getters['texts/getText'];
+      return arr.find(el => el.block === 'about');
+    }
   },
   data() {
     return {
@@ -146,7 +137,7 @@ export default {
   flex-direction: column;
 }
 .about__detailed {
-  min-height: 130px;
+  min-height: 216px;
   width: 100%;
   font-size: 18px;
   line-height: 22px;
@@ -164,6 +155,9 @@ export default {
   .about-project__about {
     font-size: 28px;
     line-height: 32px;
+  }
+  .about__detailed {
+    min-height: 280px;
   }
   .about__paragraph {
     font-size: 16px;
@@ -189,7 +183,7 @@ export default {
     line-height: 16px;
   }
   .about__detailed {
-    min-height: 259px;
+    min-height: 410px;
   }
   .about__tumbler {
     font-size: 15px;
@@ -218,7 +212,7 @@ export default {
     max-width: 100%;
   }
   .about__detailed {
-    min-height: 238px;
+    min-height: 388px;
   }
   .about__columns {
     margin-top: 26px;

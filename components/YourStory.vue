@@ -1,12 +1,9 @@
 <template>
   <section class="your-story">
     <container class="your-story__container">
-      <st-title class="your-story__title">Расскажите свою историю</st-title>
+      <st-title class="your-story__title">{{story.title}}</st-title>
       <div class="your-story__columns">
-        <p class="your-story__paragraph">
-          Мы публикуем новые истории на сайте раз в неделю. Есть 2 варианта
-          поделиться своей историей неизлечимых привычек, навязчивых идей и
-          болезненных привязанностей.
+        <p class="your-story__paragraph" v-html="story.text">
         </p>
 
         <div class="your-story__options">
@@ -18,7 +15,7 @@
                 'your-story__option-label_active': optionSelected === 1,
               }"
             >
-              1-й вариант
+              {{story.extraTexts[0].title}}
             </label>
             <label
               @click="selectOption(2)"
@@ -27,21 +24,15 @@
                 'your-story__option-label_active': optionSelected === 2,
               }"
             >
-              2-й вариант
+             {{story.extraTexts[1].title}}
             </label>
           </div>
           <div class="your-story__option" v-if="optionSelected === 1">
-            <p class="your-story__option-description">
-              Заполнить подробную форму прямо на сайте и мы опубликуем вашу
-              историю после проверки. Пожалуйста, заполняйте все пункты
-              корректно, если вы испытаете какие-то сложности, воспользуйтесь
-              2-м вариантом.
+            <p class="your-story__option-description" v-html="story.extraTexts[0].text">
             </p>
           </div>
           <div class="your-story__option" v-if="optionSelected === 2">
-            <p class="your-story__option-description">
-              Оставить контакт (почту или номер телефона) и мы свяжемся с вами,
-              зададим вопросы, уточним детали вашей истории.
+            <p class="your-story__option-description" v-html="story.extraTexts[1].text">
             </p>
           </div>
           <dark-button
@@ -81,6 +72,12 @@ export default {
     selectOption(option) {
       this.optionSelected = option;
     },
+  },
+  computed: {
+    story() {
+      const arr = this.$store.getters['texts/getText'];
+      return arr.find(el => el.block === 'story');
+    }
   },
   data() {
     return {
