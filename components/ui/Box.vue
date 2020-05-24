@@ -12,7 +12,7 @@ export default {
 
 <style scoped>
 .box {
-  width: 300px;
+  max-width: 300px;
 
   background: #ffffff;
   border: 1px solid #efefef;
@@ -33,7 +33,7 @@ export default {
 
 @media screen and (max-width: 768px) {
   .box {
-    max-width: 216px;
+    width: 216px;
   }
 }
 </style>
