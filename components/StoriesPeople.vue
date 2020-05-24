@@ -90,7 +90,7 @@ export default {
 .stories__button {
   max-width: 40px;
   height: 40px;
-  background: #FBFBFB;
+  background: #fbfbfb;
   background-repeat: no-repeat;
   background-position: center;
   border: none;
