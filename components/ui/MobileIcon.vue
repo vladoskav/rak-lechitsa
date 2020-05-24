@@ -24,13 +24,13 @@ export default {
 .mobile-button {
   width: 36px;
   height: 36px;
-  background-image: url(../../static/hamb.svg);
+  background-image: url('/images/hamb.svg');
 }
 
 .mobile-button.mobile-button_type_close {
   width: 36px;
   height: 36px;
-  background-image: url(../../static/x.svg);
+  background-image: url('/images/x.svg');
 }
 
 @media screen and (max-width: 320px) {

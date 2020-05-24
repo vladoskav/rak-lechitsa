@@ -10,7 +10,7 @@ export default {};
 
 <style scoped>
 .counter {
-  font-family: 'Inter';
+  font-family: 'Inter', Helvetica, Arial, sans-serif;
   font-style: normal;
   font-weight: 600;
   font-size: 2.375rem;

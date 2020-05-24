@@ -125,7 +125,7 @@ export default {
 }
 
 .text-block__paragraph {
-  font-family: 'Inter';
+  font-family: 'Inter', Helvetica, Arial, sans-serif;
   font-style: normal;
   font-weight: normal;
   font-size: 1.125rem;
