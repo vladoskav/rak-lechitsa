@@ -13,10 +13,10 @@ export default {
     placeholder: {
       type: String,
       default: 'Напишите тут',
-    }, 
+    },
     value: {
       type: String,
-    }
+    },
   },
 };
 </script>

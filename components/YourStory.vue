@@ -166,15 +166,15 @@ export default {
   grid-column: 2/3;
 }
 @media screen and (max-width: 1280px) {
-.your-story__container {
-  padding-top: 90px;
-  padding-bottom: 90px;
-}
-.your-story__title {
+  .your-story__container {
+    padding-top: 90px;
+    padding-bottom: 90px;
+  }
+  .your-story__title {
     font-size: 28px;
     line-height: 32px;
-}
-.your-story__paragraph {
+  }
+  .your-story__paragraph {
     font-size: 16px;
     line-height: 20px;
   }
