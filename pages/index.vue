@@ -31,6 +31,9 @@ export default {
     yourStory: YourStory,
     motto: Motto,
   },
+  async fetch({store, params}) {
+    await store.dispatch('texts/fetchText');
+  }
 };
 </script>
 

@@ -1,12 +1,9 @@
 <template>
   <section class="your-story">
     <container class="your-story__container">
-      <st-title class="your-story__title">Расскажите свою историю</st-title>
+      <st-title class="title">{{story.title}}</st-title>
       <div class="your-story__columns">
-        <p class="your-story__paragraph">
-          Мы публикуем новые истории на сайте раз в неделю. Есть 2 варианта
-          поделиться своей историей неизлечимых привычек, навязчивых идей и
-          болезненных привязанностей.
+        <p class="your-story__paragraph" v-html="story.text">
         </p>
 
         <div class="your-story__options">
@@ -18,7 +15,7 @@
                 'your-story__option-label_active': optionSelected === 1,
               }"
             >
-              1-й вариант
+              {{story.extraTexts[0].title}}
             </label>
             <label
               @click="selectOption(2)"
@@ -27,21 +24,15 @@
                 'your-story__option-label_active': optionSelected === 2,
               }"
             >
-              2-й вариант
+             {{story.extraTexts[1].title}}
             </label>
           </div>
           <div class="your-story__option" v-if="optionSelected === 1">
-            <p class="your-story__option-description">
-              Заполнить подробную форму прямо на сайте и мы опубликуем вашу
-              историю после проверки. Пожалуйста, заполняйте все пункты
-              корректно, если вы испытаете какие-то сложности, воспользуйтесь
-              2-м вариантом.
+            <p class="your-story__option-description" v-html="story.extraTexts[0].text">
             </p>
           </div>
           <div class="your-story__option" v-if="optionSelected === 2">
-            <p class="your-story__option-description">
-              Оставить контакт (почту или номер телефона) и мы свяжемся с вами,
-              зададим вопросы, уточним детали вашей истории.
+            <p class="your-story__option-description" v-html="story.extraTexts[1].text">
             </p>
           </div>
           <dark-button
@@ -82,6 +73,12 @@ export default {
       this.optionSelected = option;
     },
   },
+  computed: {
+    story() {
+      const arr = this.$store.getters['texts/getText'];
+      return arr.find(el => el.block === 'story');
+    }
+  },
   data() {
     return {
       optionSelected: 1,
@@ -99,7 +96,7 @@ export default {
   padding-top: 90px;
   padding-bottom: 100px;
 }
-.your-story__title {
+.title {
   font-weight: 600;
   font-size: 32px;
   line-height: 36px;
@@ -166,11 +163,11 @@ export default {
   grid-column: 2/3;
 }
 @media screen and (max-width: 1280px) {
-  .your-story__container {
-    padding-top: 90px;
-    padding-bottom: 90px;
-  }
-  .your-story__title {
+.your-story__container {
+  padding-top: 90px;
+  padding-bottom: 90px;
+}
+.title {
     font-size: 28px;
     line-height: 32px;
   }
@@ -185,7 +182,7 @@ export default {
     padding-top: 80px;
     padding-bottom: 80px;
   }
-  .your-story__title {
+  .title {
     font-size: 24px;
     line-height: 28px;
   }
@@ -209,7 +206,7 @@ export default {
     margin: 0 auto;
     max-width: 380px;
   }
-  .your-story__title {
+  .title {
     text-align: center;
   }
   .your-story__paragraph {
@@ -247,8 +244,8 @@ export default {
   }
 }
 
-@media screen and (max-width: 320px) {
-  .your-story__title {
+@media screen and (max-width: 480px) {
+  .title {
     font-size: 18px;
     line-height: 21px;
   }

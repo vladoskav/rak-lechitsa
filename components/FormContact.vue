@@ -174,8 +174,7 @@ export default {
 
 .contact-form__forward {
   margin-right: 30px;
-
-  font-family: 'Inter';
+  font-family: 'Inter', Helvetica, Arial, sans-serif;
   font-style: normal;
   font-weight: 500;
   font-size: 1rem;
