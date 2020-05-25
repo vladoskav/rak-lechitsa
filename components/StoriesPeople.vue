@@ -9,16 +9,17 @@
         </p>
       </div>
       <div class="stories__buttons">
-        <button class="stories__button stories__button_backward"></button>
-        <button class="stories__button stories__button_forward"></button>
+        <button class="swiper-button-prev stories__button stories__button_backward"></button>
+        <button class="swiper-button-next stories__button stories__button_forward"></button>
       </div>
     </div>
 
     <div class="stories__video-container">
-      <button
+      <button 
         class="stories__button stories__button_backward stories__button_video"
       ></button>
-      <div class="stories__video"><play class="stories__video-play" /></div>
+      <slider :videoArr="videoArr">
+      </slider>
       <button
         class="stories__button stories__button_forward stories__button_video"
       ></button>
@@ -31,17 +32,40 @@
 
 <script>
 import Container from '@/components/Container';
-import Play from '@/components/svg/Play';
+import Slider from '@/components/Slider';
 
 export default {
   components: {
     container: Container,
-    play: Play,
+    'slider': Slider,
   },
   computed: {
     video() {
       const arr = this.$store.getters['texts/getText'];
       return arr.find(el => el.block === 'videos');
+    },
+    videoArr() { 
+      const videos = [
+        {
+        "id": 1,
+        "url": "https://www.youtube.com/embed/coOppM34GtI",
+        "created_at": "2020-05-21T09:23:03.898Z",
+        "updated_at": "2020-05-22T11:04:24.483Z"
+        },
+        {
+        "id": 2,
+        "url": "https://www.youtube.com/embed/FFrioIZ65q0",
+        "created_at": "2020-05-21T09:23:43.471Z",
+        "updated_at": "2020-05-22T11:05:23.927Z"
+        },
+        {
+        "id": 3,
+        "url": "https://www.youtube.com/embed/ZKWilQnPovg",
+        "created_at": "2020-05-21T09:23:57.786Z",
+        "updated_at": "2020-05-22T11:06:14.936Z"
+        }
+      ];
+      return videos;
     }
   },
 };
@@ -49,14 +73,16 @@ export default {
 
 <style scoped>
 .stories__main {
+  margin: 0 auto;
   color: #e5e5e5;
-  display: grid;
+  display: flex;
+  flex-direction: row;
   padding-top: 100px;
   padding-bottom: 74px;
-  grid-template-columns: 1fr 2fr;
 }
 .stories__text-container {
-  display: grid;
+  display: flex;
+  flex-direction: column;
   justify-content: space-between;
 }
 .stories__font {
@@ -83,10 +109,21 @@ export default {
 }
 .stories__buttons {
   margin: 0 0 20px 0;
-  align-self: flex-end;
   max-width: 80px;
-  display: grid;
-  grid-template-columns: 1fr 1fr;
+  display: flex;
+  flex-direction: row;
+}
+.swiper-button-prev {
+  position: static;
+}
+.swiper-button-next {
+  position: static;
+}
+.swiper-button-prev:after {
+  content: none;
+}
+.swiper-button-next:after {
+  content: none;
 }
 .stories__button {
   max-width: 40px;
@@ -104,16 +141,6 @@ export default {
 .stories__button_forward {
   background-image: url('/images/forward.png');
 }
-.stories__video {
-  display: flex;
-  max-width: 867px;
-  height: 450px;
-  background-color: #ededed;
-}
-.stories__video-play {
-  margin: auto;
-  cursor: pointer;
-}
 .stories__description {
   margin-top: 10px;
 }
@@ -123,7 +150,7 @@ export default {
 
 @media screen and (max-width: 1320px) {
   .stories__main {
-    max-width: 1180px;
+    max-width: 1280px;
   }
   .stories__text {
     max-width: 367px;
@@ -137,18 +164,10 @@ export default {
     font-size: 16px;
     line-height: 20px;
   }
-  .stories__video {
-    max-width: 773px;
-    height: 400px;
-  }
-  .stories__video-play {
-    width: 76px;
-    height: 76px;
-  }
 }
 @media screen and (max-width: 1180px) {
   .stories__main {
-    max-width: 924px;
+    max-width: 1024px;
   }
   .stories__text {
     max-width: 288px;
@@ -162,14 +181,9 @@ export default {
     font-size: 13px;
     line-height: 16px;
   }
-  .stories__video {
-    max-width: 606px;
-    height: 314px;
-  }
 }
-@media screen and (max-width: 924px) {
+@media screen and (max-width: 940px) {
   .stories__main {
-    display: flex;
     flex-direction: column;
     max-width: 688px;
     padding-top: 80px;
@@ -192,32 +206,23 @@ export default {
   }
   .stories__video-container {
     margin: 60px auto 0 auto;
-    display: grid;
-    grid-template-columns: 40px 580px 40px;
-    grid-template-rows: 1fr;
-    grid-template-areas:
-      'backward video forward'
-      '... description description';
-    grid-template-columns: 40px 580px 40px;
+    display: flex;
+    flex-direction: row;
   }
   .stories__video {
-    grid-area: video;
     min-width: 580px;
     height: 300px;
   }
   .stories__description {
-    grid-area: description;
     font-size: 12px;
   }
   .stories__button_backward {
     margin-right: 14px;
     align-self: center;
-    grid-area: backward;
   }
   .stories__button_forward {
     margin-left: 14px;
     align-self: center;
-    grid-area: forward;
   }
   .stories__button_video {
     display: block;
@@ -239,18 +244,15 @@ export default {
   }
   .stories__button_backward {
     align-self: center;
-    grid-area: none;
     position: absolute;
     left: 10px;
   }
   .stories__button_forward {
     align-self: center;
-    grid-area: none;
     position: absolute;
     right: 10px;
   }
   .stories__video {
-    grid-area: none;
     min-width: 290px;
     height: 150px;
   }
