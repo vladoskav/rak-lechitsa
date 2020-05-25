@@ -33,7 +33,10 @@ export default {
   },
   async fetch({store, params}) {
     await store.dispatch('texts/fetchText');
-  }
+  },
+  async fetch({store, params}) {
+    await store.dispatch('video/fetchUrl');
+  },
 };
 </script>
 
