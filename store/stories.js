@@ -1,5 +1,7 @@
+import axios from 'axios';
+
 export const state = () => ({
-  stories: [
+  stories1: [
     {
       id: '1',
       alt: 'фотография героя',
@@ -298,9 +300,25 @@ export const state = () => ({
     text:
       'Я всегда читаю книги с конца, - и это не лечится, в отличие от рака.',
   },
+  stories: [],
 });
 
-export const mutations = {};
+export const mutations = {
+  setState(state, { name, value }) {
+    return (state[name] = value);
+  },
+};
+
+export const actions = {
+  fetchStories(state) {
+    return axios.get(process.env.BASE_URL + 'stories').then(res => {
+      return state.commit('setState', {
+        name: 'stories',
+        value: res.data,
+      });
+    });
+  },
+};
 
 export const getters = {
   getStories(state) {

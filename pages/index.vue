@@ -2,9 +2,9 @@
   <div>
     <cover />
     <storiesPeople />
-    <motto>и в отличие от рака,&nbsp;</motto>
+    <motto>{{ mottoFirst.title }}&nbsp;</motto>
     <stories />
-    <motto>рассказывайте ваши истории в&nbsp;инстаграм&NewLine;</motto>
+    <motto>{{ mottoSecond.title }}</motto>
     <instagram />
     <yourStory />
     <statistics />
@@ -31,9 +31,20 @@ export default {
     yourStory: YourStory,
     motto: Motto,
   },
-  async fetch({store, params}) {
+  async fetch({ store, params }) {
     await store.dispatch('texts/fetchText');
-  }
+  },
+
+  computed: {
+    mottoFirst() {
+      const arr = this.$store.getters['texts/getText'];
+      return arr.find(el => el.block === `note-1`);
+    },
+    mottoSecond() {
+      const arr = this.$store.getters['texts/getText'];
+      return arr.find(el => el.block === `note-2`);
+    },
+  },
 };
 </script>
 

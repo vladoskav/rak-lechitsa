@@ -2,9 +2,7 @@
   <section class="stories-section">
     <container class="container">
       <slot></slot>
-      <st-title class="stories-section__title"
-        >Истории неизлечимых привычек</st-title
-      >
+      <st-title class="stories-section__title">{{ title.title }}</st-title>
       <ul class="stories-section__grid">
         <li v-for="story in stories" :key="story.id" class="grid-item">
           <story
@@ -40,6 +38,11 @@ export default {
     },
   },
   computed: {
+    title() {
+      const arr = this.$store.getters['texts/getText'];
+      return arr.find(el => el.block === `stories`);
+    },
+
     stories() {
       if (process.browser) {
         if (window.innerWidth <= 768) {

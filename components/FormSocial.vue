@@ -91,12 +91,12 @@ export default {
   cursor: pointer;
 }
 @media screen and (max-width: 600px) {
-.title {
-  font-size: 18px;
-  line-height: 21px;
-}
-.share__icon {
-  margin: 70px auto auto auto;
-}
+  .title {
+    font-size: 18px;
+    line-height: 21px;
+  }
+  .share__icon {
+    margin: 70px auto auto auto;
+  }
 }
 </style>

@@ -5,26 +5,33 @@
         <h2 class="stories__title">
           {{ video.title }}
         </h2>
-        <p class="stories__paragraph" v-html="video.text">
-        </p>
+        <p class="stories__paragraph" v-html="video.text"></p>
       </div>
       <div class="stories__buttons">
-        <button class="swiper-button-prev stories__button stories__button_backward"></button>
-        <button class="swiper-button-next stories__button stories__button_forward"></button>
+        <button
+          class="swiper-button-prev stories__button stories__button_backward"
+        ></button>
+        <button
+          class="swiper-button-next stories__button stories__button_forward"
+        ></button>
       </div>
     </div>
 
     <div class="stories__video-container">
-      <button 
+      <button
         class="stories__button stories__button_backward stories__button_video"
       ></button>
-      <slider :videoArr="videoArr">
-      </slider>
+      <slider :videoArr="videoArr"> </slider>
       <button
         class="stories__button stories__button_forward stories__button_video"
       ></button>
       <p class="stories__description stories__font">
-        <a href="https://www.youtube.com/channel/UCcxMSzN1R4JfW1vLu3swCaQ" target="_blanc" class="stories__font">{{video.note}}</a>
+        <a
+          href="https://www.youtube.com/channel/UCcxMSzN1R4JfW1vLu3swCaQ"
+          target="_blanc"
+          class="stories__font"
+          >{{ video.note }}</a
+        >
       </p>
     </div>
   </container>
@@ -37,36 +44,36 @@ import Slider from '@/components/Slider';
 export default {
   components: {
     container: Container,
-    'slider': Slider,
+    slider: Slider,
   },
   computed: {
     video() {
       const arr = this.$store.getters['texts/getText'];
       return arr.find(el => el.block === 'videos');
     },
-    videoArr() { 
+    videoArr() {
       const videos = [
         {
-        "id": 1,
-        "url": "https://www.youtube.com/embed/coOppM34GtI",
-        "created_at": "2020-05-21T09:23:03.898Z",
-        "updated_at": "2020-05-22T11:04:24.483Z"
+          id: 1,
+          url: 'https://www.youtube.com/embed/coOppM34GtI',
+          created_at: '2020-05-21T09:23:03.898Z',
+          updated_at: '2020-05-22T11:04:24.483Z',
         },
         {
-        "id": 2,
-        "url": "https://www.youtube.com/embed/FFrioIZ65q0",
-        "created_at": "2020-05-21T09:23:43.471Z",
-        "updated_at": "2020-05-22T11:05:23.927Z"
+          id: 2,
+          url: 'https://www.youtube.com/embed/FFrioIZ65q0',
+          created_at: '2020-05-21T09:23:43.471Z',
+          updated_at: '2020-05-22T11:05:23.927Z',
         },
         {
-        "id": 3,
-        "url": "https://www.youtube.com/embed/ZKWilQnPovg",
-        "created_at": "2020-05-21T09:23:57.786Z",
-        "updated_at": "2020-05-22T11:06:14.936Z"
-        }
+          id: 3,
+          url: 'https://www.youtube.com/embed/ZKWilQnPovg',
+          created_at: '2020-05-21T09:23:57.786Z',
+          updated_at: '2020-05-22T11:06:14.936Z',
+        },
       ];
       return videos;
-    }
+    },
   },
 };
 </script>

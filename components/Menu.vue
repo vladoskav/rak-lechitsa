@@ -32,7 +32,7 @@ export default {
     title: String,
     href: String,
     type: String,
-    },
+  },
   data() {
     return {
       menuItems: [

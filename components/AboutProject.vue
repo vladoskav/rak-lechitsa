@@ -1,11 +1,10 @@
 <template>
   <section class="about-project">
     <container class="about-project__container">
-      <h2 class="about-project__title">{{about.hashtag}}</h2>
-      <st-title class="about-project__about">{{about.title}}</st-title>
+      <h2 class="about-project__title">{{ about.hashtag }}</h2>
+      <st-title class="about-project__about">{{ about.title }}</st-title>
       <div class="about__columns">
-        <p class="about__paragraph" v-html="about.text">
-        </p>
+        <p class="about__paragraph" v-html="about.text"></p>
 
         <div class="about__texts">
           <div class="about__tumblers">
@@ -15,7 +14,7 @@
                 about__tumbler: true,
                 about__tumbler_active: optionSelected === 1,
               }"
-              >{{about.extraTexts[0].title}}</label
+              >{{ about.extraTexts[0].title }}</label
             >
             <label
               @click="selectOption(2)"
@@ -23,16 +22,14 @@
                 about__tumbler: true,
                 about__tumbler_active: optionSelected === 2,
               }"
-              >{{about.extraTexts[1].title}}</label
+              >{{ about.extraTexts[1].title }}</label
             >
           </div>
           <div class="about__text" v-if="optionSelected === 1">
-            <p class="about__detailed" v-html="about.extraTexts[0].text">
-            </p>
+            <p class="about__detailed" v-html="about.extraTexts[0].text"></p>
           </div>
           <div class="about__text" v-if="optionSelected === 2">
-            <p class="about__detailed" v-html="about.extraTexts[1].text">
-            </p>
+            <p class="about__detailed" v-html="about.extraTexts[1].text"></p>
           </div>
         </div>
       </div>
@@ -57,7 +54,7 @@ export default {
     about() {
       const arr = this.$store.getters['texts/getText'];
       return arr.find(el => el.block === 'about');
-    }
+    },
   },
   data() {
     return {

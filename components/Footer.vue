@@ -41,7 +41,7 @@
       <div class="footer__copyright">
         <div class="footer__date-contain">
           <p class="footer__date-project" v-html="footer.text"></p>
-          <p class="footer__date">{{year}}</p>
+          <p class="footer__date">{{ year }}</p>
         </div>
         <p class="footer__author">
           Сделано студентами
@@ -65,12 +65,12 @@ export default {
   },
   computed: {
     year() {
-      return this.date.getFullYear()
+      return this.date.getFullYear();
     },
     footer() {
       const arr = this.$store.getters['texts/getText'];
       return arr.find(el => el.block === 'footer');
-    }
+    },
   },
   components: {
     container: Container,

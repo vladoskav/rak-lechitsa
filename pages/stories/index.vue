@@ -10,11 +10,18 @@
         </button>
       </form>
       <ul class="grid">
-        <li v-for="story in allStories" :key="story.id" class="grid__item">
+        <li
+          v-for="story in allStories"
+          v-if="story.ImageUrl[0].formats.hasOwnProperty('large')"
+          :key="story.id"
+          class="grid__item"
+        >
           <story
             @cardClick="goToStory(story.id)"
             :author="story.author"
-            :image="story.url"
+            :image="
+              'https://strapi.kruzhok.io' + story.ImageUrl[0].formats.large.url
+            "
             :text="story.text"
           />
         </li>
@@ -50,6 +57,7 @@ export default {
       itemsPerPage: 16,
     };
   },
+
   methods: {
     changeStartIndex(index) {
       this.startIndex = (index - 1) * this.itemsPerPage;
@@ -149,6 +157,15 @@ export default {
   margin-right: 20px;
   margin-left: 0;
   border: 1px solid #e8e8e8;
+}
+.search__input {
+  outline: none;
+}
+.search__button:hover {
+  background-color: rgb(97, 58, 147, 0.9);
+}
+.search__button:focus {
+  outline: none;
 }
 @media screen and (max-width: 1280px) {
   .stories__title {
