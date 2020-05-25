@@ -7,12 +7,12 @@
 <script>
 export default {
   props: {
-    value: Number,
+    oldValue: Number,
     maxValue: Number,
   },
   computed: {
     style() {
-      return `width: ${(this.value / this.maxValue) * 100}%;`;
+      return `width: ${(this.oldValue / this.maxValue) * 100}%;`;
     },
   },
 };

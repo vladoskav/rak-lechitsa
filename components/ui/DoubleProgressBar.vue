@@ -16,7 +16,7 @@
 export default {
   props: {
     oldValue: Number,
-    newValue: Number,
+    currentValue: Number,
     maxValue: Number,
   },
   computed: {
@@ -24,7 +24,7 @@ export default {
       return `width: ${(this.oldValue / this.maxValue) * 100}%;`;
     },
     styleNew() {
-      return `width: ${(this.newValue / this.maxValue) * 100}%;`;
+      return `width: ${(this.currentValue / this.maxValue) * 100}%;`;
     },
   },
 };
@@ -34,7 +34,6 @@ export default {
 .progress-bar-double {
   width: 100%;
   height: 40px;
-  /* background: #FFFFFF; */
   position: relative;
 }
 

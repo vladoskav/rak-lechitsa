@@ -5,18 +5,22 @@
         >Статистика по онкозаболеваниям</st-title
       >
       <div class="statistics__container">
-        <st-box class="statistics__box">
-          <st-text class="statistics__text"
-            >Каждый 3-й в стране уверен, что рак неизлечим. А это примерно 48
-            918 000 человек.</st-text
+        <st-box v-for="statistic in statistics" :key="statistic.id" class="statistics__box">
+           <st-text class="statistics__text"
+            >{{statistic.description}}</st-text
           >
-          <st-progress-bar :value="1" :maxValue="3" />
-          <st-counter class="statistics__counter">1 из 3</st-counter>
+          <st-progress-bar v-if="!statistic.oldValue" :currentValue="statistic.currentValue" :maxValue="statistic.maxValue" />
+          <st-double-progress-bar v-else
+            :oldValue="statistic.oldValue"
+            :currentValue="statistic.currentValue"
+            :maxValue="statistic.maxValue"
+          />
+          <st-counter class="statistics__counter">{{statistic.summary}}</st-counter>
           <st-data-source class="statistics__data-source"
-            >Левада-Центр 2018</st-data-source
+            >{{statistic.source}}</st-data-source
           >
         </st-box>
-        <st-box class="statistics__box">
+        <!-- <st-box class="statistics__box">
           <st-text class="statistics__text"
             >2,6% Россиян имеют онкозаболевания.</st-text
           >
@@ -55,7 +59,7 @@
           <st-data-source class="statistics__data-source"
             >МНИОИ Герцена 2018</st-data-source
           >
-        </st-box>
+        </st-box> -->
       </div>
     </container>
   </section>
@@ -70,6 +74,7 @@ import Counter from '@/components/ui/Counter';
 import DataSource from '@/components/ui/DataSource';
 import DoubleProgressBar from '@/components/ui/DoubleProgressBar';
 import Container from './Container';
+
 export default {
   components: {
     'st-title': Title,
@@ -80,6 +85,11 @@ export default {
     'st-data-source': DataSource,
     'st-double-progress-bar': DoubleProgressBar,
     container: Container,
+  },
+  computed: {
+    statistics() {
+      return this.$store.getters['statistics/getStatistics'];
+    }
   },
 };
 </script>
