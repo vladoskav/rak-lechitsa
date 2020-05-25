@@ -5,18 +5,18 @@
         >Статистика по онкозаболеваниям</st-title
       >
       <div class="statistics__container">
-        <st-box class="statistics__box">
-          <st-text class="statistics__text"
+        <st-box v-for="statistic in statistics" :key="statistic.id" class="statistics__box">
+           <st-text class="statistics__text"
             >Каждый 3-й в стране уверен, что рак неизлечим. А это примерно 48
             918 000 человек.</st-text
           >
           <st-progress-bar :value="1" :maxValue="3" />
-          <st-counter class="statistics__counter">1 из 3</st-counter>
+          <st-counter class="statistics__counter">{{statistics.summary}}</st-counter>
           <st-data-source class="statistics__data-source"
             >Левада-Центр 2018</st-data-source
           >
         </st-box>
-        <st-box class="statistics__box">
+        <!-- <st-box class="statistics__box">
           <st-text class="statistics__text"
             >2,6% Россиян имеют онкозаболевания.</st-text
           >
@@ -55,7 +55,7 @@
           <st-data-source class="statistics__data-source"
             >МНИОИ Герцена 2018</st-data-source
           >
-        </st-box>
+        </st-box> -->
       </div>
     </container>
   </section>
@@ -80,6 +80,11 @@ export default {
     'st-data-source': DataSource,
     'st-double-progress-bar': DoubleProgressBar,
     container: Container,
+  },
+  computed: {
+    statistics() {
+      return this.$store.getters['statistics/getStatistics'];
+    }
   },
 };
 </script>
