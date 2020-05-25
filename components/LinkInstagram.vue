@@ -117,7 +117,7 @@ export default {
 }
 
 .instagram {
-  padding: 100px 60px 100px 60px;
+  padding: 100px 0;
 }
 
 .text-block__link {
@@ -125,7 +125,7 @@ export default {
 }
 
 .text-block__paragraph {
-  font-family: 'Inter';
+  font-family: 'Inter', Helvetica, Arial, sans-serif;
   font-style: normal;
   font-weight: normal;
   font-size: 1.125rem;
@@ -139,7 +139,7 @@ export default {
 
 @media screen and (max-width: 1280px) {
   .instagram {
-    padding: 90px 50px 90px 50px;
+    padding: 90px 0;
   }
 
   .grid {
@@ -158,7 +158,7 @@ export default {
 
 @media screen and (max-width: 1024px) {
   .instagram {
-    padding: 80px 51px 80px 51px;
+    padding: 80px 0;
   }
 
   .grid {
@@ -183,11 +183,6 @@ export default {
 }
 
 @media screen and (max-width: 768px) {
-  .instagram {
-    padding-left: 40px;
-    padding-right: 40px;
-  }
-
   .container {
     display: block;
   }
@@ -213,7 +208,7 @@ export default {
 
 @media screen and (max-width: 420px) {
   .instagram {
-    padding: 50px 15px 50px 15px;
+    padding: 50px 0;
   }
 
   .grid {

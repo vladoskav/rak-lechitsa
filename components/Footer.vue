@@ -14,13 +14,13 @@
           <li>
             <p class="footer__fonts">
               Мы&nbsp;в&nbsp;<a
-                target='_blank'
+                target="_blank"
                 class="footer__link footer__fonts footer__social-link"
                 href="https://www.instagram.com/raklechitsa"
                 >Инстаграме</a
               >
               и&nbsp;<a
-                target='_blank'
+                target="_blank"
                 class="footer__link footer__fonts footer__social-link"
                 href="https://www.youtube.com/channel/UCcxMSzN1R4JfW1vLu3swCaQ"
                 >Youtube</a
@@ -45,9 +45,7 @@
         </div>
         <p class="footer__author">
           Сделано студентами
-          <a
-            class="footer__link"
-            href="https://praktikum.yandex.ru/"
+          <a class="footer__link" href="https://praktikum.yandex.ru/"
             >Яндекс Практикум</a
           >
         </p>

@@ -2,9 +2,9 @@
   <section class="stories">
     <container class="container">
       <st-title class="stories__title">Истории неизлечимых привычек</st-title>
-      <form class="search">
-        <search-input class="search__input" />
-        <search-button class="search__button">Поиск</search-button>
+      <form @submit.prevent="appliedStoriesName = storiesName" class="search">
+        <input v-model="storiesName" class="search__input" placeholder="" />
+        <button class="search__button">Поиск</button>
         <button class="search__mobile-button">
           <magnifier />
         </button>
@@ -33,8 +33,6 @@ import Title from '@/components/ui/Title';
 import Container from '@/components/Container';
 import Pagination from '@/components/Pagination';
 import Story from '@/components/Story';
-import Input from '@/components/ui/Input';
-import Button from '@/components/ui/Button';
 import Magnifier from '@/components/svg/Magnifier';
 export default {
   components: {
@@ -42,12 +40,12 @@ export default {
     container: Container,
     pagination: Pagination,
     story: Story,
-    'search-input': Input,
-    'search-button': Button,
     magnifier: Magnifier,
   },
   data() {
     return {
+      storiesName: '',
+      appliedStoriesName: '',
       startIndex: 0,
       itemsPerPage: 16,
     };
@@ -60,10 +58,22 @@ export default {
       this.$router.push(`/stories/${id}`);
     },
   },
+
   computed: {
+    searchedStories() {
+      const { stories } = this.$store.state;
+      if (!this.appliedStoriesName || this.appliedStoriesName === '') {
+        return stories.stories;
+      }
+      return stories.stories.filter(
+        item =>
+          item.author.indexOf(this.appliedStoriesName) > -1 ||
+          item.text.indexOf(this.appliedStoriesName) > -1
+      );
+    },
     allStories() {
       const { stories } = this.$store.state;
-      return this.$store.getters['stories/getStories'].filter(
+      return this.searchedStories.filter(
         (item, index) =>
           index >= this.startIndex &&
           index <= this.startIndex + this.itemsPerPage - 1
@@ -97,7 +107,7 @@ export default {
   background-color: rgb(97, 58, 147, 0.9);
 }
 .stories {
-  padding: 100px 60px;
+  padding: 100px 0;
 }
 .grid {
   list-style-type: none;
@@ -118,12 +128,23 @@ export default {
 }
 .search__button {
   margin: 0;
-  width: 226px;
   padding: 0;
+  border: 0;
+  color: #fff;
+  background-color: rgb(97, 58, 147, 1);
+  max-width: 226px;
+  width: 100%;
+  font-weight: 500;
+  font-size: 1rem;
+  line-height: 1.1875rem;
+  font-style: normal;
+  text-align: center;
+  cursor: pointer;
 }
 .search__input {
   height: 52px;
   max-width: 1074px;
+  font-size: 24px;
   width: 90%;
   margin-right: 20px;
   margin-left: 0;
@@ -136,7 +157,7 @@ export default {
     margin-bottom: 50px;
   }
   .stories {
-    padding: 90px 50px 90px 50px;
+    padding: 90px 0;
   }
   .search {
     margin-bottom: 60px;
@@ -150,7 +171,7 @@ export default {
     height: 46px;
   }
   .stories {
-    padding: 80px 51px 80px 51px;
+    padding: 80px 0;
   }
   .grid {
     grid-gap: 30px;
@@ -178,10 +199,6 @@ export default {
     margin-bottom: 130px;
     width: 100%;
   }
-  .stories {
-    padding-left: 40px;
-    padding-right: 40px;
-  }
   .stories__title {
     margin: 0 auto 50px auto;
     text-align: center;
@@ -195,7 +212,7 @@ export default {
     margin-bottom: 30px;
   }
   .stories {
-    padding: 50px 15px;
+    padding: 50px 0;
   }
   .stories__title {
     text-align: left;
@@ -220,7 +237,7 @@ export default {
     margin-bottom: 0;
   }
   .stories {
-    padding: 50px 15px 50px 15px;
+    padding: 50px 0;
   }
 }
 </style>

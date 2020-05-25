@@ -170,8 +170,8 @@ export default {
 .title {
     font-size: 28px;
     line-height: 32px;
-}
-.your-story__paragraph {
+  }
+  .your-story__paragraph {
     font-size: 16px;
     line-height: 20px;
   }

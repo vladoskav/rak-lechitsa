@@ -1,5 +1,5 @@
 <template>
-  <nav class="menu__list">
+  <div class="menu">
     <nuxt-link
       v-for="menuItem in menuItems"
       :key="menuItem.id"
@@ -23,12 +23,16 @@
       {{ menuItem.title }}
     </nuxt-link>
     <slot></slot>
-  </nav>
+  </div>
 </template>
 
 <script>
 export default {
-  props: ['title', 'href', 'type'],
+  props: {
+    title: String,
+    href: String,
+    type: String,
+    },
   data() {
     return {
       menuItems: [
@@ -41,7 +45,7 @@ export default {
 </script>
 
 <style scoped>
-.menu__list {
+.menu {
   height: 100%;
   display: flex;
   flex-direction: row;
@@ -61,7 +65,7 @@ export default {
   text-decoration: underline;
 }
 @media screen and (max-width: 1280px) {
-  .menu__link {
+  .menu {
     font-size: 1rem;
   }
 }
@@ -79,7 +83,7 @@ export default {
 }
 
 @media screen and (max-width: 580px) {
-  .menu__list {
+  .menu {
     height: 100%;
     display: flex;
     flex-direction: row;

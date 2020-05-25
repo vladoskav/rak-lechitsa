@@ -8,8 +8,8 @@
 export default {
   props: {
     isDisabled: Boolean,
-  }
-}
+  },
+};
 </script>
 
 <style scoped>
