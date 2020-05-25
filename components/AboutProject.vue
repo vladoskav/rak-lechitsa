@@ -246,6 +246,7 @@ export default {
     max-width: 380px;
   }
   .about-project__about {
+    text-align: left;
     font-size: 18px;
     line-height: 21px;
   }

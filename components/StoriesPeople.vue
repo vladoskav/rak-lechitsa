@@ -43,7 +43,7 @@ export default {
       const arr = this.$store.getters['texts/getText'];
       return arr.find(el => el.block === 'videos');
     }
-  }
+  },
 };
 </script>
 
@@ -60,7 +60,7 @@ export default {
   justify-content: space-between;
 }
 .stories__font {
-  font-family: Inter;
+  font-family: 'Inter', Helvetica, Arial, sans-serif;
   font-style: normal;
   font-weight: normal;
   color: #666666;

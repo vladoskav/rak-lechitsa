@@ -1,7 +1,7 @@
 <template>
   <section class="your-story">
     <container class="your-story__container">
-      <st-title class="your-story__title">{{story.title}}</st-title>
+      <st-title class="title">{{story.title}}</st-title>
       <div class="your-story__columns">
         <p class="your-story__paragraph" v-html="story.text">
         </p>
@@ -96,7 +96,7 @@ export default {
   padding-top: 90px;
   padding-bottom: 100px;
 }
-.your-story__title {
+.title {
   font-weight: 600;
   font-size: 32px;
   line-height: 36px;
@@ -167,7 +167,7 @@ export default {
   padding-top: 90px;
   padding-bottom: 90px;
 }
-.your-story__title {
+.title {
     font-size: 28px;
     line-height: 32px;
 }
@@ -182,7 +182,7 @@ export default {
     padding-top: 80px;
     padding-bottom: 80px;
   }
-  .your-story__title {
+  .title {
     font-size: 24px;
     line-height: 28px;
   }
@@ -206,7 +206,7 @@ export default {
     margin: 0 auto;
     max-width: 380px;
   }
-  .your-story__title {
+  .title {
     text-align: center;
   }
   .your-story__paragraph {
@@ -244,8 +244,8 @@ export default {
   }
 }
 
-@media screen and (max-width: 320px) {
-  .your-story__title {
+@media screen and (max-width: 480px) {
+  .title {
     font-size: 18px;
     line-height: 21px;
   }

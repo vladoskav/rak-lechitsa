@@ -253,7 +253,7 @@ export default {
     line-height: 15px;
   }
   .footer__contain {
-    margin: 0 auto;
+    margin: 0;
     max-width: 290px;
   }
   .footer__appreciation {
