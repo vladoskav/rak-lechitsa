@@ -4,7 +4,7 @@
       <div class="footer__main">
         <div class="footer__main-nav">
           <h3 class="footer__appreciation footer__fonts">
-            Спасибо всем, кто помог состояться этому проекту
+            {{ footer.title }}
           </h3>
 
           <navigation class="footer__pages footer__fonts" type="footer" />
@@ -39,7 +39,10 @@
       </div>
 
       <div class="footer__copyright">
-        <p class="footer__date">Рак Лечится {{ year }}</p>
+        <div class="footer__date-contain">
+          <p class="footer__date-project" v-html="footer.text"></p>
+          <p class="footer__date">{{year}}</p>
+        </div>
         <p class="footer__author">
           Сделано студентами
           <a class="footer__link" href="https://praktikum.yandex.ru/"
@@ -62,8 +65,12 @@ export default {
   },
   computed: {
     year() {
-      return this.date.getFullYear();
+      return this.date.getFullYear()
     },
+    footer() {
+      const arr = this.$store.getters['texts/getText'];
+      return arr.find(el => el.block === 'footer');
+    }
   },
   components: {
     container: Container,
@@ -150,6 +157,17 @@ export default {
   color: #898989;
 }
 .footer__date {
+  margin-left: 5px;
+  font-size: 18px;
+  line-height: 18px;
+  color: #898989;
+}
+.footer__date-contain {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+.footer__date-project {
   font-size: 18px;
   line-height: 18px;
   color: #898989;
@@ -182,6 +200,10 @@ export default {
     line-height: 18px;
   }
   .footer__date {
+    font-size: 16px;
+    line-height: 18px;
+  }
+  .footer__date-project {
     font-size: 16px;
     line-height: 18px;
   }
@@ -229,7 +251,7 @@ export default {
     line-height: 15px;
   }
   .footer__contain {
-    margin: 0 auto;
+    margin: 0;
     max-width: 290px;
   }
   .footer__appreciation {
@@ -245,6 +267,7 @@ export default {
     margin-top: 18px;
   }
   .footer__copyright {
+    flex-direction: column;
     margin: 50px 0 0 0;
   }
   .footer__author {
@@ -252,6 +275,10 @@ export default {
     line-height: 18px;
   }
   .footer__date {
+    font-size: 13px;
+    line-height: 18px;
+  }
+  .footer__project {
     font-size: 13px;
     line-height: 18px;
   }

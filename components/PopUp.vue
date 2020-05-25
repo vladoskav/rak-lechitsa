@@ -37,8 +37,9 @@ export default {
 <style scoped>
 .popup {
   position: fixed;
+  min-height: 354px;
   max-height: 100%;
-  overflow: scroll;
+  overflow: auto;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
@@ -78,6 +79,7 @@ export default {
   .popup {
     width: 320px;
     padding: 15px;
+    min-height: 221px;
   }
 
   .close {

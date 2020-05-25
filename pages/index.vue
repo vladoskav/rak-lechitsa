@@ -31,6 +31,10 @@ export default {
     yourStory: YourStory,
     motto: Motto,
   },
+  async fetch({store, params}) {
+    await store.dispatch('texts/fetchText');
+    await store.dispatch('video/fetchUrl');
+  },
 };
 </script>
 

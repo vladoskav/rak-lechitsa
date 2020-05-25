@@ -71,12 +71,14 @@ export default {
 .title {
   text-align: center;
   margin: 20px auto auto auto;
+  font-size: 32px;
+  line-height: 36px;
 }
 .share__icon {
   display: flex;
   flex-direction: row;
   justify-content: center;
-  margin-top: 100px;
+  margin: 100px auto auto auto;
 }
 .share__icon-contain {
   width: 48px;
@@ -87,5 +89,14 @@ export default {
 .share__icon-icon {
   max-width: 32px;
   cursor: pointer;
+}
+@media screen and (max-width: 600px) {
+.title {
+  font-size: 18px;
+  line-height: 21px;
+}
+.share__icon {
+  margin: 70px auto auto auto;
+}
 }
 </style>

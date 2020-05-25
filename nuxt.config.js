@@ -26,11 +26,12 @@ export default {
   /*
    ** Global CSS
    */
-  css: [],
   /*
    ** Plugins to load before mounting the App
    */
-  plugins: [],
+  plugins: [
+    {src: '~/plugins/swiper.js'}
+  ],
   /*
    ** Nuxt.js dev-modules
    */
@@ -48,6 +49,9 @@ export default {
    ** See https://axios.nuxtjs.org/options
    */
   axios: {},
+  env: {
+    BASE_URL: 'https://strapi.kruzhok.io/'
+  },
   /*
    ** Build configuration
    */

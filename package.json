@@ -14,7 +14,6 @@
     "@nuxtjs/axios": "^5.3.6",
     "@nuxtjs/pwa": "^3.0.0-0",
     "nuxt": "^2.0.0",
-    "vuex": "^3.4.0"
   },
   "devDependencies": {
     "eslint-config-prettier": "^6.10.0",

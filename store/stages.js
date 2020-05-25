@@ -17,9 +17,6 @@ export const mutations = {
 };
 
 export const getters = {
-  getPopupShown(state) {
-    return state.popupShown;
-  },
   index(state) {
     return state.index;
   },
