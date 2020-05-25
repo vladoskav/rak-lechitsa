@@ -72,4 +72,20 @@
     height: 76px;
   }
 }
+@media screen and (max-width: 720px) {
+.slider {
+    width: 450px;
+    height: 200px;
+  }
+}
+@media screen and (max-width: 500px) {
+  .slider {
+    width: 290px;
+    height: 150px;
+  }
+  .stories__video-play {
+    width: 38px;
+    height: 38px;
+  }
+}
 </style>

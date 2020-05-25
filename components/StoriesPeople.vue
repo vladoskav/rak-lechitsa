@@ -9,20 +9,17 @@
         </p>
       </div>
       <div class="stories__buttons">
-        <button class="swiper-button-prev stories__button stories__button_backward"></button>
-        <button class="swiper-button-next stories__button stories__button_forward"></button>
+        <button class="swiper-button-prev"></button>
+        <button class="swiper-button-next"></button>
       </div>
     </div>
 
     <div class="stories__video-container">
-      <button 
-        class="stories__button stories__button_backward stories__button_video"
-      ></button>
-      <slider :videoArr="videoArr">
-      </slider>
-      <button
-        class="stories__button stories__button_forward stories__button_video"
-      ></button>
+      <div class="stories__video">
+        <button class="swiper-button-prev stories__button_backward"></button>
+        <button class="swiper-button-next stories__button_forward"></button>
+        <slider :videoArr="videoArr" />
+      </div>
       <p class="stories__description stories__font">
         <a href="https://www.youtube.com/channel/UCcxMSzN1R4JfW1vLu3swCaQ" target="_blanc" class="stories__font">{{video.note}}</a>
       </p>
@@ -44,29 +41,10 @@ export default {
       const arr = this.$store.getters['texts/getText'];
       return arr.find(el => el.block === 'videos');
     },
-    videoArr() { 
-      const videos = [
-        {
-        "id": 1,
-        "url": "https://www.youtube.com/embed/coOppM34GtI",
-        "created_at": "2020-05-21T09:23:03.898Z",
-        "updated_at": "2020-05-22T11:04:24.483Z"
-        },
-        {
-        "id": 2,
-        "url": "https://www.youtube.com/embed/FFrioIZ65q0",
-        "created_at": "2020-05-21T09:23:43.471Z",
-        "updated_at": "2020-05-22T11:05:23.927Z"
-        },
-        {
-        "id": 3,
-        "url": "https://www.youtube.com/embed/ZKWilQnPovg",
-        "created_at": "2020-05-21T09:23:57.786Z",
-        "updated_at": "2020-05-22T11:06:14.936Z"
-        }
-      ];
-      return videos;
-    }
+    videoArr() {
+      const arr = this.$store.getters['video/getUrls'];
+      return arr;
+    },
   },
 };
 </script>
@@ -110,13 +88,36 @@ export default {
 .stories__buttons {
   margin: 0 0 20px 0;
   max-width: 80px;
+  height: 40px;
   display: flex;
   flex-direction: row;
 }
 .swiper-button-prev {
+  width: 40px;
+  height: 40px;
+  background: #FBFBFB;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  background-image: url('/images/backward.png');
+  background-repeat: no-repeat;
+  background-position: center;
+  margin: 0;
+  padding: 0;
   position: static;
 }
 .swiper-button-next {
+  width: 40px;
+  height: 40px;
+  background: #FBFBFB;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  background-image: url('/images/forward.png');
+  background-repeat: no-repeat;
+  background-position: center;
+  margin: 0;
+  padding: 0;
   position: static;
 }
 .swiper-button-prev:after {
@@ -125,27 +126,14 @@ export default {
 .swiper-button-next:after {
   content: none;
 }
-.stories__button {
-  max-width: 40px;
-  height: 40px;
-  background: #fbfbfb;
-  background-repeat: no-repeat;
-  background-position: center;
-  border: none;
-  outline: none;
-  cursor: pointer;
-}
 .stories__button_backward {
-  background-image: url('/images/backward.png');
+  display: none;
 }
 .stories__button_forward {
-  background-image: url('/images/forward.png');
+  display: none;
 }
 .stories__description {
   margin-top: 10px;
-}
-.stories__button_video {
-  display: none;
 }
 
 @media screen and (max-width: 1320px) {
@@ -201,43 +189,47 @@ export default {
     font-size: 13px;
     line-height: 16px;
   }
-  .stories__button {
-    display: none;
-  }
   .stories__video-container {
     margin: 60px auto 0 auto;
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
   }
   .stories__video {
-    min-width: 580px;
-    height: 300px;
+    position: relative;
   }
   .stories__description {
     font-size: 12px;
   }
   .stories__button_backward {
-    margin-right: 14px;
     align-self: center;
+    display: block;
+    margin-right: 14px;
+    position: absolute;
+    left: -60px;
+    top: 140px;
   }
   .stories__button_forward {
-    margin-left: 14px;
     align-self: center;
-  }
-  .stories__button_video {
     display: block;
+    margin-left: 14px;
+    position: absolute;
+    right: -60px;
+    top: 140px;
+  }
+  .stories__buttons {
+    display: none;
   }
 }
 
-@media screen and (max-width: 670px) {
-  .stories__main {
-    padding: 100px 15px 74px 15px;
-  }
+@media screen and (max-width: 720px) {
   .stories__title {
     text-align: left;
   }
   .stories__video-container {
     margin: 40px auto 0 auto;
+  }
+  .stories__video {
+    margin: 0 auto;
     display: flex;
     flex-direction: row;
     position: relative;
@@ -246,15 +238,13 @@ export default {
     align-self: center;
     position: absolute;
     left: 10px;
+    top: auto;
   }
   .stories__button_forward {
     align-self: center;
     position: absolute;
     right: 10px;
-  }
-  .stories__video {
-    min-width: 290px;
-    height: 150px;
+    top: auto;
   }
   .stories__description {
     display: none;
@@ -265,9 +255,10 @@ export default {
   .stories__button_forward {
     background-color: #ededed;
   }
-  .stories__video-play {
-    width: 38px;
-    height: 38px;
+}
+@media screen and (max-width: 500px) {
+  .stories__main {
+    padding: 40px 15px 74px 15px;
   }
 }
 </style>
