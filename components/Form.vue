@@ -86,7 +86,7 @@ export default {
       event.preventDefault();
     },
     isDisabled() {
-      if(this.answer.length === 0) {
+      if (this.answer.length === 0) {
         return true;
       } else {
         return false;

@@ -11,7 +11,7 @@ export default {};
 <style scoped>
 .text-box {
   height: 48px;
-  font-family: 'Inter';
+  font-family: 'Inter', Helvetica, Arial, sans-serif;
   font-style: normal;
   font-weight: normal;
   font-size: 0.75rem;

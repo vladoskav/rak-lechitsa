@@ -11,7 +11,7 @@
 
 <script>
 import Overlay from '@/components/ui/Overlay';
-export default {  
+export default {
   components: {
     overlay: Overlay,
   },
