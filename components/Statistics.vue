@@ -26,7 +26,7 @@
             >Росстат 2018</st-data-source
           >
         </st-box>
-        <st-box class="statistics__box">
+        <st-box class="statistics__box statistics__box-scroll">
           <st-text class="statistics__text"
             >На 28% выросла доля выявления заболеваний на ранней стадии за 10
             лет.</st-text
@@ -79,14 +79,14 @@ export default {
     'st-counter': Counter,
     'st-data-source': DataSource,
     'st-double-progress-bar': DoubleProgressBar,
-    'container': Container,
+    container: Container,
   },
 };
 </script>
 
 <style scoped>
-.statistics{
-  padding: 100px 60px;
+.statistics {
+  padding: 100px 0;
 }
 
 .container {
@@ -99,7 +99,7 @@ export default {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   grid-gap: 40px;
-  overflow: auto;
+  /* overflow: auto; */
   margin-top: 70px;
 }
 
@@ -120,8 +120,8 @@ export default {
 }
 
 @media screen and (max-width: 1280px) {
-  .statistics{
-    padding: 90px 50px;
+  .statistics {
+    padding: 90px 0;
   }
 
   .statistics__container {
@@ -139,7 +139,7 @@ export default {
 
 @media screen and (max-width: 1024px) {
   .statistics {
-    padding: 80px 50px;
+    padding: 80px 0;
   }
 
   .statistics__container {
@@ -174,16 +174,22 @@ export default {
   .statistics__container {
     margin-top: 60px;
     grid-gap: 20px;
+    overflow-x: auto;
+    padding-left: 40px;
   }
 
   .statistics__text {
     margin-bottom: 62px;
   }
+
+  .container {
+    padding: 0;
+  }
 }
 
 @media screen and (max-width: 320px) {
   .statistics {
-    padding: 50px 15px;
+    padding: 50px 0;
   }
 
   .statistics__title {
@@ -193,6 +199,7 @@ export default {
   .statistics__container {
     margin-top: 30px;
     grid-gap: 10px;
+    padding-left: 15px;
   }
 }
 </style>

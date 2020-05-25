@@ -1,22 +1,24 @@
 <template>
   <section class="instagram">
     <container class="container">
-      <st-title :theme="'line'" class="text-block__title">
-        <a
-          href="https://www.instagram.com/raklechitsa"
-          target="_blank"
-          class="text-block__link"
+      <div class="instagram__text">
+        <insta-title :theme="'line'" class="text-block__title">
+          <a
+            href="https://www.instagram.com/raklechitsa"
+            target="_blank"
+            class="text-block__link"
+          >
+            Инстаграм</a
+          ></insta-title
         >
-          Инстаграм</a
-        ></st-title
-      >
 
-      <p class="text-block__paragraph">
-        Два раза в неделю мы просматриваем все посты по хештегу #этонелечится.
-        Все истории, где нет нецензурных выражений и запрещенного контента
-        попадают сюда. Следите за правильным написанием хештега, чтобы мы не
-        пропустили вашу историю.
-      </p>
+        <p class="text-block__paragraph">
+          Два раза в неделю мы просматриваем все посты по хештегу #этонелечится.
+          Все истории, где нет нецензурных выражений и запрещенного контента
+          попадают сюда. Следите за правильным написанием хештега, чтобы мы не
+          пропустили вашу историю.
+        </p>
+      </div>
       <div class="grid">
         <insta-element
           class="grid__element"
@@ -37,7 +39,7 @@ import Container from './Container';
 export default {
   components: {
     'insta-element': InstaElement,
-    'st-title': Title,
+    'insta-title': Title,
     container: Container,
   },
   data() {
@@ -99,73 +101,132 @@ export default {
 
 <style scoped>
 .container {
-  display: flex;
-  flex-direction: column;
-  flex-wrap: wrap;
-  max-height: 50vh;
+  display: grid;
+  grid-template-columns: 300px auto;
+  grid-gap: 110px;
 }
+
 .text-block__title {
   margin-bottom: 32px;
 }
-.grid__element {
-  width: 13vw;
-  max-width: 195px;
-}
+
 .grid {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
-  grid-gap: 40px;
+  grid-gap: 30px;
 }
+
 .instagram {
-  padding: 100px 60px 100px 60px;
+  padding: 100px 0;
 }
+
 .text-block__link {
   color: #000;
 }
 
 .text-block__paragraph {
-  font-family: Inter;
+  font-family: 'Inter', Helvetica, Arial, sans-serif;
   font-style: normal;
   font-weight: normal;
-  font-size: 18px;
-  line-height: 22px;
-  max-width: 340px;
+  font-size: 1.125rem;
+  line-height: 1.375rem;
   color: #666;
 }
+
+.instagram__text {
+  max-width: 340px;
+}
+
 @media screen and (max-width: 1280px) {
   .instagram {
-    padding: 90px 50px 90px 50px;
+    padding: 90px 0;
   }
+
   .grid {
     grid-gap: 27px;
   }
 
+  .container {
+    grid-gap: 80px;
+  }
+
   .text-block__paragraph {
-    font-size: 16px;
-    line-height: 20px;
-    max-width: 305px;
+    font-size: 1rem;
+    line-height: 1.25rem;
   }
 }
+
 @media screen and (max-width: 1024px) {
+  .instagram {
+    padding: 80px 0;
+  }
+
   .grid {
     grid-gap: 20px;
-    grid-template-columns: repeat(4, 130px);
   }
+
   .text-block__paragraph {
-    font-size: 13px;
-    line-height: 16px;
-    max-width: 260px;
+    font-size: 0.8125rem;
+    line-height: 1rem;
+  }
+
+  .container {
+    grid-template-columns: 260px auto;
+    grid-gap: 40px;
   }
 }
-@media screen and (max-width: 768px) {
-  .instagram {
-    flex-direction: column;
-    width: 90%;
-    max-width: 688px;
+
+@media screen and (max-width: 900px) {
+  .container {
+    grid-gap: 30px;
   }
-  .text-block {
-    align-items: center;
-    margin: 0 auto 60px auto;
+}
+
+@media screen and (max-width: 768px) {
+  .container {
+    display: block;
+  }
+
+  .text-block__title {
+    margin: 0 auto 26px;
+    text-align: center;
+  }
+
+  .instagram__text {
+    max-width: 100%;
+  }
+
+  .text-block__paragraph {
+    margin: 0 auto 60px;
+    max-width: 380px;
+  }
+
+  .grid__element {
+    width: 100%;
+  }
+}
+
+@media screen and (max-width: 420px) {
+  .instagram {
+    padding: 50px 0;
+  }
+
+  .grid {
+    grid-template-columns: repeat(2, 1fr);
+    grid-gap: 10px;
+  }
+}
+
+@media screen and (max-width: 320px) {
+  .text-block__title {
+    margin-bottom: 16px;
+    text-align: left;
+    max-width: 100%;
+  }
+
+  .text-block__paragraph {
+    margin-bottom: 40px;
+    width: 100%;
   }
 }
 </style>

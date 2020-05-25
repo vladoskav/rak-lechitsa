@@ -1,0 +1,17 @@
+<template>
+  <svg
+    width="13"
+    height="22"
+    viewBox="0 0 13 22"
+    fill="none"
+    xmlns="http://www.w3.org/2000/svg"
+  >
+    <path d="M12 0.999999L2 11L12 21" stroke="black" stroke-width="2" />
+  </svg>
+</template>
+
+<script>
+export default {};
+</script>
+
+<style scoped></style>

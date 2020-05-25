@@ -2,7 +2,6 @@
   <div @click="$emit('cardClick')" class="story">
     <div
       :style="{ backgroundImage: `url('${image}')` }"
-      :alt="alt"
       :disabled="disabled"
       class="story__photo"
     ></div>
@@ -13,7 +12,12 @@
 
 <script>
 export default {
-  props: ['image', 'alt', 'author', 'text', 'disabled'],
+  props: {
+    image: String,
+    disabled: Boolean,
+    author: String,
+    text: String,
+  },
 };
 </script>
 <style scoped>
@@ -24,6 +28,14 @@ export default {
   width: 100%;
   text-decoration: none;
 }
+.story:hover {
+  transition: box-shadow 0.8s;
+  box-shadow: 20px 20px 30px -10px #192824;
+  transform: scale(1.2, 1.2);
+}
+.story:hover::after {
+  opacity: 1;
+}
 .story__photo {
   width: 100%;
   padding-bottom: 100%;
@@ -32,20 +44,18 @@ export default {
 }
 .story__title {
   margin-bottom: 14px;
-  font-family: Inter;
   font-style: normal;
   font-weight: 600;
   font-size: 22px;
   line-height: 100%;
-  color: #000000;
+  color: #000;
 }
 .story__text {
-  font-family: Inter;
   font-style: normal;
   font-weight: normal;
   font-size: 14px;
   line-height: 18px;
-  color: #666666;
+  color: #666;
 }
 @media screen and (max-width: 1024px) {
   .story__photo {

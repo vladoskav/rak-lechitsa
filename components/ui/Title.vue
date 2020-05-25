@@ -17,7 +17,7 @@ export default {
 
 <style scoped>
 .title {
-  font-family: 'Inter';
+  font-family: 'Inter', Helvetica, Arial, sans-serif;
   font-style: normal;
   font-weight: 600;
   font-size: 2rem;
@@ -38,6 +38,22 @@ export default {
   .title {
     font-size: 1.75rem;
     line-height: 2rem;
+  }
+}
+
+@media screen and (max-width: 1024px) {
+  .title {
+    font-size: 1.5rem;
+    line-height: 1.75rem;
+    max-width: 288px;
+  }
+}
+
+@media screen and (max-width: 420px) {
+  .title {
+    font-size: 1.125rem;
+    line-height: 1.3125rem;
+    max-width: 290px;
   }
 }
 </style>

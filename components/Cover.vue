@@ -1,7 +1,7 @@
 <template>
-  <section class="cover">
+  <section ref="scroll" class="cover">
     <h1 class="cover__title">#РАКЛЕЧИТСЯ</h1>
-    <arrow-down class="cover__arrow" />
+    <arrow-down @arrowClick="scrollDown" class="cover__arrow" />
   </section>
 </template>
 
@@ -10,6 +10,14 @@ import ArrowDown from './ui/ArrowDown';
 export default {
   components: {
     'arrow-down': ArrowDown,
+  },
+  methods: {
+    scrollDown() {
+      this.$refs.scroll.nextElementSibling.scrollIntoView({
+        block: 'start',
+        behavior: 'smooth',
+      });
+    },
   },
 };
 </script>
@@ -24,7 +32,7 @@ export default {
   background-color: #613a93;
 }
 .cover__title {
-  font-family: Inter;
+  margin: 0;
   font-style: normal;
   font-weight: 800;
   font-size: 92px;
@@ -52,8 +60,11 @@ export default {
     font-size: 64px;
     line-height: 77px;
   }
+  .cover {
+    min-height: calc(100vh - 76px);
+  }
 }
-@media screen and (max-width: 320px) {
+@media screen and (max-width: 500px) {
   .cover__title {
     font-size: 36px;
     line-height: 44px;

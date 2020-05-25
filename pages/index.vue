@@ -6,7 +6,7 @@
     <stories />
     <motto>рассказывайте ваши истории в&nbsp;инстаграм&NewLine;</motto>
     <instagram />
-    <yourStory @btnClick="popupHandler" />
+    <yourStory />
     <statistics />
     <about />
   </div>
@@ -30,6 +30,10 @@ export default {
     about: AboutProject,
     yourStory: YourStory,
     motto: Motto,
+  },
+  async fetch({store, params}) {
+    await store.dispatch('texts/fetchText');
+    await store.dispatch('video/fetchUrl');
   },
 };
 </script>

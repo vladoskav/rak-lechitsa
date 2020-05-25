@@ -3,32 +3,25 @@
     <div class="stories__text-container">
       <div class="stories__text stories__font">
         <h2 class="stories__title">
-          Истории людей, победивших рак, но&nbsp;не&nbsp;свои привычки
+          {{ video.title }}
         </h2>
-        <p class="stories__paragraph">
-          Есть вещи, которые не&nbsp;лечатся. Вещи ставшие частью нашего
-          &laquo;я&raquo;, фобии, страхи. Но&nbsp;это точно не&nbsp;рак. Рак
-          лечится. Лучшее доказательство&nbsp;&mdash; люди
-          с&nbsp;их&nbsp;историями.
+        <p class="stories__paragraph" v-html="video.text">
         </p>
       </div>
       <div class="stories__buttons">
-        <button class="stories__button stories__button_backward"></button>
-        <button class="stories__button stories__button_forward"></button>
+        <button class="swiper-button-prev"></button>
+        <button class="swiper-button-next"></button>
       </div>
     </div>
 
     <div class="stories__video-container">
-      <button
-        class="stories__button stories__button_backward stories__button_video"
-      ></button>
-      <div class="stories__video"></div>
-      <button
-        class="stories__button stories__button_forward stories__button_video"
-      ></button>
+      <div class="stories__video">
+        <button class="swiper-button-prev stories__button_backward"></button>
+        <button class="swiper-button-next stories__button_forward"></button>
+        <slider :videoArr="videoArr" />
+      </div>
       <p class="stories__description stories__font">
-        Все видео вы&nbsp;можете найте на&nbsp;нашем
-        <a href="#" class="stories__link stories__font">YouTube канале.</a>
+        <a href="https://www.youtube.com/channel/UCcxMSzN1R4JfW1vLu3swCaQ" target="_blanc" class="stories__font">{{video.note}}</a>
       </p>
     </div>
   </container>
@@ -36,27 +29,42 @@
 
 <script>
 import Container from '@/components/Container';
+import Slider from '@/components/Slider';
 
 export default {
   components: {
-    'container': Container,
+    container: Container,
+    'slider': Slider,
   },
-}
+  computed: {
+    video() {
+      const arr = this.$store.getters['texts/getText'];
+      return arr.find(el => el.block === 'videos');
+    },
+    videoArr() {
+      const arr = this.$store.getters['video/getUrls'];
+      return arr;
+    },
+  },
+};
 </script>
 
 <style scoped>
 .stories__main {
+  margin: 0 auto;
   color: #e5e5e5;
-  display: grid;
-  padding: 100px 0 74px 0;
-  grid-template-columns: 1fr 2fr;
+  display: flex;
+  flex-direction: row;
+  padding-top: 100px;
+  padding-bottom: 74px;
 }
 .stories__text-container {
-  display: grid;
+  display: flex;
+  flex-direction: column;
   justify-content: space-between;
 }
 .stories__font {
-  font-family: Inter;
+  font-family: 'Inter', Helvetica, Arial, sans-serif;
   font-style: normal;
   font-weight: normal;
   color: #666666;
@@ -79,49 +87,58 @@ export default {
 }
 .stories__buttons {
   margin: 0 0 20px 0;
-  align-self: flex-end;
   max-width: 80px;
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-}
-.stories__button {
-  max-width: 40px;
   height: 40px;
-  background: #fbfbfb;
-  background-repeat: no-repeat;
-  background-position: center;
+  display: flex;
+  flex-direction: row;
+}
+.swiper-button-prev {
+  width: 40px;
+  height: 40px;
+  background: #FBFBFB;
   border: none;
   outline: none;
   cursor: pointer;
-}
-.stories__button_backward {
-  background-image: url('../static/backward.jpg');
-}
-.stories__button_forward {
-  background-image: url('../static/forward.jpg');
-}
-.stories__video {
-  max-width: 867px;
-  height: 450px;
-  background-color: #ededed;
-  background-image: url('../static/play.png');
+  background-image: url('/images/backward.png');
   background-repeat: no-repeat;
   background-position: center;
+  margin: 0;
+  padding: 0;
+  position: static;
+}
+.swiper-button-next {
+  width: 40px;
+  height: 40px;
+  background: #FBFBFB;
+  border: none;
+  outline: none;
   cursor: pointer;
+  background-image: url('/images/forward.png');
+  background-repeat: no-repeat;
+  background-position: center;
+  margin: 0;
+  padding: 0;
+  position: static;
+}
+.swiper-button-prev:after {
+  content: none;
+}
+.swiper-button-next:after {
+  content: none;
+}
+.stories__button_backward {
+  display: none;
+}
+.stories__button_forward {
+  display: none;
 }
 .stories__description {
   margin-top: 10px;
 }
-.stories__link {
-  text-decoration: underline;
-}
-.stories__button_video {
-  display: none;
-}
 
 @media screen and (max-width: 1320px) {
   .stories__main {
-    max-width: 1180px;
+    max-width: 1280px;
   }
   .stories__text {
     max-width: 367px;
@@ -135,14 +152,10 @@ export default {
     font-size: 16px;
     line-height: 20px;
   }
-  .stories__video {
-    max-width: 773px;
-    height: 400px;
-  }
 }
 @media screen and (max-width: 1180px) {
   .stories__main {
-    max-width: 924px;
+    max-width: 1024px;
   }
   .stories__text {
     max-width: 288px;
@@ -156,17 +169,12 @@ export default {
     font-size: 13px;
     line-height: 16px;
   }
-  .stories__video {
-    max-width: 606px;
-    height: 314px;
-  }
 }
-@media screen and (max-width: 924px) {
+@media screen and (max-width: 940px) {
   .stories__main {
-    display: flex;
     flex-direction: column;
     max-width: 688px;
-    padding: 80px 0 74px 0;
+    padding-top: 80px;
   }
   .stories__text {
     max-width: 380px;
@@ -176,44 +184,81 @@ export default {
     margin: 0 auto;
   }
   .stories__paragraph {
+    text-align: left;
     margin-top: 26px;
     font-size: 13px;
     line-height: 16px;
   }
-  .stories__button {
-    display: none;
-  }
   .stories__video-container {
     margin: 60px auto 0 auto;
-    display: grid;
-    grid-template-columns: 40px 580px 40px;
-    grid-template-rows: 1fr;
-    grid-template-areas:
-      'backward video forward'
-      '... description description';
-    grid-template-columns: 40px 580px 40px;
+    display: flex;
+    flex-direction: column;
   }
   .stories__video {
-    grid-area: video;
-    min-width: 580px;
-    height: 300px;
+    position: relative;
   }
   .stories__description {
-    grid-area: description;
     font-size: 12px;
   }
   .stories__button_backward {
-    margin-right: 14px;
     align-self: center;
-    grid-area: backward;
+    display: block;
+    margin-right: 14px;
+    position: absolute;
+    left: -60px;
+    top: 140px;
   }
   .stories__button_forward {
-    margin-left: 14px;
     align-self: center;
-    grid-area: forward;
-  }
-  .stories__button_video {
     display: block;
+    margin-left: 14px;
+    position: absolute;
+    right: -60px;
+    top: 140px;
+  }
+  .stories__buttons {
+    display: none;
+  }
+}
+
+@media screen and (max-width: 720px) {
+  .stories__title {
+    text-align: left;
+  }
+  .stories__video-container {
+    margin: 40px auto 0 auto;
+  }
+  .stories__video {
+    margin: 0 auto;
+    display: flex;
+    flex-direction: row;
+    position: relative;
+  }
+  .stories__button_backward {
+    align-self: center;
+    position: absolute;
+    left: 10px;
+    top: auto;
+  }
+  .stories__button_forward {
+    align-self: center;
+    position: absolute;
+    right: 10px;
+    top: auto;
+  }
+  .stories__description {
+    display: none;
+  }
+  .stories__button_backward {
+    background-color: #ededed;
+  }
+  .stories__button_forward {
+    background-color: #ededed;
+  }
+}
+@media screen and (max-width: 500px) {
+  .stories__main {
+    padding: 40px 15px 74px 15px;
   }
 }
 </style>
