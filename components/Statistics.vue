@@ -5,20 +5,31 @@
         >Статистика по онкозаболеваниям</st-title
       >
       <div class="statistics__container">
-        <st-box v-for="statistic in statistics" :key="statistic.id" class="statistics__box">
-           <st-text class="statistics__text"
-            >{{statistic.description}}</st-text
-          >
-          <st-progress-bar v-if="statistic.oldValue===0" :currentValue="statistic.currentValue" :maxValue="statistic.maxValue" />
-          <st-double-progress-bar v-else
+        <st-box
+          v-for="statistic in statistics"
+          :key="statistic.id"
+          class="statistics__box"
+        >
+          <st-text class="statistics__text">{{
+            statistic.description
+          }}</st-text>
+          <st-progress-bar
+            v-if="statistic.oldValue === 0"
+            :currentValue="statistic.currentValue"
+            :maxValue="statistic.maxValue"
+          />
+          <st-double-progress-bar
+            v-else
             :oldValue="statistic.oldValue"
             :currentValue="statistic.currentValue"
             :maxValue="statistic.maxValue"
           />
-          <st-counter class="statistics__counter">{{statistic.summary}}</st-counter>
-          <st-data-source class="statistics__data-source"
-            >{{statistic.source}}</st-data-source
-          >
+          <st-counter class="statistics__counter">{{
+            statistic.summary
+          }}</st-counter>
+          <st-data-source class="statistics__data-source">{{
+            statistic.source
+          }}</st-data-source>
         </st-box>
       </div>
     </container>
@@ -49,10 +60,10 @@ export default {
   computed: {
     statistics() {
       return this.$store.getters['statistics/getStatistics'];
-    }
+    },
   },
   beforeMount() {
-    this.$store.dispatch('statistics/fetchStatistics')
+    this.$store.dispatch('statistics/fetchStatistics');
   },
 };
 </script>

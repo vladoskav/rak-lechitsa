@@ -2,16 +2,21 @@
   <section class="stories-section">
     <container class="container">
       <slot></slot>
-      <st-title class="stories-section__title"
-        >Истории неизлечимых привычек</st-title
-      >
+      <st-title class="stories-section__title">{{ title.title }}</st-title>
       <ul class="stories-section__grid">
-        <li v-for="story in stories" :key="story.id" class="grid-item">
+        <li
+          v-for="story in stories"
+          v-if="story.ImageUrl[0].formats.hasOwnProperty('small')"
+          :key="story.id"
+          class="grid-item"
+        >
           <story
             @cardClick="goToStory(story.id)"
             :author="story.author"
-            :image="story.url"
-            :text="story.text"
+            :image="
+              'https://strapi.kruzhok.io' + story.ImageUrl[0].formats.small.url
+            "
+            :text="story.title"
           />
         </li>
       </ul>
@@ -40,6 +45,11 @@ export default {
     },
   },
   computed: {
+    title() {
+      const arr = this.$store.getters['texts/getText'];
+      return arr.find(el => el.block === `stories`);
+    },
+
     stories() {
       if (process.browser) {
         if (window.innerWidth <= 768) {

@@ -6,7 +6,7 @@
       class="story__photo"
     ></div>
     <h3 class="story__title">{{ author }}</h3>
-    <p class="story__text">{{ text }}</p>
+    <p v-html="text" class="story__text">{{ text }}</p>
   </div>
 </template>
 

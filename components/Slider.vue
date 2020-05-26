@@ -2,30 +2,34 @@
   <div class="slider" v-swiper:mySwiper="swiperOptions">
     <div class="swiper-wrapper">
       <div class="swiper-slide" v-for="(video, index) in videoArr" :key="index">
-          <iframe class="swiper-video" :src="video.url" frameborder="0" allowfullscreen>
-          </iframe>
+        <iframe
+          class="swiper-video"
+          :src="video.url"
+          frameborder="0"
+          allowfullscreen
+        >
+        </iframe>
       </div>
     </div>
   </div>
 </template>
 
 <script>
-  export default {
-    props: ['videoArr'],
-    data() {
-      return {
-        swiperOptions: {
-          navigation: {
-            nextEl: '.swiper-button-next',
-            prevEl: '.swiper-button-prev',
-          },
-          observer: true,  
-          observeParents: true,
-        }
-      }
-    }
-        
-  }
+export default {
+  props: ['videoArr'],
+  data() {
+    return {
+      swiperOptions: {
+        navigation: {
+          nextEl: '.swiper-button-next',
+          prevEl: '.swiper-button-prev',
+        },
+        observer: true,
+        observeParents: true,
+      },
+    };
+  },
+};
 </script>
 
 <style scoped>
@@ -57,7 +61,7 @@
   }
 }
 @media screen and (max-width: 720px) {
-.slider {
+  .slider {
     width: 450px;
     height: 200px;
   }

@@ -10,12 +10,19 @@
         </button>
       </form>
       <ul class="grid">
-        <li v-for="story in allStories" :key="story.id" class="grid__item">
+        <li
+          v-for="story in allStories"
+          v-if="story.ImageUrl[0].formats.hasOwnProperty('small')"
+          :key="story.id"
+          class="grid__item"
+        >
           <story
             @cardClick="goToStory(story.id)"
             :author="story.author"
-            :image="story.url"
-            :text="story.text"
+            :image="
+              'https://strapi.kruzhok.io' + story.ImageUrl[0].formats.small.url
+            "
+            :text="story.title"
           />
         </li>
       </ul>
@@ -49,6 +56,11 @@ export default {
       startIndex: 0,
       itemsPerPage: 16,
     };
+  },
+  async fetch({ store, params }) {
+    await store.dispatch('texts/fetchText');
+    await store.dispatch('video/fetchUrl');
+    await store.dispatch('stories/fetchStories');
   },
   methods: {
     changeStartIndex(index) {
@@ -149,6 +161,15 @@ export default {
   margin-right: 20px;
   margin-left: 0;
   border: 1px solid #e8e8e8;
+}
+.search__input {
+  outline: none;
+}
+.search__button:hover {
+  background-color: rgb(97, 58, 147, 0.9);
+}
+.search__button:focus {
+  outline: none;
 }
 @media screen and (max-width: 1280px) {
   .stories__title {

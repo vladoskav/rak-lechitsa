@@ -5,8 +5,7 @@
         <h2 class="video__title">
           {{ video.title }}
         </h2>
-        <p class="video__paragraph" v-html="video.text">
-        </p>
+        <p class="video__paragraph" v-html="video.text"></p>
       </div>
       <div class="video__buttons">
         <button class="swiper-button-prev"></button>
@@ -21,7 +20,12 @@
         <slider :videoArr="videoArr" />
       </div>
       <p class="video__description video__font">
-        <a href="https://www.youtube.com/channel/UCcxMSzN1R4JfW1vLu3swCaQ" target="_blanc" class="video__font">{{video.note}}</a>
+        <a
+          href="https://www.youtube.com/channel/UCcxMSzN1R4JfW1vLu3swCaQ"
+          target="_blanc"
+          class="video__font"
+          >{{ video.note }}</a
+        >
       </p>
     </div>
   </container>
@@ -34,7 +38,7 @@ import Slider from '@/components/Slider';
 export default {
   components: {
     container: Container,
-    'slider': Slider,
+    slider: Slider,
   },
   computed: {
     video() {
@@ -95,7 +99,7 @@ export default {
 .swiper-button-prev {
   width: 40px;
   height: 40px;
-  background: #FBFBFB;
+  background: #fbfbfb;
   border: none;
   outline: none;
   cursor: pointer;
@@ -109,7 +113,7 @@ export default {
 .swiper-button-next {
   width: 40px;
   height: 40px;
-  background: #FBFBFB;
+  background: #fbfbfb;
   border: none;
   outline: none;
   cursor: pointer;

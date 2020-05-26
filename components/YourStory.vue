@@ -1,10 +1,9 @@
 <template>
   <section class="your-story">
     <container class="your-story__container">
-      <st-title class="title">{{story.title}}</st-title>
+      <st-title class="title">{{ story.title }}</st-title>
       <div class="your-story__columns">
-        <p class="your-story__paragraph" v-html="story.text">
-        </p>
+        <p class="your-story__paragraph" v-html="story.text"></p>
 
         <div class="your-story__options">
           <div class="your-story__option-labels">
@@ -15,7 +14,7 @@
                 'your-story__option-label_active': optionSelected === 1,
               }"
             >
-              {{story.extraTexts[0].title}}
+              {{ story.extraTexts[0].title }}
             </label>
             <label
               @click="selectOption(2)"
@@ -24,16 +23,20 @@
                 'your-story__option-label_active': optionSelected === 2,
               }"
             >
-             {{story.extraTexts[1].title}}
+              {{ story.extraTexts[1].title }}
             </label>
           </div>
           <div class="your-story__option" v-if="optionSelected === 1">
-            <p class="your-story__option-description" v-html="story.extraTexts[0].text">
-            </p>
+            <p
+              class="your-story__option-description"
+              v-html="story.extraTexts[0].text"
+            ></p>
           </div>
           <div class="your-story__option" v-if="optionSelected === 2">
-            <p class="your-story__option-description" v-html="story.extraTexts[1].text">
-            </p>
+            <p
+              class="your-story__option-description"
+              v-html="story.extraTexts[1].text"
+            ></p>
           </div>
           <dark-button
             class="your-story__button"
@@ -77,7 +80,7 @@ export default {
     story() {
       const arr = this.$store.getters['texts/getText'];
       return arr.find(el => el.block === 'story');
-    }
+    },
   },
   data() {
     return {
@@ -163,11 +166,11 @@ export default {
   grid-column: 2/3;
 }
 @media screen and (max-width: 1280px) {
-.your-story__container {
-  padding-top: 90px;
-  padding-bottom: 90px;
-}
-.title {
+  .your-story__container {
+    padding-top: 90px;
+    padding-bottom: 90px;
+  }
+  .title {
     font-size: 28px;
     line-height: 32px;
   }
