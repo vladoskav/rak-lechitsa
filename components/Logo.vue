@@ -11,7 +11,7 @@ export default {};
 <style scoped>
 .logo {
   max-width: 340px;
-  font-family: 'Inter';
+  font-family: 'Inter', Helvetica, Arial, sans-serif;
   font-style: normal;
   font-weight: 600;
   font-size: 1rem;
