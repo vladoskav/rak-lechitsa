@@ -16,7 +16,7 @@
             :image="
               'https://strapi.kruzhok.io' + story.ImageUrl[0].formats.small.url
             "
-            :text="story.text"
+            :text="story.title"
           />
         </li>
       </ul>

@@ -4,51 +4,50 @@
       <div class="upper-block">
         <div
           class="single-story__photo"
-          :style="{ backgroundImage: `url('${story.url}')` }"
+          v-if="story.ImageUrl[0].formats.hasOwnProperty('large')"
+          :style="{
+            backgroundImage: `url('${'https://strapi.kruzhok.io' +
+              story.ImageUrl[0].formats.large.url}')`,
+          }"
+        ></div>
+        <div
+          class="single-story__photo"
+          v-else
+          :style="{
+            backgroundImage: `url('${'https://strapi.kruzhok.io' +
+              story.ImageUrl[0].formats.small.url}')`,
+          }"
         ></div>
         <div class="text-block">
           <h2 class="single-story__title">
-            Александр Тарханов: «Я не могу победить свою пунктуальность в
-            отличии от рака»
+            {{ story.author }}: «{{ story.title }}»
           </h2>
           <div class="wrapper">
             <div
               class="single-story__photo_mini"
-              :style="{ backgroundImage: `url('${story.url}')` }"
+              v-if="story.ImageUrl[0].formats.hasOwnProperty('large')"
+              :style="{
+                backgroundImage: `url('${'https://strapi.kruzhok.io' +
+                  story.ImageUrl[0].formats.large.url}')`,
+              }"
+            ></div>
+            <div
+              class="single-story__photo_mini"
+              v-else
+              :style="{
+                backgroundImage: `url('${'https://strapi.kruzhok.io' +
+                  story.ImageUrl[0].formats.small.url}')`,
+              }"
             ></div>
           </div>
           <a class="text-block__link" @click="showPopup('popupSocial')"
             >Поделитесь &#8599;</a
           >
-          <p class="single-story__date">20 апреля 2018</p>
+          <p class="single-story__date">{{ getDate }}</p>
         </div>
       </div>
-      <p class="single-story__text">
-        Я из военной семьи. Отец хоть и не был военным сам, но нас всех держал в
-        ежовых рукавицах. Думаю, поэтому мы и выросли такими ответственными. У
-        меня дома до сих пор стоят часы в каждой комнате, хотя они и не нужны
-        особо — я сам чувствую, опаздываю куда-то или нет, отстаю от нужного
-        графика или опережаю. Вот такие встроенные внутренние часы! Будильник
-        мне тоже не нужен — я всегда встаю раньше. Одеваюсь тоже быстро, как в
-        армии, за 45 секунд.  «В футболе если команда опоздала на 15 минут, ей
-        засчитывается поражение». Опаздывать я тоже не люблю, на все встречи
-        прихожу заранее. Если знаю, что могу попасть по дороге в пробку, то не
-        еду на машине. В аэропорт приезжаю задолго до начала регистрации. Лучше
-        подожду и кофе попью, чем опоздаю! Когда мне было 16 лет, мне в школе
-        геометрию нужно было пересдавать. Я билеты выучил, знал абсолютно все.
-        Пришел в нужное время, а учительница — нет. Ну, я какое-то время
-        подождал ее и ушел. Потом она спрашивала: «Почему не дождался?». Я
-        ответил: «В футболе если команда опоздала на 15 минут, ей засчитывается
-        поражение». Экзамен мне все-таки поставили! Сейчас если кто-то из
-        футболистов моей команды опаздывает — начинаю злиться, могу и
-        прикрикнуть потом. А если кто-то опоздал на тренировку перед игрой —
-        все, подготовка насмарку. Я сразу начинаю думать тогда: «Значит, точно
-        проиграем». Такая болезненная пунктуальность уже не лечится. В отличие
-        от рака. «Сейчас если кто-то из футболистов моей команды опаздывает —
-        начинаю злиться, могу и прикрикнуть потом. А если кто-то опоздал на
-        тренировку перед игрой — все, подготовка насмарку. Я сразу начинаю
-        думать тогда: «Значит, точно проиграем». Такая болезненная
-        пунктуальность уже не лечится»
+      <p v-html="story.text" class="single-story__text">
+        {{ story.text }}
       </p>
       <div class="link-box">
         <a class="link-box__text" @click="showPopup('popupSocial')"
@@ -56,12 +55,19 @@
         >
       </div>
       <ul class="grid">
-        <li v-for="story in stories" :key="story.id" class="grid__item">
-          <Story
+        <li
+          v-for="story in stories"
+          v-if="story.ImageUrl[0].formats.hasOwnProperty('small')"
+          :key="story.id"
+          class="grid__item"
+        >
+          <story
             @cardClick="goToStory(story.id)"
             :author="story.author"
-            :image="story.url"
-            :text="story.text"
+            :image="
+              'https://strapi.kruzhok.io' + story.ImageUrl[0].formats.small.url
+            "
+            :text="story.title"
           />
         </li>
       </ul>
@@ -77,6 +83,12 @@ import Container from '@/components/Container';
 import Story from '@/components/Story';
 import StoriesButton from '@/components/ui/StoriesButton';
 export default {
+  async fetch({ store, route }) {
+    await store.dispatch('texts/fetchText');
+    await store.dispatch('video/fetchUrl');
+    await store.dispatch('stories/fetchStories');
+    await store.dispatch('stories/fetchStoryWithId', { id: route.params.id });
+  },
   computed: {
     stories() {
       if (process.browser) {
@@ -91,8 +103,12 @@ export default {
         return this.$store.getters['stories/getStories'];
       }
     },
+    getDate() {
+      const date = new Date(this.story.date);
+      return date.toLocaleDateString();
+    },
     story() {
-      return this.$store.getters['stories/getSingleStory'];
+      return this.$store.getters['stories/getStoryWithId'];
     },
   },
   methods: {
@@ -143,6 +159,7 @@ export default {
   color: #121212;
   text-decoration: none;
   transition: opacity 0.3s linear;
+  cursor: pointer;
 }
 .link-box__text:hover {
   opacity: 0.8;
@@ -155,7 +172,7 @@ export default {
   grid-gap: 60px;
 }
 .single-story {
-  padding: 100px 60px;
+  padding: 100px 0;
 }
 .text-block {
   padding-top: 30px;
@@ -220,7 +237,8 @@ export default {
     grid-template-columns: minmax(180px, 518px) minmax(300px, 602px);
   }
   .single-story {
-    padding: 100px 50px 90px 50px;
+    padding-top: 100px;
+    padding-bottom: 90px;
   }
   .single-story__text {
     font-size: 20px;
@@ -261,7 +279,7 @@ export default {
     grid-gap: 30px;
   }
   .single-story {
-    padding: 100px 50px 80px 50px;
+    padding-bottom: 80px;
   }
   .link-box {
     margin-bottom: 120px;
@@ -293,7 +311,7 @@ export default {
     background-size: cover;
   }
   .single-story {
-    padding: 80px 40px;
+    padding: 80px 0;
   }
   .grid {
     grid-gap: 20px;
@@ -301,6 +319,7 @@ export default {
   }
   .text-block {
     width: 100%;
+    margin-bottom: 100px;
   }
   .upper-block {
     max-width: 640px;
@@ -348,7 +367,7 @@ export default {
     margin-bottom: 0;
   }
   .single-story {
-    padding: 50px 15px;
+    padding: 50px 0;
   }
   .link-box {
     margin-bottom: 100px;

@@ -1,10 +1,10 @@
 <template>
   <div>
     <cover />
-    <storiesPeople />
-    <motto>и в отличие от рака,&nbsp;</motto>
+    <video-frame />
+    <motto>{{ mottoFirst.title }}</motto>
     <stories />
-    <motto>рассказывайте ваши истории в&nbsp;инстаграм&NewLine;</motto>
+    <motto>{{ mottoSecond.title }}</motto>
     <instagram />
     <yourStory />
     <statistics />
@@ -34,6 +34,7 @@ export default {
   async fetch({ store, params }) {
     await store.dispatch('texts/fetchText');
     await store.dispatch('video/fetchUrl');
+    await store.dispatch('stories/fetchStories');
   },
 
   computed: {

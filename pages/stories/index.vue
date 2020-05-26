@@ -22,7 +22,7 @@
             :image="
               'https://strapi.kruzhok.io' + story.ImageUrl[0].formats.small.url
             "
-            :text="story.text"
+            :text="story.title"
           />
         </li>
       </ul>
@@ -57,7 +57,11 @@ export default {
       itemsPerPage: 16,
     };
   },
-
+  async fetch({ store, params }) {
+    await store.dispatch('texts/fetchText');
+    await store.dispatch('video/fetchUrl');
+    await store.dispatch('stories/fetchStories');
+  },
   methods: {
     changeStartIndex(index) {
       this.startIndex = (index - 1) * this.itemsPerPage;
