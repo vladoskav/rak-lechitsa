@@ -16,15 +16,17 @@
 export default {
   props: {
     oldValue: Number,
-    newValue: Number,
+    currentValue: Number,
     maxValue: Number,
   },
   computed: {
     styleOld() {
-      return `width: ${(this.oldValue / this.maxValue) * 100}%;`;
+      // return `width: ${(this.oldValue / this.maxValue) * 100}%;`;
+      return `width: ${(60 / 100) * 100}%;`;
     },
     styleNew() {
-      return `width: ${(this.newValue / this.maxValue) * 100}%;`;
+      // return `width: ${(this.currentValue / this.maxValue) * 100}%;`;
+      return `width: ${(76.8 / 100) * 100}%;`;
     },
   },
 };
@@ -34,7 +36,6 @@ export default {
 .progress-bar-double {
   width: 100%;
   height: 40px;
-  /* background: #FFFFFF; */
   position: relative;
 }
 

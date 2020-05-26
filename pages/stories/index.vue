@@ -12,7 +12,7 @@
       <ul class="grid">
         <li
           v-for="story in allStories"
-          v-if="story.ImageUrl[0].formats.hasOwnProperty('large')"
+          v-if="story.ImageUrl[0].formats.hasOwnProperty('small')"
           :key="story.id"
           class="grid__item"
         >
@@ -20,7 +20,7 @@
             @cardClick="goToStory(story.id)"
             :author="story.author"
             :image="
-              'https://strapi.kruzhok.io' + story.ImageUrl[0].formats.large.url
+              'https://strapi.kruzhok.io' + story.ImageUrl[0].formats.small.url
             "
             :text="story.text"
           />

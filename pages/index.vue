@@ -2,9 +2,9 @@
   <div>
     <cover />
     <storiesPeople />
-    <motto>{{ mottoFirst.title }}&nbsp;</motto>
+    <motto>и в отличие от рака,&nbsp;</motto>
     <stories />
-    <motto>{{ mottoSecond.title }}</motto>
+    <motto>рассказывайте ваши истории в&nbsp;инстаграм&NewLine;</motto>
     <instagram />
     <yourStory />
     <statistics />
@@ -16,7 +16,7 @@ import Stories from '@/components/Stories';
 import LinkInstagram from '@/components/LinkInstagram';
 import Cover from '../components/Cover';
 import Statistics from '@/components/Statistics';
-import StoriesPeople from '@/components/StoriesPeople';
+import Video from '@/components/Video';
 import AboutProject from '@/components/AboutProject';
 import YourStory from '@/components/YourStory';
 import Motto from '../components/ui/Motto';
@@ -26,7 +26,7 @@ export default {
     instagram: LinkInstagram,
     cover: Cover,
     statistics: Statistics,
-    storiesPeople: StoriesPeople,
+    'video-frame': Video,
     about: AboutProject,
     yourStory: YourStory,
     motto: Motto,
