@@ -165,7 +165,7 @@ export default {
 .footer__date-contain {
   display: flex;
   flex-direction: row;
-  justify-content: space-between;
+  justify-content: flex-start;
 }
 .footer__date-project {
   font-size: 18px;
@@ -251,7 +251,7 @@ export default {
     line-height: 15px;
   }
   .footer__contain {
-    margin: 0;
+    margin: 0 auto;
     max-width: 290px;
   }
   .footer__appreciation {
@@ -278,7 +278,7 @@ export default {
     font-size: 13px;
     line-height: 18px;
   }
-  .footer__project {
+  .footer__date-project {
     font-size: 13px;
     line-height: 18px;
   }
