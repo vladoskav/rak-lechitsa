@@ -1,5 +1,7 @@
+import axios from 'axios';
+
 export const state = () => ({
-  statistics: [
+  statistics1: [
     {
       "id":1,
       "summary":"1 из 3",
@@ -44,11 +46,26 @@ export const state = () => ({
       "created_at":"2020-05-21T09:16:28.521Z",
       "updated_at":"2020-05-21T09:16:28.521Z"
     }
-  ]
+  ],
+
+  statistics: []
 });
 
 export const mutations = {
+  setState(state, {name, value}) {
+    return (state[name] = value);
+  }
+}
 
+export const actions = {
+  fetchStatistics(state) {
+    return axios.get(process.env.BASE_URL + 'statistics').then((response) => {
+      return state.commit('setState', {
+          name: 'statistics',
+          value: response.data
+      });
+    })
+  }
 }
 
 export const getters = {

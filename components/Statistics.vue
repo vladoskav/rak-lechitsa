@@ -9,7 +9,7 @@
            <st-text class="statistics__text"
             >{{statistic.description}}</st-text
           >
-          <st-progress-bar v-if="!statistic.oldValue" :currentValue="statistic.currentValue" :maxValue="statistic.maxValue" />
+          <st-progress-bar v-if="statistic.oldValue===0" :currentValue="statistic.currentValue" :maxValue="statistic.maxValue" />
           <st-double-progress-bar v-else
             :oldValue="statistic.oldValue"
             :currentValue="statistic.currentValue"
@@ -20,46 +20,6 @@
             >{{statistic.source}}</st-data-source
           >
         </st-box>
-        <!-- <st-box class="statistics__box">
-          <st-text class="statistics__text"
-            >2,6% Россиян имеют онкозаболевания.</st-text
-          >
-          <st-progress-bar :value="10" :maxValue="100" />
-          <st-counter class="statistics__counter">3 700 000</st-counter>
-          <st-data-source class="statistics__data-source"
-            >Росстат 2018</st-data-source
-          >
-        </st-box>
-        <st-box class="statistics__box statistics__box-scroll">
-          <st-text class="statistics__text"
-            >На 28% выросла доля выявления заболеваний на ранней стадии за 10
-            лет.</st-text
-          >
-          <st-double-progress-bar
-            :oldValue="10"
-            :newValue="80"
-            :maxValue="100"
-          />
-          <st-counter class="statistics__counter">↑28%</st-counter>
-          <st-data-source class="statistics__data-source"
-            >МНИОИ Герцена 2018</st-data-source
-          >
-        </st-box>
-        <st-box class="statistics__box">
-          <st-text class="statistics__text"
-            >На 25% снизилась смертность в течение первого года после постановки
-            диагноза.</st-text
-          >
-          <st-double-progress-bar
-            :oldValue="20"
-            :newValue="70"
-            :maxValue="100"
-          />
-          <st-counter class="statistics__counter">↓25%</st-counter>
-          <st-data-source class="statistics__data-source"
-            >МНИОИ Герцена 2018</st-data-source
-          >
-        </st-box> -->
       </div>
     </container>
   </section>
@@ -90,6 +50,9 @@ export default {
     statistics() {
       return this.$store.getters['statistics/getStatistics'];
     }
+  },
+  beforeMount() {
+    this.$store.dispatch('statistics/fetchStatistics')
   },
 };
 </script>
