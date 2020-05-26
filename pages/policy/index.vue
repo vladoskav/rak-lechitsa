@@ -356,7 +356,12 @@
 </template>
 
 <script>
-export default {};
+export default {
+  async fetch({store, params}) {
+    await store.dispatch('texts/fetchText');
+    await store.dispatch('video/fetchUrl');
+  },
+};
 </script>
 
 <style scoped>
