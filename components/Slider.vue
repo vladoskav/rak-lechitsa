@@ -2,13 +2,8 @@
   <div class="slider" v-swiper:mySwiper="swiperOptions">
     <div class="swiper-wrapper">
       <div class="swiper-slide" v-for="(video, index) in videoArr" :key="index">
-          <iframe class="stories__video" :src="video.url" frameborder="0" allowfullscreen>
+          <iframe class="swiper-video" :src="video.url" frameborder="0" allowfullscreen>
           </iframe>
-          <!-- 
-          <div class="stories__video">
-              <a class="stories__video-play" :href="video.url"></a>
-          </div>
-          -->
       </div>
     </div>
   </div>
@@ -38,23 +33,12 @@
   width: 867px;
   height: 450px;
 }
-.stories__video {
+.swiper-video {
   margin: 0;
   display: flex;
   width: 100%;
   height: 100%;
   background-color: #ededed;
-}
-.stories__video-play {
-  height: 96px;
-  width: 96px;
-  margin: auto;
-  cursor: pointer;
-  background-image: url('/images/play.svg');
-  background-size: cover;
-}
-.stories__video-play:hover {
-  background-image: url('/images/playHover.svg');
 }
 @media screen and (max-width: 1320px) {
   .slider {
@@ -71,10 +55,6 @@
     max-width: 606px;
     height: 314px;
   }
-  .stories__video-play {
-    width: 76px;
-    height: 76px;
-  }
 }
 @media screen and (max-width: 720px) {
 .slider {
@@ -86,10 +66,6 @@
   .slider {
     width: 290px;
     height: 150px;
-  }
-  .stories__video-play {
-    width: 38px;
-    height: 38px;
   }
 }
 </style>
