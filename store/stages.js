@@ -8,6 +8,9 @@ export const mutations = {
   saveAnswer(state, { answer, index }) {
     state.answers[index] = answer;
   },
+  deleteAnswer(state) {
+    state.answers = {};
+  },
   setIndex(state, { index }) {
     state.index = index;
   },
@@ -53,8 +56,9 @@ export const actions = {
     await commit('setIndex', { index: index - 1 });
   },
 
-  async CLOSE_QUESTION({ commit, state }, newIndex) {
+  async CLOSE_QUESTION( {commit}, newIndex) {
     await commit('setIndex', { index: newIndex });
+    await commit('deleteAnswer');
   },
 };
 

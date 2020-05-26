@@ -42,7 +42,7 @@
       >
         Закрыть
       </button>
-      <span v-if="formArr.policy" class="story-form__additional"
+      <span v-if="formArr.policy" class="story-form__policy"
         >{{ formArr.policy }}
         <a target="_blanc" href="/policy" class="story-form__additional_link"
           >обработку персональных данных</a
@@ -137,6 +137,10 @@ export default {
   cursor: pointer;
 }
 
+.story-form__policy {
+  margin-left: 30px;
+}
+
 .story-form__step {
   margin: 40px auto 0 0;
   font-size: 32px;
@@ -152,6 +156,9 @@ export default {
 }
 
 .story-form__buttons {
+  width: 100%;
+  max-height: 128px;
+  position: relative;
   display: flex;
   flex-direction: row;
   justify-self: flex-end;
@@ -163,17 +170,17 @@ export default {
   outline: none;
   background-color: #fff;
   color: #c0c0c0;
-  margin: auto 30px auto 0;
+  margin: auto 0;
   cursor: pointer;
 }
 
 .story-form__forward {
-  margin: auto 30px auto auto;
+  margin: auto 0 auto 30px;
   background: #613a93;
   border: none;
   outline: none;
   min-width: 226px;
-  min-height: 56px;
+  height: 56px;
   color: #fff;
   cursor: pointer;
 }
@@ -182,20 +189,19 @@ export default {
   text-align: center;
   max-width: 100%;
   margin: 40px auto auto auto;
+  font-size: 26px;
+  line-height: 30px;
 }
 
 .story-form__close {
   position: absolute;
   margin: 0;
-  left: 38%;
-  right: 38%;
-  bottom: 40px;
+  left: calc((100% - 206px) / 2);
+  bottom: 0;
 }
 
 @media screen and (max-width: 600px) {
   .story-form__buttons {
-    display: flex;
-    flex-direction: row;
     justify-self: flex-end;
     margin: 200px 0 0 0;
   }
@@ -204,10 +210,10 @@ export default {
   }
 
   .story-form__forward {
-    margin: 0;
+    margin: auto 0 auto 15px;
     padding: 0;
     min-width: 206px;
-    min-height: 40px;
+    height: 40px;
   }
 }
 </style>
