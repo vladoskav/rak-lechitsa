@@ -57,11 +57,6 @@ export default {
       itemsPerPage: 16,
     };
   },
-  async fetch({ store, params }) {
-    await store.dispatch('texts/fetchText');
-    await store.dispatch('video/fetchUrl');
-    await store.dispatch('stories/fetchStories');
-  },
   methods: {
     changeStartIndex(index) {
       this.startIndex = (index - 1) * this.itemsPerPage;

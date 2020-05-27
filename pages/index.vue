@@ -31,12 +31,6 @@ export default {
     yourStory: YourStory,
     motto: Motto,
   },
-  async fetch({ store, params }) {
-    await store.dispatch('texts/fetchText');
-    await store.dispatch('video/fetchUrl');
-    await store.dispatch('stories/fetchStories');
-  },
-
   computed: {
     mottoFirst() {
       const arr = this.$store.getters['texts/getText'];
