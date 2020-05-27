@@ -52,7 +52,7 @@
     </div>
 
     <div class="contact-form__buttons">
-      <button @click="nextQuestion" class="contact-form__forward">
+      <button @click="closePopup('popupContact')" class="contact-form__forward">
         Отправить
       </button>
       <div class="contact-form__container">
@@ -82,6 +82,9 @@ export default {
     prevent(event) {
       event.preventDefault();
     },
+    closePopup(popup) {
+      this.$store.commit('popup/togglePopup', popup);
+    }
   },
 };
 </script>
@@ -125,7 +128,7 @@ export default {
 .contact-form__question {
   font-family: 'Inter';
   font-style: normal;
-  font-weight: 500;
+  font-weight: bold;
   font-size: 1.125rem;
   line-height: 1.5rem;
 
