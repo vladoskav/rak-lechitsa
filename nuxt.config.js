@@ -48,7 +48,7 @@ export default {
    */
   axios: {},
   env: {
-    BASE_URL: 'https://strapi.kruzhok.io/',
+    BASE_URL: 'https://strapi.kruzhok.io',
   },
   router: {
     middleware: 'allData',

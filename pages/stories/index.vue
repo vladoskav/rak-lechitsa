@@ -10,18 +10,11 @@
         </button>
       </form>
       <ul class="grid">
-        <li
-          v-for="story in allStories"
-          v-if="story.ImageUrl[0].formats.hasOwnProperty('small')"
-          :key="story.id"
-          class="grid__item"
-        >
+        <li v-for="story in allStories" :key="story.id" class="grid__item">
           <story
             @cardClick="goToStory(story.id)"
             :author="story.author"
-            :image="
-              'https://strapi.kruzhok.io' + story.ImageUrl[0].formats.small.url
-            "
+            :image="defineImage(story.ImageUrl[0].formats)"
             :text="story.title"
           />
         </li>
@@ -55,6 +48,7 @@ export default {
       appliedStoriesName: '',
       startIndex: 0,
       itemsPerPage: 16,
+      baseUrl: process.env.BASE_URL,
     };
   },
   methods: {
@@ -63,6 +57,12 @@ export default {
     },
     goToStory(id) {
       this.$router.push(`/stories/${id}`);
+    },
+    defineImage(formats) {
+      if (!formats.small || !formats.small.url) {
+        return '@/static/images/no-image.png';
+      }
+      return `${this.baseUrl}${formats.small.url}`;
     },
   },
 

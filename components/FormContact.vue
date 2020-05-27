@@ -84,7 +84,7 @@ export default {
     },
     closePopup(popup) {
       this.$store.commit('popup/togglePopup', popup);
-    }
+    },
   },
 };
 </script>
