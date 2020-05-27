@@ -14,12 +14,12 @@
 <script>
 import Stories from '@/components/Stories';
 import LinkInstagram from '@/components/LinkInstagram';
-import Cover from '../components/Cover';
+import Cover from '@/components/Cover';
 import Statistics from '@/components/Statistics';
 import Video from '@/components/Video';
 import AboutProject from '@/components/AboutProject';
 import YourStory from '@/components/YourStory';
-import Motto from '../components/ui/Motto';
+import Motto from '@/components/ui/Motto';
 export default {
   components: {
     stories: Stories,

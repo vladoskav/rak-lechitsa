@@ -357,7 +357,7 @@
 
 <script>
 export default {
-  async fetch({store, params}) {
+  async fetch({ store, params }) {
     await store.dispatch('texts/fetchText');
     await store.dispatch('video/fetchUrl');
   },

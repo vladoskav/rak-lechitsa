@@ -13,9 +13,7 @@
           <story
             @cardClick="goToStory(story.id)"
             :author="story.author"
-            :image="
-              'https://strapi.kruzhok.io' + story.ImageUrl[0].formats.small.url
-            "
+            :image="defineImage(story.ImageUrl[0].formats)"
             :text="story.title"
           />
         </li>
@@ -33,6 +31,11 @@ import StoriesButton from './ui/StoriesButton';
 import Title from './ui/Title';
 import Container from './Container';
 export default {
+  data() {
+    return {
+      baseUrl: process.env.BASE_URL,
+    };
+  },
   components: {
     story: Story,
     'stories-button': StoriesButton,
@@ -42,6 +45,12 @@ export default {
   methods: {
     goToStory(id) {
       this.$router.push(`/stories/${id}`);
+    },
+    defineImage(formats) {
+      if (!formats.small || !formats.small.url) {
+        return '@/static/images/no-image.png';
+      }
+      return `${this.baseUrl}${formats.small.url}`;
     },
   },
   computed: {

@@ -12,7 +12,7 @@ export const mutations = {
 
 export const actions = {
   fetchUrl(state) {
-    return axios.get(process.env.BASE_URL + 'videos').then(response => {
+    return axios.get(process.env.BASE_URL + '/videos').then(response => {
       return state.commit('setState', {
         name: 'urls',
         value: response.data,

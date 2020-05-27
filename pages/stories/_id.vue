@@ -4,18 +4,8 @@
       <div class="upper-block">
         <div
           class="single-story__photo"
-          v-if="story.ImageUrl[0].formats.hasOwnProperty('large')"
           :style="{
-            backgroundImage: `url('${'https://strapi.kruzhok.io' +
-              story.ImageUrl[0].formats.large.url}')`,
-          }"
-        ></div>
-        <div
-          class="single-story__photo"
-          v-else
-          :style="{
-            backgroundImage: `url('${'https://strapi.kruzhok.io' +
-              story.ImageUrl[0].formats.small.url}')`,
+            backgroundImage: `url('${defineImage(story.ImageUrl[0].formats)}')`,
           }"
         ></div>
         <div class="text-block">
@@ -25,18 +15,10 @@
           <div class="wrapper">
             <div
               class="single-story__photo_mini"
-              v-if="story.ImageUrl[0].formats.hasOwnProperty('large')"
               :style="{
-                backgroundImage: `url('${'https://strapi.kruzhok.io' +
-                  story.ImageUrl[0].formats.large.url}')`,
-              }"
-            ></div>
-            <div
-              class="single-story__photo_mini"
-              v-else
-              :style="{
-                backgroundImage: `url('${'https://strapi.kruzhok.io' +
-                  story.ImageUrl[0].formats.small.url}')`,
+                backgroundImage: `url('${defineImage(
+                  story.ImageUrl[0].formats
+                )})`,
               }"
             ></div>
           </div>
@@ -55,18 +37,11 @@
         >
       </div>
       <ul class="grid">
-        <li
-          v-for="story in stories"
-          v-if="story.ImageUrl[0].formats.hasOwnProperty('small')"
-          :key="story.id"
-          class="grid__item"
-        >
+        <li v-for="story in stories" :key="story.id" class="grid__item">
           <story
             @cardClick="goToStory(story.id)"
             :author="story.author"
-            :image="
-              'https://strapi.kruzhok.io' + story.ImageUrl[0].formats.small.url
-            "
+            :image="defineImage(story.ImageUrl[0].formats)"
             :text="story.title"
           />
         </li>
@@ -83,10 +58,12 @@ import Container from '@/components/Container';
 import Story from '@/components/Story';
 import StoriesButton from '@/components/ui/StoriesButton';
 export default {
+  data() {
+    return {
+      baseUrl: process.env.BASE_URL,
+    };
+  },
   async fetch({ store, route }) {
-    await store.dispatch('texts/fetchText');
-    await store.dispatch('video/fetchUrl');
-    await store.dispatch('stories/fetchStories');
     await store.dispatch('stories/fetchStoryWithId', { id: route.params.id });
   },
   computed: {
@@ -122,6 +99,12 @@ export default {
     },
     showPopup(popup) {
       this.$store.commit('popup/togglePopup', popup);
+    },
+    defineImage(formats) {
+      if (!formats.small || !formats.small.url) {
+        return '@/static/images/no-image.png';
+      }
+      return `${this.baseUrl}${formats.small.url}`;
     },
   },
   components: {

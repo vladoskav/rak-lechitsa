@@ -13,7 +13,7 @@ export const mutations = {
 
 export const actions = {
   fetchStories(state) {
-    return axios.get(process.env.BASE_URL + 'stories').then(res => {
+    return axios.get(process.env.BASE_URL + '/stories').then(res => {
       return state.commit('setState', {
         name: 'stories',
         value: res.data,
@@ -22,7 +22,7 @@ export const actions = {
   },
   fetchStoryWithId(state, payload) {
     return axios
-      .get(process.env.BASE_URL + 'stories' + `/${payload.id}`)
+      .get(process.env.BASE_URL + '/stories' + `/${payload.id}`)
       .then(res => {
         return state.commit('setState', {
           name: 'currentStory',

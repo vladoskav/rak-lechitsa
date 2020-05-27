@@ -46,8 +46,22 @@ export const actions = {
     const { index } = state;
     await commit('saveAnswer', { answer, index });
     await commit('setIndex', { index: index + 1 });
-    if(index === 13) {
-      const firstObj = {1: {key: 'name'}, 2: {key: 'cancerStory'}, 3: {key: 'pleasureActivities'}, 4: {key: 'commonActivities'}, 5: {key: 'hobbies'}, 6: {key: 'habits'}, 7: {key: 'regularActivities'}, 8: {key: 'aloneActivities'}, 9: {key: 'calmDownActivities'}, 10: {key: 'events'}, 11: {key: 'weekends'}, 12: {key: 'phone'}, 13: {key: 'email'}};
+    if (index === 13) {
+      const firstObj = {
+        1: { key: 'name' },
+        2: { key: 'cancerStory' },
+        3: { key: 'pleasureActivities' },
+        4: { key: 'commonActivities' },
+        5: { key: 'hobbies' },
+        6: { key: 'habits' },
+        7: { key: 'regularActivities' },
+        8: { key: 'aloneActivities' },
+        9: { key: 'calmDownActivities' },
+        10: { key: 'events' },
+        11: { key: 'weekends' },
+        12: { key: 'phone' },
+        13: { key: 'email' },
+      };
       const secondObj = state.answers;
       const result = Object.keys(firstObj).reduce((sum, item) => {
         sum[firstObj[item].key] = secondObj[item];
@@ -67,7 +81,7 @@ export const actions = {
     await commit('setIndex', { index: index - 1 });
   },
 
-  async CLOSE_QUESTION( {commit, state}, newIndex) {
+  async CLOSE_QUESTION({ commit, state }, newIndex) {
     await commit('setIndex', { index: newIndex });
     await commit('deleteAnswer');
   },

@@ -1,18 +1,18 @@
 <template>
   <div class="error">
-      <p class="error__code">404</p>
-      <p class="error__text">Страница не найдена.</p>
-      <a class="error__text error__link" href="/">Перейти на главную.</a>
+    <p class="error__code">404</p>
+    <p class="error__text">Страница не найдена.</p>
+    <a class="error__text error__link" href="/">Перейти на главную.</a>
   </div>
 </template>
 
 <script>
 export default {
-  async fetch({store, params}) {
+  async fetch({ store, params }) {
     await store.dispatch('texts/fetchText');
     await store.dispatch('video/fetchUrl');
   },
-}
+};
 </script>
 
 <style scoped>
@@ -40,30 +40,30 @@ export default {
   text-decoration: underline;
 }
 @media screen and (max-width: 1280px) {
-.error {
-  margin: 160px auto;
-}
-.error__text {
-  font-size: 16px;
-  line-height: 20px;
-}
+  .error {
+    margin: 160px auto;
+  }
+  .error__text {
+    font-size: 16px;
+    line-height: 20px;
+  }
 }
 @media screen and (max-width: 768px) {
-.error {
-  margin: 320px auto;
-}
+  .error {
+    margin: 320px auto;
+  }
 }
 @media screen and (max-width: 480px) {
-.error {
-  margin: 225px auto;
-}
-.error__code {
-  font-size: 72px;
-  line-height: 87px;
-}
-.error__text {
-  font-size: 13px;
-  line-height: 16px;
-}
+  .error {
+    margin: 225px auto;
+  }
+  .error__code {
+    font-size: 72px;
+    line-height: 87px;
+  }
+  .error__text {
+    font-size: 13px;
+    line-height: 16px;
+  }
 }
 </style>
