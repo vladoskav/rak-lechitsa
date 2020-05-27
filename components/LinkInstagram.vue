@@ -27,6 +27,12 @@
           :link="image.link"
           :key="image.id"
         />
+        <!-- <insta-element v-for="photo in instagram" :key="instagram.indexOf(photo)"
+          class="grid__element">
+          <a :href="photo.url">
+            <img :src="photo.display_url" />
+          </a>
+        </insta-element> -->
       </div>
     </container>
   </section>
@@ -41,6 +47,12 @@ export default {
     'insta-element': InstaElement,
     'insta-title': Title,
     container: Container,
+  },
+  computed: {
+      instagram () {
+        const { instagram } = this.$store.state;
+        return instagram.photos;
+      }
   },
   data() {
     return {
