@@ -19,21 +19,7 @@
           пропустили вашу историю.
         </p>
       </div>
-      <div class="grid">
-        <insta-element
-          class="grid__element"
-          v-for="image in images"
-          :bgImage="image.url"
-          :link="image.link"
-          :key="image.id"
-        />
-        <!-- <insta-element v-for="photo in instagram" :key="instagram.indexOf(photo)"
-          class="grid__element">
-          <a :href="photo.url">
-            <img :src="photo.display_url" />
-          </a>
-        </insta-element> -->
-      </div>
+      <insta-element/>
     </container>
   </section>
 </template>
@@ -47,67 +33,7 @@ export default {
     'insta-element': InstaElement,
     'insta-title': Title,
     container: Container,
-  },
-  computed: {
-      instagram () {
-        const { instagram } = this.$store.state;
-        return instagram.photos;
-      }
-  },
-  data() {
-    return {
-      images: [
-        {
-          url:
-            'https://images.unsplash.com/photo-1587614387466-0a72ca909e16?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1500&q=80',
-          link: 'https://www.instagram.com/raklechitsa',
-          id: 1,
-        },
-        {
-          url:
-            'https://images.unsplash.com/photo-1587614387466-0a72ca909e16?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1500&q=80',
-          link: 'https://www.instagram.com/raklechitsa',
-          id: 1,
-        },
-        {
-          url:
-            'https://images.unsplash.com/photo-1587614387466-0a72ca909e16?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1500&q=80',
-          link: 'https://www.instagram.com/raklechitsa',
-          id: 1,
-        },
-        {
-          url:
-            'https://images.unsplash.com/photo-1587614387466-0a72ca909e16?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1500&q=80',
-          link: 'https://www.instagram.com/raklechitsa',
-          id: 1,
-        },
-        {
-          url:
-            'https://images.unsplash.com/photo-1587614387466-0a72ca909e16?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1500&q=80',
-          link: 'https://www.instagram.com/raklechitsa',
-          id: 1,
-        },
-        {
-          url:
-            'https://images.unsplash.com/photo-1587614387466-0a72ca909e16?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1500&q=80',
-          link: 'https://www.instagram.com/raklechitsa',
-          id: 1,
-        },
-        {
-          url:
-            'https://images.unsplash.com/photo-1587614387466-0a72ca909e16?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1500&q=80',
-          link: 'https://www.instagram.com/raklechitsa',
-          id: 1,
-        },
-        {
-          url:
-            'https://images.unsplash.com/photo-1587614387466-0a72ca909e16?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1500&q=80',
-          link: 'https://www.instagram.com/raklechitsa',
-          id: 1,
-        },
-      ],
-    };
-  },
+  }
 };
 </script>
 
@@ -120,12 +46,6 @@ export default {
 
 .text-block__title {
   margin-bottom: 32px;
-}
-
-.grid {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  grid-gap: 30px;
 }
 
 .instagram {
@@ -154,10 +74,6 @@ export default {
     padding: 90px 0;
   }
 
-  .grid {
-    grid-gap: 27px;
-  }
-
   .container {
     grid-gap: 80px;
   }
@@ -171,10 +87,6 @@ export default {
 @media screen and (max-width: 1024px) {
   .instagram {
     padding: 80px 0;
-  }
-
-  .grid {
-    grid-gap: 20px;
   }
 
   .text-block__paragraph {
@@ -212,20 +124,11 @@ export default {
     margin: 0 auto 60px;
     max-width: 380px;
   }
-
-  .grid__element {
-    width: 100%;
-  }
 }
 
 @media screen and (max-width: 420px) {
   .instagram {
     padding: 50px 0;
-  }
-
-  .grid {
-    grid-template-columns: repeat(2, 1fr);
-    grid-gap: 10px;
   }
 }
 

@@ -62,9 +62,9 @@ export default {
       return this.$store.getters['statistics/getStatistics'];
     },
   },
-  beforeMount() {
-    this.$store.dispatch('statistics/fetchStatistics');
-  },
+  // beforeMount() {
+  //   this.$store.dispatch('statistics/fetchStatistics');
+  // },
 };
 </script>
 
