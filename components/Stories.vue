@@ -4,12 +4,7 @@
       <slot></slot>
       <st-title class="stories-section__title">{{ title.title }}</st-title>
       <ul class="stories-section__grid">
-        <li
-          v-for="story in stories"
-          v-if="story.ImageUrl[0].formats.hasOwnProperty('small')"
-          :key="story.id"
-          class="grid-item"
-        >
+        <li v-for="story in stories" :key="story.id" class="grid-item">
           <story
             @cardClick="goToStory(story.id)"
             :author="story.author"
