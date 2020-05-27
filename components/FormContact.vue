@@ -14,7 +14,7 @@
         placeholder="Напишите тут"
         required
         class="contact-form__textarea"
-        v-model="answer"
+        v-model="fullName"
       />
     </div>
 
@@ -25,7 +25,7 @@
           placeholder="pochta@example.com"
           required
           class="contact-form__textarea"
-          v-model="answer"
+          v-model="email"
         />
       </div>
       <div class="contact-form__container-column">
@@ -34,7 +34,7 @@
           placeholder="+7 000 000 00 00"
           required
           class="contact-form__textarea"
-          v-model="answer"
+          v-model="phone"
         />
       </div>
     </div>
@@ -47,12 +47,12 @@
         placeholder="Телефон / почта и удобное время"
         required
         class="contact-form__textarea"
-        v-model="answer"
+        v-model="preferred"
       />
     </div>
 
     <div class="contact-form__buttons">
-      <button @click="closePopup('popupContact')" class="contact-form__forward">
+      <button @click="sentData('popupContact')" class="contact-form__forward">
         Отправить
       </button>
       <div class="contact-form__container">
@@ -78,11 +78,21 @@ export default {
     'nxt-input': Input,
     'story-title': Title,
   },
+  data() {
+    return {
+      fullName: '',
+      email: '',
+      phone: '',
+      preferred: '',
+    };
+  },
   methods: {
     prevent(event) {
       event.preventDefault();
     },
-    closePopup(popup) {
+    async sentData(popup) {
+      const arr = [this.fullName, this.email, this.phone, this.preferred];
+      await this.$store.dispatch('contact/sentData', arr);
       this.$store.commit('popup/togglePopup', popup);
     },
   },
