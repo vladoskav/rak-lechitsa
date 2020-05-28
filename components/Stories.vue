@@ -43,7 +43,7 @@ export default {
     },
     defineImage(formats) {
       if (!formats.small || !formats.small.url) {
-        return '@/static/images/no-image.png';
+        return '/images/no-image.png';
       }
       return `${this.baseUrl}${formats.small.url}`;
     },
