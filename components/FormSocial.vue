@@ -1,6 +1,6 @@
 <template>
-  <container>
-    <title-social class="title">Поделитесь</title-social>
+  <container class="share">
+    <title-social class="share__title">Поделитесь</title-social>
     <div class="share__icon">
       <div class="share__icon-contain">
         <a class="share__icon-icon">
@@ -68,7 +68,7 @@ export default {
 </script>
 
 <style scoped>
-.title {
+.share__title {
   text-align: center;
   margin: 20px auto auto auto;
   font-size: 32px;
@@ -91,7 +91,7 @@ export default {
   cursor: pointer;
 }
 @media screen and (max-width: 600px) {
-  .title {
+  .share__title {
     font-size: 18px;
     line-height: 21px;
   }
