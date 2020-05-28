@@ -52,7 +52,7 @@
     </div>
 
     <div class="contact-form__buttons">
-      <button @click="sentData('popupContact')" class="contact-form__forward">
+      <button @click="sentData('popupContact')" class="contact-form__forward" :disabled="isDisabled()">
         Отправить
       </button>
       <div class="contact-form__container">
@@ -89,6 +89,13 @@ export default {
   methods: {
     prevent(event) {
       event.preventDefault();
+    },
+    isDisabled() {
+      if (this.fullName.length === 0 || this.email.length === 0 || this.phone.length === 0 || this.preferred.length === 0) {
+        return true;
+      } else {
+        return false;
+      }
     },
     async sentData(popup) {
       const arr = [this.fullName, this.email, this.phone, this.preferred];
