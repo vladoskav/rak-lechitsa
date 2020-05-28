@@ -3,33 +3,33 @@
     <container class="about-project__container">
       <h2 class="about-project__title">{{ about.hashtag }}</h2>
       <st-title class="about-project__about">{{ about.title }}</st-title>
-      <div class="about__columns">
-        <p class="about__paragraph" v-html="about.text"></p>
+      <div class="about-project__columns">
+        <p class="about-project__paragraph" v-html="about.text"></p>
 
-        <div class="about__texts">
-          <div class="about__tumblers">
+        <div class="about-project__texts">
+          <div class="about-project__tumblers">
             <label
               @click="selectOption(1)"
               :class="{
-                about__tumbler: true,
-                about__tumbler_active: optionSelected === 1,
+                'about-project__tumbler': true,
+                'about-project__tumbler_active': optionSelected === 1,
               }"
               >{{ about.extraTexts[0].title }}</label
             >
             <label
               @click="selectOption(2)"
               :class="{
-                about__tumbler: true,
-                about__tumbler_active: optionSelected === 2,
+                'about-project__tumbler': true,
+                'about-project__tumbler_active': optionSelected === 2,
               }"
               >{{ about.extraTexts[1].title }}</label
             >
           </div>
-          <div class="about__text" v-if="optionSelected === 1">
-            <p class="about__detailed" v-html="about.extraTexts[0].text"></p>
+          <div class="about-project__text" v-if="optionSelected === 1">
+            <p class="about-project__detailed" v-html="about.extraTexts[0].text"></p>
           </div>
-          <div class="about__text" v-if="optionSelected === 2">
-            <p class="about__detailed" v-html="about.extraTexts[1].text"></p>
+          <div class="about-project__text" v-if="optionSelected === 2">
+            <p class="about-project__detailed" v-html="about.extraTexts[1].text"></p>
           </div>
         </div>
       </div>
@@ -91,26 +91,26 @@ export default {
   line-height: 36px;
   color: #fff;
 }
-.about__paragraph {
+.about-project__paragraph {
   max-width: 340px;
   font-size: 18px;
   line-height: 22px;
   font-style: normal;
   font-weight: normal;
 }
-.about__columns {
+.about-project__columns {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
   margin-top: 32px;
 }
-.about__tumblers {
+.about-project__tumblers {
   display: flex;
   flex-direction: column;
   margin-right: 40px;
   text-align: right;
 }
-.about__tumbler {
+.about-project__tumbler {
   margin-bottom: 10px;
   font-size: 18px;
   line-height: 22px;
@@ -118,22 +118,22 @@ export default {
   color: #c9c9c9;
   cursor: pointer;
 }
-.about__tumbler:hover {
+.about-project__tumbler:hover {
   color: #fff;
 }
-.about__tumbler_active {
+.about-project__tumbler_active {
   font-weight: 500;
   color: #fff;
 }
-.about__texts {
+.about-project__texts {
   display: flex;
 }
-.about__text {
+.about-project__text {
   max-width: 640px;
   display: flex;
   flex-direction: column;
 }
-.about__detailed {
+.about-project__detailed {
   min-height: 216px;
   width: 100%;
   font-size: 18px;
@@ -153,10 +153,10 @@ export default {
     font-size: 28px;
     line-height: 32px;
   }
-  .about__detailed {
+  .about-project__detailed {
     min-height: 280px;
   }
-  .about__paragraph {
+  .about-project__paragraph {
     font-size: 16px;
     line-height: 20px;
   }
@@ -175,18 +175,18 @@ export default {
     font-size: 24px;
     line-height: 28px;
   }
-  .about__paragraph {
+  .about-project__paragraph {
     font-size: 13px;
     line-height: 16px;
   }
-  .about__detailed {
+  .about-project__detailed {
     min-height: 410px;
   }
-  .about__tumbler {
+  .about-project__tumbler {
     font-size: 15px;
     line-height: 19px;
   }
-  .about__text {
+  .about-project__text {
     font-size: 15px;
     line-height: 19px;
   }
@@ -204,34 +204,34 @@ export default {
   .about-project__about {
     text-align: center;
   }
-  .about__paragraph {
+  .about-project__paragraph {
     margin: 0;
     max-width: 100%;
   }
-  .about__detailed {
+  .about-project__detailed {
     min-height: 388px;
   }
-  .about__columns {
+  .about-project__columns {
     margin-top: 26px;
     flex-direction: column;
   }
-  .about__texts {
+  .about-project__texts {
     margin-top: 80px;
     display: flex;
     flex-direction: column;
     justify-content: center;
   }
-  .about__text {
+  .about-project__text {
     margin-top: 30px;
     max-width: 380px;
   }
-  .about__tumblers {
+  .about-project__tumblers {
     flex-direction: row;
   }
-  .about__tumbler {
+  .about-project__tumbler {
     margin: 0 30px 0 0;
   }
-  .about__tumbler_active {
+  .about-project__tumbler_active {
     border-bottom: 2px solid #fff;
   }
 }
@@ -247,18 +247,18 @@ export default {
     font-size: 18px;
     line-height: 21px;
   }
-  .about__tumbler {
+  .about-project__tumbler {
     margin: 0 20px 0 0;
     font-size: 13px;
     line-height: 19px;
   }
-  .about__detailed {
+  .about-project__detailed {
     min-height: 324px;
   }
-  .about__texts {
+  .about-project__texts {
     margin-top: 40px;
   }
-  .about__text {
+  .about-project__text {
     font-size: 15px;
     line-height: 16px;
   }

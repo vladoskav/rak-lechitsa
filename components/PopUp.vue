@@ -2,7 +2,7 @@
   <div>
     <overlay @overlayClick="$emit('overlayClick')" />
     <div class="popup">
-      <div class="close" @click="$emit('closeClick')"></div>
+      <div class="popup__close" @click="$emit('closeClick')"></div>
 
       <slot></slot>
     </div>
@@ -51,7 +51,7 @@ export default {
   z-index: 2;
 }
 
-.close {
+.popup__close {
   position: absolute;
   top: 43px;
   right: 43px;
@@ -82,7 +82,7 @@ export default {
     min-height: 221px;
   }
 
-  .close {
+  .popup__close {
     top: 15px;
     right: 15px;
   }
