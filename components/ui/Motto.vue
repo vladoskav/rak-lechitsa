@@ -3,7 +3,7 @@
     <container class="container">
       <p class="motto__text">
         <slot>Надпись и хештег</slot>
-        <span class="motto__hashtag">#этонелечится</span>
+        <span class="motto__hashtag">{{ motto.hashtag }}</span>
       </p>
     </container>
   </section>
@@ -14,6 +14,12 @@ import Container from '../Container';
 export default {
   components: {
     container: Container,
+  },
+  computed: {
+    motto() {
+      const arr = this.$store.getters['texts/getText'];
+      return arr.find(el => el.block === `note-1`);
+    },
   },
 };
 </script>

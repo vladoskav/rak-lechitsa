@@ -2,64 +2,52 @@
   <div class="slider" v-swiper:mySwiper="swiperOptions">
     <div class="swiper-wrapper">
       <div class="swiper-slide" v-for="(video, index) in videoArr" :key="index">
-          <div class="stories__video">
-              <a class="stories__video-play" :href="video.url"></a>
-          </div>
+        <iframe
+          class="swiper-slide__video"
+          :src="video.url"
+          frameborder="0"
+          allowfullscreen
+        >
+        </iframe>
       </div>
     </div>
   </div>
 </template>
 
 <script>
-  export default {
-    props: ['videoArr'],
-    data() {
-      return {
-        swiperOptions: {
-          navigation: {
-            nextEl: '.swiper-button-next',
-            prevEl: '.swiper-button-prev',
-          },
-          observer: true,  
-          observeParents: true,
-        }
-      }
-    }
-        
-  }
+export default {
+  props: ['videoArr'],
+  data() {
+    return {
+      swiperOptions: {
+        navigation: {
+          nextEl: '.swiper-button-next',
+          prevEl: '.swiper-button-prev',
+        },
+        observer: true,
+        observeParents: true,
+      },
+    };
+  },
+};
 </script>
 
 <style scoped>
 .slider {
-  max-width: 867px;
+  width: 867px;
   height: 450px;
 }
-.stories__video {
+.swiper-slide__video {
   margin: 0;
   display: flex;
-  max-width: 100%;
+  width: 100%;
   height: 100%;
   background-color: #ededed;
-}
-.stories__video-play {
-  height: 96px;
-  width: 96px;
-  margin: auto;
-  cursor: pointer;
-  background-image: url('/images/play.svg');
-  background-size: cover;
-}
-.stories__video-play:hover {
-  background-image: url('/images/playHover.svg');
 }
 @media screen and (max-width: 1320px) {
   .slider {
     max-width: 773px;
     height: 400px;
-  }
-  .stories__video-play {
-    width: 76px;
-    height: 76px;
   }
 }
 @media screen and (max-width: 1180px) {
@@ -67,13 +55,9 @@
     max-width: 606px;
     height: 314px;
   }
-  .stories__video-play {
-    width: 76px;
-    height: 76px;
-  }
 }
 @media screen and (max-width: 720px) {
-.slider {
+  .slider {
     width: 450px;
     height: 200px;
   }
@@ -82,10 +66,6 @@
   .slider {
     width: 290px;
     height: 150px;
-  }
-  .stories__video-play {
-    width: 38px;
-    height: 38px;
   }
 }
 </style>

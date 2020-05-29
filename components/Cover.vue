@@ -1,6 +1,6 @@
 <template>
   <section ref="scroll" class="cover">
-    <h1 class="cover__title">#РАКЛЕЧИТСЯ</h1>
+    <h1 class="cover__title">{{ cover.hashtag }}</h1>
     <arrow-down @arrowClick="scrollDown" class="cover__arrow" />
   </section>
 </template>
@@ -17,6 +17,12 @@ export default {
         block: 'start',
         behavior: 'smooth',
       });
+    },
+  },
+  computed: {
+    cover() {
+      const arr = this.$store.getters['texts/getText'];
+      return arr.find(el => el.block === 'cover');
     },
   },
 };

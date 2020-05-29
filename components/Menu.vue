@@ -2,7 +2,7 @@
   <div class="menu">
     <nuxt-link
       v-for="menuItem in menuItems"
-      :key="menuItem.id"
+      :key="`${menuItem.id}header`"
       v-show="type === 'link'"
       :class="{
         menu__link: true,
@@ -15,7 +15,7 @@
 
     <nuxt-link
       v-for="menuItem in menuItems"
-      :key="menuItem.id"
+      :key="`${menuItem.id}footer`"
       v-show="type === 'footer'"
       class="menu__link menu__link_footer"
       :to="menuItem.href"
@@ -32,7 +32,7 @@ export default {
     title: String,
     href: String,
     type: String,
-    },
+  },
   data() {
     return {
       menuItems: [

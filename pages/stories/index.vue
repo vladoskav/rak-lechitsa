@@ -11,12 +11,13 @@
       </form>
       <ul class="grid">
         <li v-for="story in allStories" :key="story.id" class="grid__item">
-          <story
-            @cardClick="goToStory(story.id)"
-            :author="story.author"
-            :image="story.url"
-            :text="story.text"
-          />
+          <nuxt-link class="grid__link" :to="`/stories/${story.id}`">
+            <story
+              @cardClick="goToStory(story.id)"
+              :author="story.author"
+              :image="defineImage(story.ImageUrl[0].formats)"
+              :text="story.title"
+          /></nuxt-link>
         </li>
       </ul>
       <pagination
@@ -48,6 +49,7 @@ export default {
       appliedStoriesName: '',
       startIndex: 0,
       itemsPerPage: 16,
+      baseUrl: process.env.BASE_URL,
     };
   },
   methods: {
@@ -56,6 +58,12 @@ export default {
     },
     goToStory(id) {
       this.$router.push(`/stories/${id}`);
+    },
+    defineImage(formats) {
+      if (!formats.small || !formats.small.url) {
+        return '/images/no-image.png';
+      }
+      return `${this.baseUrl}${formats.small.url}`;
     },
   },
 
@@ -93,6 +101,9 @@ export default {
 </script>
 
 <style scoped>
+.grid__link {
+  text-decoration: none;
+}
 .search__mobile-button {
   width: 46px;
   height: 46px;
@@ -149,6 +160,15 @@ export default {
   margin-right: 20px;
   margin-left: 0;
   border: 1px solid #e8e8e8;
+}
+.search__input {
+  outline: none;
+}
+.search__button:hover {
+  background-color: rgb(97, 58, 147, 0.9);
+}
+.search__button:focus {
+  outline: none;
 }
 @media screen and (max-width: 1280px) {
   .stories__title {

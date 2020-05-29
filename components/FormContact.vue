@@ -14,7 +14,7 @@
         placeholder="Напишите тут"
         required
         class="contact-form__textarea"
-        v-model="answer"
+        v-model="fullName"
       />
     </div>
 
@@ -25,7 +25,7 @@
           placeholder="pochta@example.com"
           required
           class="contact-form__textarea"
-          v-model="answer"
+          v-model="email"
         />
       </div>
       <div class="contact-form__container-column">
@@ -34,7 +34,7 @@
           placeholder="+7 000 000 00 00"
           required
           class="contact-form__textarea"
-          v-model="answer"
+          v-model="phone"
         />
       </div>
     </div>
@@ -47,12 +47,16 @@
         placeholder="Телефон / почта и удобное время"
         required
         class="contact-form__textarea"
-        v-model="answer"
+        v-model="preferred"
       />
     </div>
 
     <div class="contact-form__buttons">
-      <button @click="nextQuestion" class="contact-form__forward">
+      <button
+        @click="sentData('popupContact')"
+        class="contact-form__forward"
+        :disabled="isDisabled()"
+      >
         Отправить
       </button>
       <div class="contact-form__container">
@@ -78,9 +82,39 @@ export default {
     'nxt-input': Input,
     'story-title': Title,
   },
+  data() {
+    return {
+      fullName: '',
+      email: '',
+      phone: '',
+      preferred: '',
+    };
+  },
   methods: {
     prevent(event) {
       event.preventDefault();
+    },
+    isDisabled() {
+      if (
+        this.fullName.length === 0 ||
+        this.email.length === 0 ||
+        this.phone.length === 0 ||
+        this.preferred.length === 0
+      ) {
+        return true;
+      } else {
+        return false;
+      }
+    },
+    async sentData(popup) {
+      const arr = {
+        fullName: this.fullName,
+        email: this.email,
+        phone: this.phone,
+        preferred: this.preferred,
+      };
+      await this.$store.dispatch('contact/sentData', arr);
+      this.$store.commit('popup/togglePopup', popup);
     },
   },
 };
@@ -125,7 +159,7 @@ export default {
 .contact-form__question {
   font-family: 'Inter';
   font-style: normal;
-  font-weight: 500;
+  font-weight: bold;
   font-size: 1.125rem;
   line-height: 1.5rem;
 
@@ -226,8 +260,8 @@ export default {
 }
 
 .contact-form__additional {
-  font-size: 0.875rem;
-  line-height: 1.0625rem;
+  font-size: 14px;
+  line-height: 17px;
 }
 
 @media screen and (max-width: 768px) {
@@ -258,8 +292,8 @@ export default {
   }
 
   .contact-form__additional {
-    font-size: 0.6875rem;
-    line-height: 0.8125rem;
+    font-size: 11px;
+    line-height: 13px;
   }
 }
 

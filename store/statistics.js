@@ -1,7 +1,7 @@
 import axios from 'axios';
 
 export const state = () => ({
-  texts: [],
+  statistics: [],
 });
 
 export const mutations = {
@@ -11,10 +11,10 @@ export const mutations = {
 };
 
 export const actions = {
-  fetchText(state) {
-    return axios.get(process.env.BASE_URL + '/blocks').then(response => {
+  fetchStatistics(state) {
+    return axios.get(process.env.BASE_URL + '/statistics').then(response => {
       return state.commit('setState', {
-        name: 'texts',
+        name: 'statistics',
         value: response.data,
       });
     });
@@ -22,7 +22,7 @@ export const actions = {
 };
 
 export const getters = {
-  getText(state) {
-    return state.texts;
+  getStatistics(state) {
+    return state.statistics;
   },
 };

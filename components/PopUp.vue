@@ -2,7 +2,7 @@
   <div>
     <overlay @overlayClick="$emit('overlayClick')" />
     <div class="popup">
-      <div class="close" @click="$emit('closeClick')"></div>
+      <div class="popup__close" @click="$emit('closeClick')"></div>
 
       <slot></slot>
     </div>
@@ -14,22 +14,6 @@ import Overlay from '@/components/ui/Overlay';
 export default {
   components: {
     overlay: Overlay,
-  },
-  methods: {
-    closePopup(elem) {
-      this.$store.commit(`popup/${elem}`);
-    },
-  },
-  computed: {
-    popupShown() {
-      return this.$store.getters['popup/getPopupShown'];
-    },
-    popupSocial() {
-      return this.$store.getters['popup/getPopupSocial'];
-    },
-    popupContact() {
-      return this.$store.getters['popup/getPopupContact'];
-    },
   },
 };
 </script>
@@ -51,7 +35,7 @@ export default {
   z-index: 2;
 }
 
-.close {
+.popup__close {
   position: absolute;
   top: 43px;
   right: 43px;
@@ -61,6 +45,7 @@ export default {
   background-size: contain;
   background-repeat: no-repeat;
   cursor: pointer;
+  z-index: 2;
 }
 
 @media screen and (max-width: 1280px) {
@@ -82,7 +67,7 @@ export default {
     min-height: 221px;
   }
 
-  .close {
+  .popup__close {
     top: 15px;
     right: 15px;
   }

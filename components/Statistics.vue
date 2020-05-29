@@ -5,56 +5,37 @@
         >Статистика по онкозаболеваниям</st-title
       >
       <div class="statistics__container">
-        <st-box class="statistics__box">
-          <st-text class="statistics__text"
-            >Каждый 3-й в стране уверен, что рак неизлечим. А это примерно 48
-            918 000 человек.</st-text
-          >
-          <st-progress-bar :value="1" :maxValue="3" />
-          <st-counter class="statistics__counter">1 из 3</st-counter>
-          <st-data-source class="statistics__data-source"
-            >Левада-Центр 2018</st-data-source
-          >
-        </st-box>
-        <st-box class="statistics__box">
-          <st-text class="statistics__text"
-            >2,6% Россиян имеют онкозаболевания.</st-text
-          >
-          <st-progress-bar :value="10" :maxValue="100" />
-          <st-counter class="statistics__counter">3 700 000</st-counter>
-          <st-data-source class="statistics__data-source"
-            >Росстат 2018</st-data-source
-          >
-        </st-box>
-        <st-box class="statistics__box statistics__box-scroll">
-          <st-text class="statistics__text"
-            >На 28% выросла доля выявления заболеваний на ранней стадии за 10
-            лет.</st-text
-          >
+        <st-box
+          v-for="statistic in statistics"
+          :key="statistic.id"
+          class="statistics__box"
+        >
+          <st-text class="statistics__text">{{
+            statistic.description
+          }}</st-text>
+          <st-progress-bar
+            v-if="statistic.oldValue === 0"
+            :currentValue="statistic.currentValue"
+            :maxValue="statistic.maxValue"
+          />
           <st-double-progress-bar
-            :oldValue="10"
-            :newValue="80"
+            v-else-if="statistic.id === 3"
+            :oldValue="60"
+            :currentValue="76.8"
             :maxValue="100"
           />
-          <st-counter class="statistics__counter">↑28%</st-counter>
-          <st-data-source class="statistics__data-source"
-            >МНИОИ Герцена 2018</st-data-source
-          >
-        </st-box>
-        <st-box class="statistics__box">
-          <st-text class="statistics__text"
-            >На 25% снизилась смертность в течение первого года после постановки
-            диагноза.</st-text
-          >
           <st-double-progress-bar
-            :oldValue="20"
-            :newValue="70"
+            v-else
+            :oldValue="76.8"
+            :currentValue="60"
             :maxValue="100"
           />
-          <st-counter class="statistics__counter">↓25%</st-counter>
-          <st-data-source class="statistics__data-source"
-            >МНИОИ Герцена 2018</st-data-source
-          >
+          <st-counter class="statistics__counter">{{
+            statistic.summary
+          }}</st-counter>
+          <st-data-source class="statistics__data-source">{{
+            statistic.source
+          }}</st-data-source>
         </st-box>
       </div>
     </container>
@@ -70,6 +51,7 @@ import Counter from '@/components/ui/Counter';
 import DataSource from '@/components/ui/DataSource';
 import DoubleProgressBar from '@/components/ui/DoubleProgressBar';
 import Container from './Container';
+
 export default {
   components: {
     'st-title': Title,
@@ -80,6 +62,16 @@ export default {
     'st-data-source': DataSource,
     'st-double-progress-bar': DoubleProgressBar,
     container: Container,
+  },
+  props: {
+    currentValue: Number,
+    maxValue: Number,
+    oldValue: Number,
+  },
+  computed: {
+    statistics() {
+      return this.$store.getters['statistics/getStatistics'];
+    },
   },
 };
 </script>

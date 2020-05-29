@@ -41,7 +41,7 @@
       <div class="footer__copyright">
         <div class="footer__date-contain">
           <p class="footer__date-project" v-html="footer.text"></p>
-          <p class="footer__date">{{year}}</p>
+          <p class="footer__date">{{ year }}</p>
         </div>
         <p class="footer__author">
           Сделано студентами
@@ -65,12 +65,12 @@ export default {
   },
   computed: {
     year() {
-      return this.date.getFullYear()
+      return this.date.getFullYear();
     },
     footer() {
       const arr = this.$store.getters['texts/getText'];
       return arr.find(el => el.block === 'footer');
-    }
+    },
   },
   components: {
     container: Container,
@@ -165,7 +165,7 @@ export default {
 .footer__date-contain {
   display: flex;
   flex-direction: row;
-  justify-content: space-between;
+  justify-content: flex-start;
 }
 .footer__date-project {
   font-size: 18px;
@@ -251,7 +251,7 @@ export default {
     line-height: 15px;
   }
   .footer__contain {
-    margin: 0;
+    margin: 0 auto;
     max-width: 290px;
   }
   .footer__appreciation {
@@ -278,7 +278,7 @@ export default {
     font-size: 13px;
     line-height: 18px;
   }
-  .footer__project {
+  .footer__date-project {
     font-size: 13px;
     line-height: 18px;
   }

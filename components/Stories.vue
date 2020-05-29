@@ -2,17 +2,16 @@
   <section class="stories-section">
     <container class="container">
       <slot></slot>
-      <st-title class="stories-section__title"
-        >Истории неизлечимых привычек</st-title
-      >
+      <st-title class="stories-section__title">{{ title.title }}</st-title>
       <ul class="stories-section__grid">
         <li v-for="story in stories" :key="story.id" class="grid-item">
-          <story
-            @cardClick="goToStory(story.id)"
-            :author="story.author"
-            :image="story.url"
-            :text="story.text"
-          />
+          <nuxt-link class="stories-section__link" :to="`/stories/${story.id}`">
+            <story
+              :author="story.author"
+              :image="defineImage(story.ImageUrl[0].formats)"
+              :text="story.title"
+            />
+          </nuxt-link>
         </li>
       </ul>
       <stories-button>
@@ -28,6 +27,11 @@ import StoriesButton from './ui/StoriesButton';
 import Title from './ui/Title';
 import Container from './Container';
 export default {
+  data() {
+    return {
+      baseUrl: process.env.BASE_URL,
+    };
+  },
   components: {
     story: Story,
     'stories-button': StoriesButton,
@@ -35,11 +39,19 @@ export default {
     container: Container,
   },
   methods: {
-    goToStory(id) {
-      this.$router.push(`/stories/${id}`);
+    defineImage(formats) {
+      if (!formats.small || !formats.small.url) {
+        return '/images/no-image.png';
+      }
+      return `${this.baseUrl}${formats.small.url}`;
     },
   },
   computed: {
+    title() {
+      const arr = this.$store.getters['texts/getText'];
+      return arr.find(el => el.block === `stories`);
+    },
+
     stories() {
       if (process.browser) {
         if (window.innerWidth <= 768) {
@@ -60,6 +72,9 @@ export default {
 </script>
 
 <style scoped>
+.stories-section__link {
+  text-decoration: none;
+}
 .stories-section__grid {
   list-style-type: none;
   padding: 0;

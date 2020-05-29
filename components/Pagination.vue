@@ -1,5 +1,5 @@
 <template>
-  <div class="pagination">
+  <div v-if="ifSmall" class="pagination">
     <p
       :class="['pagination__first', { pagination__first_active: isFirst }]"
       @click="setActive((index = 1))"
@@ -13,6 +13,48 @@
     >
       <arrow />
     </button>
+
+    <div
+      v-for="index in pagesCountMini"
+      :key="index"
+      @click="setActive(index)"
+      :class="[
+        'pagination__item',
+        { pagination__item_active: index === active },
+      ]"
+    >
+      {{ index }}
+    </div>
+
+    <button
+      class="pagination__button pagination__button_right"
+      @click="setActive(itemForward)"
+      :disabled="isLast"
+    >
+      <arrow class="pagination__arrow" />
+    </button>
+    <p
+      :class="['pagination__last', { pagination__last_active: isLast }]"
+      @click="setActive((index = pagesCount))"
+    >
+      Последняя
+    </p>
+  </div>
+  <div v-else class="pagination">
+    <p
+      :class="['pagination__first', { pagination__first_active: isFirst }]"
+      @click="setActive((index = 1))"
+    >
+      Первая
+    </p>
+    <button
+      class="pagination__button pagination__button_left"
+      @click="setActive(itemBack)"
+      :disabled="isFirst"
+    >
+      <arrow />
+    </button>
+
     <div
       v-for="index in pagesCount"
       :key="index"
@@ -24,6 +66,7 @@
     >
       {{ index }}
     </div>
+
     <button
       class="pagination__button pagination__button_right"
       @click="setActive(itemForward)"
@@ -59,6 +102,8 @@ export default {
   data() {
     return {
       active: 1,
+      activeSmall: 2,
+      ifSmall: false,
     };
   },
   computed: {
@@ -70,6 +115,9 @@ export default {
     },
     pagesCount() {
       return Math.ceil(this.totalItems / this.itemsPerPage);
+    },
+    pagesCountMini() {
+      return Math.ceil(this.totalItems / this.itemsPerPage / 2);
     },
     isLast() {
       return this.active === this.pagesCount;
@@ -83,6 +131,15 @@ export default {
       this.active = index;
       this.$emit('onPageChanged', index);
     },
+  },
+  mounted() {
+    if (process.browser) {
+      if (window.innerWidth <= 420) {
+        this.ifSmall = true;
+      } else {
+        return this.ifSmall;
+      }
+    }
   },
 };
 </script>
