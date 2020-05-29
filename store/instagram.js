@@ -12,7 +12,7 @@ export const mutations = {
 
 export const actions = {
   async GET_PHOTOS ({ commit }) {
-    const data = await this.$axios.$get('https://www.instagram.com/raklechitsa/?__a=1')
+    const data = await this.$axios.$get(process.env.INST_URL)
     const formatData = getPosts(data);
     commit('addPhotos', formatData)
   }
