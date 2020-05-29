@@ -19,10 +19,16 @@
             :maxValue="statistic.maxValue"
           />
           <st-double-progress-bar
+            v-else-if="statistic.id === 3"
+            :oldValue="60"
+            :currentValue="76.8"
+            :maxValue="100"
+          />
+          <st-double-progress-bar
             v-else
-            :oldValue="statistic.oldValue"
-            :currentValue="statistic.currentValue"
-            :maxValue="statistic.maxValue"
+            :oldValue="76.8"
+            :currentValue="60"
+            :maxValue="100"
           />
           <st-counter class="statistics__counter">{{
             statistic.summary
@@ -57,14 +63,16 @@ export default {
     'st-double-progress-bar': DoubleProgressBar,
     container: Container,
   },
+  props: {
+    currentValue: Number,
+    maxValue: Number,
+    oldValue: Number,
+  },
   computed: {
     statistics() {
       return this.$store.getters['statistics/getStatistics'];
     },
   },
-  // beforeMount() {
-  //   this.$store.dispatch('statistics/fetchStatistics');
-  // },
 };
 </script>
 
