@@ -14,11 +14,11 @@
           </h2>
           <div class="wrapper">
             <div
-              class="single-story__photo_mini"
+              class="single-story__mini-photo"
               :style="{
                 backgroundImage: `url('${defineImage(
                   story.ImageUrl[0].formats
-                )})`,
+                )}')`,
               }"
             ></div>
           </div>
@@ -38,12 +38,13 @@
       </div>
       <ul class="grid">
         <li v-for="story in stories" :key="story.id" class="grid__item">
-          <story
-            @cardClick="goToStory(story.id)"
-            :author="story.author"
-            :image="defineImage(story.ImageUrl[0].formats)"
-            :text="story.title"
-          />
+          <nuxt-link class="grid__link" :to="`/stories/${story.id}`">
+            <story
+              :author="story.author"
+              :image="defineImage(story.ImageUrl[0].formats)"
+              :text="story.title"
+            />
+          </nuxt-link>
         </li>
       </ul>
       <stories-button>
@@ -81,8 +82,12 @@ export default {
       }
     },
     getDate() {
-      const date = new Date(this.story.date);
-      return date.toLocaleDateString();
+      let date = new Date(this.story.date);
+      return date.toLocaleDateString('ru-Latn', {
+        month: 'long',
+        year: 'numeric',
+        day: 'numeric',
+      });
     },
     story() {
       return this.$store.getters['stories/getStoryWithId'];
@@ -116,6 +121,9 @@ export default {
 </script>
 
 <style scoped>
+.grid__link {
+  text-decoration: none;
+}
 .grid {
   list-style-type: none;
   padding: 0;
@@ -288,7 +296,7 @@ export default {
     width: 100%;
     padding: 60px 110px;
   }
-  .single-story__photo_mini {
+  .single-story__mini-photo {
     width: 100%;
     padding-bottom: 100%;
     background-size: cover;

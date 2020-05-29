@@ -26,10 +26,16 @@
             >
           </div>
           <div class="about-project__text" v-if="optionSelected === 1">
-            <p class="about-project__detailed" v-html="about.extraTexts[0].text"></p>
+            <p
+              class="about-project__detailed"
+              v-html="about.extraTexts[0].text"
+            ></p>
           </div>
           <div class="about-project__text" v-if="optionSelected === 2">
-            <p class="about-project__detailed" v-html="about.extraTexts[1].text"></p>
+            <p
+              class="about-project__detailed"
+              v-html="about.extraTexts[1].text"
+            ></p>
           </div>
         </div>
       </div>
