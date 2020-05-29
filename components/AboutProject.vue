@@ -180,7 +180,9 @@ export default {
     line-height: 16px;
   }
   .about-project__detailed {
-    min-height: 410px;
+    min-height: 295px;
+    font-size: 15px;
+    line-height: 19px;
   }
   .about-project__tumbler {
     font-size: 15px;
@@ -209,7 +211,7 @@ export default {
     max-width: 100%;
   }
   .about-project__detailed {
-    min-height: 388px;
+    min-height: 277px;
   }
   .about-project__columns {
     margin-top: 26px;
@@ -253,7 +255,9 @@ export default {
     line-height: 19px;
   }
   .about-project__detailed {
-    min-height: 324px;
+    min-height: 368px;
+    font-size: 15px;
+    line-height: 19px;
   }
   .about-project__texts {
     margin-top: 40px;
