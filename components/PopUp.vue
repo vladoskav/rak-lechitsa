@@ -15,22 +15,6 @@ export default {
   components: {
     overlay: Overlay,
   },
-  methods: {
-    closePopup(elem) {
-      this.$store.commit(`popup/${elem}`);
-    },
-  },
-  computed: {
-    popupShown() {
-      return this.$store.getters['popup/getPopupShown'];
-    },
-    popupSocial() {
-      return this.$store.getters['popup/getPopupSocial'];
-    },
-    popupContact() {
-      return this.$store.getters['popup/getPopupContact'];
-    },
-  },
 };
 </script>
 
@@ -61,6 +45,7 @@ export default {
   background-size: contain;
   background-repeat: no-repeat;
   cursor: pointer;
+  z-index: 2;
 }
 
 @media screen and (max-width: 1280px) {
