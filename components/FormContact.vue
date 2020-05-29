@@ -98,7 +98,7 @@ export default {
       }
     },
     async sentData(popup) {
-      const arr = [this.fullName, this.email, this.phone, this.preferred];
+      const arr = {'fullName': this.fullName, 'email': this.email, 'phone': this.phone, 'preferred': this.preferred};
       await this.$store.dispatch('contact/sentData', arr);
       this.$store.commit('popup/togglePopup', popup);
     },
@@ -246,8 +246,8 @@ export default {
 }
 
 .contact-form__additional {
-  font-size: 0.875rem;
-  line-height: 1.0625rem;
+  font-size: 14px;
+  line-height: 17px;
 }
 
 @media screen and (max-width: 768px) {
@@ -278,8 +278,8 @@ export default {
   }
 
   .contact-form__additional {
-    font-size: 0.6875rem;
-    line-height: 0.8125rem;
+    font-size: 11px;
+    line-height: 13px;
   }
 }
 

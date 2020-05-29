@@ -20,34 +20,35 @@
       v-model="answer"
     />
     <div class="story-form__buttons">
-      <button
-        v-if="!formArr.last"
-        @click="prevQuestion"
-        class="story-form__back"
-      >
-        Назад
-      </button>
-      <nxt-button
-        v-if="!formArr.last"
-        @darkClick="nextQuestion"
-        class="story-form__forward"
-        v-bind:isDisabled="isDisabled()"
-      >
-        {{ formArr.btn }}
-      </nxt-button>
-      <button
-        v-if="formArr.last"
-        @click="closeQuestion"
-        class="story-form__forward story-form__close"
-      >
-        Закрыть
-      </button>
-      <span v-if="formArr.policy" class="story-form__policy"
-        >{{ formArr.policy }}
-        <a target="_blanc" href="/policy" class="story-form__additional_link"
-          >обработку персональных данных</a
+      <div class="story-form__move">
+        <button
+          v-if="!formArr.last"
+          @click="prevQuestion"
+          class="story-form__back"
         >
-      </span>
+          Назад
+        </button>
+        <nxt-button
+          v-if="!formArr.last"
+          @darkClick="nextQuestion"
+          class="story-form__forward"
+          v-bind:isDisabled="isDisabled()"
+        >
+          {{ formArr.btn }}
+        </nxt-button>
+        <button
+          v-if="formArr.last"
+          @click="closeQuestion"
+          class="story-form__forward story-form__close"
+        >
+          Закрыть
+        </button>
+      </div>
+
+      <div class="story-form__policy" v-if="formArr.policy">
+        <span>{{ formArr.policy }}</span>
+        <a target="_blanc" href="/policy" class="story-form__additional_link">обработку персональных данных</a>
+      </div>
     </div>
   </form>
 </template>
@@ -118,6 +119,8 @@ export default {
 .story-form {
   display: flex;
   flex-direction: column;
+  height: 600px;
+  position: relative;
 }
 
 .story-form__question {
@@ -138,7 +141,9 @@ export default {
 }
 
 .story-form__policy {
-  margin-left: 30px;
+  margin: auto 0;
+  font-size: 14px;
+  line-height: 17px;
 }
 
 .story-form__step {
@@ -158,14 +163,15 @@ export default {
 .story-form__buttons {
   width: 100%;
   max-height: 128px;
-  position: relative;
-  display: flex;
-  flex-direction: row;
-  justify-self: flex-end;
-  margin: 200px auto 0 0;
+  position: absolute;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(40px, 340px));
+  bottom: 0;
+  left: 0;
 }
 
 .story-form__back {
+  max-width: 48px;
   border: none;
   outline: none;
   background-color: #fff;
@@ -175,11 +181,11 @@ export default {
 }
 
 .story-form__forward {
-  margin: auto 0 auto 30px;
+  margin: auto 30px auto 30px;
   background: #613a93;
   border: none;
   outline: none;
-  min-width: 226px;
+  width: 226px;
   height: 56px;
   color: #fff;
   cursor: pointer;
@@ -196,8 +202,16 @@ export default {
 .story-form__close {
   position: absolute;
   margin: 0;
-  left: calc((100% - 206px) / 2);
+  left: calc((100% - 216px) / 2);
   bottom: 0;
+}
+@media screen and (max-width: 1280px) {
+.story-form {
+  height: 520px;
+}
+.story-form__question {
+  margin: 40px 40px 100px 0;
+}
 }
 
 @media screen and (max-width: 600px) {
@@ -207,12 +221,13 @@ export default {
   }
   .story-form__back {
     margin: auto 15px auto 0;
+    max-width: 39px;
   }
 
   .story-form__forward {
     margin: auto 0 auto 15px;
     padding: 0;
-    min-width: 206px;
+    width: 206px;
     height: 40px;
   }
 }
