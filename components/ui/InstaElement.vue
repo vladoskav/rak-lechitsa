@@ -1,11 +1,11 @@
 <template>
   <ul class="grid">
     <li
-      v-for="photo in instagram"
+      v-for="photo in instagram.slice(0, 8)"
       :key="instagram.indexOf(photo)"
       class="grid__link"
     >
-      <a :href="photo.url">
+      <a :href="photo.url" target="_blank">
         <img :src="photo.display_url" class="grid__photo" />
       </a>
     </li>

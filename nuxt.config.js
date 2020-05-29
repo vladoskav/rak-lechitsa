@@ -49,6 +49,7 @@ export default {
   axios: {},
   env: {
     BASE_URL: 'https://strapi.kruzhok.io',
+    INST_URL: 'https://www.instagram.com/raklechitsa/?__a=1',
   },
   router: {
     middleware: 'allData',
