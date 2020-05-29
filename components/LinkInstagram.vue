@@ -19,7 +19,7 @@
           пропустили вашу историю.
         </p>
       </div>
-      <insta-element/>
+      <insta-element />
     </container>
   </section>
 </template>
@@ -33,7 +33,7 @@ export default {
     'insta-element': InstaElement,
     'insta-title': Title,
     container: Container,
-  }
+  },
 };
 </script>
 

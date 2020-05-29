@@ -52,7 +52,11 @@
     </div>
 
     <div class="contact-form__buttons">
-      <button @click="sentData('popupContact')" class="contact-form__forward" :disabled="isDisabled()">
+      <button
+        @click="sentData('popupContact')"
+        class="contact-form__forward"
+        :disabled="isDisabled()"
+      >
         Отправить
       </button>
       <div class="contact-form__container">
@@ -91,14 +95,24 @@ export default {
       event.preventDefault();
     },
     isDisabled() {
-      if (this.fullName.length === 0 || this.email.length === 0 || this.phone.length === 0 || this.preferred.length === 0) {
+      if (
+        this.fullName.length === 0 ||
+        this.email.length === 0 ||
+        this.phone.length === 0 ||
+        this.preferred.length === 0
+      ) {
         return true;
       } else {
         return false;
       }
     },
     async sentData(popup) {
-      const arr = {'fullName': this.fullName, 'email': this.email, 'phone': this.phone, 'preferred': this.preferred};
+      const arr = {
+        fullName: this.fullName,
+        email: this.email,
+        phone: this.phone,
+        preferred: this.preferred,
+      };
       await this.$store.dispatch('contact/sentData', arr);
       this.$store.commit('popup/togglePopup', popup);
     },

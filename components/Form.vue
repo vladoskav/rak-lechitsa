@@ -47,7 +47,9 @@
 
       <div class="story-form__policy" v-if="formArr.policy">
         <span>{{ formArr.policy }}</span>
-        <a target="_blanc" href="/policy" class="story-form__additional_link">обработку персональных данных</a>
+        <a target="_blanc" href="/policy" class="story-form__additional_link"
+          >обработку персональных данных</a
+        >
       </div>
     </div>
   </form>
@@ -206,12 +208,12 @@ export default {
   bottom: 0;
 }
 @media screen and (max-width: 1280px) {
-.story-form {
-  height: 520px;
-}
-.story-form__question {
-  margin: 40px 40px 100px 0;
-}
+  .story-form {
+    height: 520px;
+  }
+  .story-form__question {
+    margin: 40px 40px 100px 0;
+  }
 }
 
 @media screen and (max-width: 600px) {

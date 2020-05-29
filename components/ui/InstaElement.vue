@@ -1,8 +1,12 @@
 <template>
   <ul class="grid">
-    <li v-for="photo in instagram" :key="instagram.indexOf(photo)" class="grid__link">
-      <a :href='photo.url'>
-        <img :src='photo.display_url' class="grid__photo"/>
+    <li
+      v-for="photo in instagram"
+      :key="instagram.indexOf(photo)"
+      class="grid__link"
+    >
+      <a :href="photo.url">
+        <img :src="photo.display_url" class="grid__photo" />
       </a>
     </li>
   </ul>
@@ -11,10 +15,10 @@
 <script>
 export default {
   computed: {
-    instagram () {
-      const { instagram } = this.$store.state
-      return instagram.instagram
-    }
+    instagram() {
+      const { instagram } = this.$store.state;
+      return instagram.instagram;
+    },
   },
 };
 </script>
@@ -73,5 +77,4 @@ export default {
     max-height: 140px;
   }
 }
-
 </style>

@@ -11,12 +11,13 @@
       </form>
       <ul class="grid">
         <li v-for="story in allStories" :key="story.id" class="grid__item">
-          <story
-            @cardClick="goToStory(story.id)"
-            :author="story.author"
-            :image="defineImage(story.ImageUrl[0].formats)"
-            :text="story.title"
-          />
+          <nuxt-link class="grid__link" :to="`/stories/${story.id}`">
+            <story
+              @cardClick="goToStory(story.id)"
+              :author="story.author"
+              :image="defineImage(story.ImageUrl[0].formats)"
+              :text="story.title"
+          /></nuxt-link>
         </li>
       </ul>
       <pagination
@@ -100,6 +101,9 @@ export default {
 </script>
 
 <style scoped>
+.grid__link {
+  text-decoration: none;
+}
 .search__mobile-button {
   width: 46px;
   height: 46px;

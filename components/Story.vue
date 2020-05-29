@@ -1,5 +1,5 @@
 <template>
-  <div @click="$emit('cardClick')" class="story">
+  <div class="story">
     <div
       :style="{ backgroundImage: `url('${image}')` }"
       :disabled="disabled"
@@ -27,11 +27,12 @@ export default {
   flex-direction: column;
   width: 100%;
   text-decoration: none;
+  transition: transform 0.3s, box-shadow 0.8s;
 }
 .story:hover {
-  transition: box-shadow 0.8s;
+  transition: box-shadow 0.8s, transform 0.3s;
   box-shadow: 20px 20px 30px -10px #192824;
-  transform: scale(1.2, 1.2);
+  transform: scale(1.1, 1.1);
 }
 .story:hover::after {
   opacity: 1;
