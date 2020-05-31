@@ -6,7 +6,7 @@
         <a
           class="share__icon-icon"
           :href='facebook.url'
-          target="_blanc"
+          target="_blank"
         >
           <facebook />
         </a>
@@ -16,7 +16,7 @@
         <a
           class="share__icon-icon"
           :href='twitterUrl'
-          target="_blanc"
+          target="_blank"
         >
           <twitter />
         </a>
@@ -26,7 +26,7 @@
         <a
           class="share__icon-icon"
           :href='vkUrl'
-          target="_blanc"
+          target="_blank"
         >
           <vk />
         </a>
@@ -36,7 +36,7 @@
         <a
           class="share__icon-icon"
           :href='classmatesUrl'
-          target="_blanc"
+          target="_blank"
         >
           <classmates />
         </a>
@@ -46,7 +46,7 @@
         <a
           class="share__icon-icon"
           :href='instagramUrl'
-          target="_blanc"
+          target="_blank"
         >
           <insta />
         </a>
@@ -56,7 +56,7 @@
         <a
           class="share__icon-icon"
           :href='youtubeUrl'
-          target="_blanc"
+          target="_blank"
         >
           <youtube />
         </a>
