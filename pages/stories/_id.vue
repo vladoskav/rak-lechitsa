@@ -62,7 +62,16 @@ export default {
   data() {
     return {
       baseUrl: process.env.BASE_URL,
+      title: 'РакЛечится',
     };
+  },
+  head() {
+    return {
+      title: this.title,
+    }
+  },
+  validate ({ params, store }) {
+    return store.state.stories.stories[params.id];
   },
   async fetch({ store, route }) {
     await store.dispatch('stories/fetchStoryWithId', { id: route.params.id });

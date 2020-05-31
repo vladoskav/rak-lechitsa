@@ -2,12 +2,23 @@
   <div class="error">
     <p class="error__code">404</p>
     <p class="error__text">Страница не найдена.</p>
-    <a class="error__text error__link" href="/">Перейти на главную.</a>
+    <nuxt-link class="error__text error__link" to="/">Перейти на главную.</nuxt-link>
   </div>
 </template>
 
 <script>
-export default {};
+export default {
+  data() {
+    return {
+      title: 'РакЛечится. Страница не найдена',
+    }
+  },
+  head() {
+    return {
+      title: this.title,
+    }
+  }
+};
 </script>
 
 <style scoped>

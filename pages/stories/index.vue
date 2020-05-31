@@ -50,7 +50,13 @@ export default {
       startIndex: 0,
       itemsPerPage: 16,
       baseUrl: process.env.BASE_URL,
+      title: 'РакЛечится',
     };
+  },
+  head() {
+    return {
+      title: this.title,
+    }
   },
   methods: {
     changeStartIndex(index) {

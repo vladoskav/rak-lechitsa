@@ -47,8 +47,8 @@
 
       <div class="story-form__policy" v-if="formArr.policy">
         <span>{{ formArr.policy }}</span>
-        <a target="_blanc" href="/policy" class="story-form__additional_link"
-          >обработку персональных данных</a
+        <nuxt-link target="_blank" to="/policy" class="story-form__additional_link"
+          >обработку персональных данных</nuxt-link
         >
       </div>
     </div>
