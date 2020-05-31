@@ -5,7 +5,7 @@
       <div class="share__icon-contain">
         <a
           class="share__icon-icon"
-          :href='facebook.url'
+          :href='facebookUrl'
           target="_blank"
         >
           <facebook />
@@ -88,9 +88,6 @@ export default {
   },
   data () {
     return {
-      facebook: {
-        url: `https://www.facebook.com/sharer.php?src=sp&u=${encodeURI(window.location.href)}&title=${document.querySelector('title').innerText}`,
-      },
       instagramUrl: 'https://www.instagram.com/raklechitsa/',
       youtubeUrl: 'https://www.youtube.com/results?search_query=%23%D1%8D%D1%82%D0%BE%D0%BD%D0%B5%D0%BB%D0%B5%D1%87%D0%B8%D1%82%D1%81%D1%8F',
       facebookUrl: `https://www.facebook.com/sharer.php?src=sp&u=${encodeURI(window.location.href)}&title=${document.querySelector('title').innerText}`,
