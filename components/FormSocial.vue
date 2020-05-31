@@ -5,7 +5,7 @@
       <div class="share__icon-contain">
         <a
           class="share__icon-icon"
-          href="https://www.facebook.com/sharer.php?src=sp&u=https%3A%2F%2Fraklechitsa.ru%2F&title=%D0%A0%D0%90%D0%9A%D0%9B%D0%95%D0%A7%D0%98%D0%A2%D0%A1%D0%AF.%D0%A0%D0%A4%20%E2%80%94%20%D0%B8%D1%81%D1%82%D0%BE%D1%80%D0%B8%D0%B8%20%D0%BB%D1%8E%D0%B4%D0%B5%D0%B9%2C%20%D0%BF%D0%BE%D0%B1%D0%B5%D0%B4%D0%B8%D0%B2%D1%88%D0%B8%D1%85%20%D1%80%D0%B0%D0%BA%2C%20%D0%BD%D0%BE%20%D0%BD%D0%B5%20%D1%81%D0%B2%D0%BE%D0%B8%20%D0%BF%D1%80%D0%B8%D0%B2%D1%8B%D1%87%D0%BA%D0%B8&utm_source=share2"
+          :href='facebook.url'
           target="_blanc"
         >
           <facebook />
@@ -15,7 +15,7 @@
       <div class="share__icon-contain">
         <a
           class="share__icon-icon"
-          href="https://twitter.com/intent/tweet?text=%D0%A0%D0%90%D0%9A%D0%9B%D0%95%D0%A7%D0%98%D0%A2%D0%A1%D0%AF.%D0%A0%D0%A4%20%E2%80%94%20%D0%B8%D1%81%D1%82%D0%BE%D1%80%D0%B8%D0%B8%20%D0%BB%D1%8E%D0%B4%D0%B5%D0%B9%2C%20%D0%BF%D0%BE%D0%B1%D0%B5%D0%B4%D0%B8%D0%B2%D1%88%D0%B8%D1%85%20%D1%80%D0%B0%D0%BA%2C%20%D0%BD%D0%BE%20%D0%BD%D0%B5%20%D1%81%D0%B2%D0%BE%D0%B8%20%D0%BF%D1%80%D0%B8%D0%B2%D1%8B%D1%87%D0%BA%D0%B8&url=https%3A%2F%2Fraklechitsa.ru%2F&utm_source=share2"
+          :href='twitterUrl'
           target="_blanc"
         >
           <twitter />
@@ -25,7 +25,7 @@
       <div class="share__icon-contain">
         <a
           class="share__icon-icon"
-          href="https://vk.com/share.php?url=https%3A%2F%2Fraklechitsa.ru%2F&title=%D0%A0%D0%90%D0%9A%D0%9B%D0%95%D0%A7%D0%98%D0%A2%D0%A1%D0%AF.%D0%A0%D0%A4%20%E2%80%94%20%D0%B8%D1%81%D1%82%D0%BE%D1%80%D0%B8%D0%B8%20%D0%BB%D1%8E%D0%B4%D0%B5%D0%B9%2C%20%D0%BF%D0%BE%D0%B1%D0%B5%D0%B4%D0%B8%D0%B2%D1%88%D0%B8%D1%85%20%D1%80%D0%B0%D0%BA%2C%20%D0%BD%D0%BE%20%D0%BD%D0%B5%20%D1%81%D0%B2%D0%BE%D0%B8%20%D0%BF%D1%80%D0%B8%D0%B2%D1%8B%D1%87%D0%BA%D0%B8&utm_source=share2"
+          :href='vkUrl'
           target="_blanc"
         >
           <vk />
@@ -35,7 +35,7 @@
       <div class="share__icon-contain">
         <a
           class="share__icon-icon"
-          href="https://connect.ok.ru/offer?url=https%3A%2F%2Fraklechitsa.ru%2F&title=%D0%A0%D0%90%D0%9A%D0%9B%D0%95%D0%A7%D0%98%D0%A2%D0%A1%D0%AF.%D0%A0%D0%A4%20%E2%80%94%20%D0%B8%D1%81%D1%82%D0%BE%D1%80%D0%B8%D0%B8%20%D0%BB%D1%8E%D0%B4%D0%B5%D0%B9%2C%20%D0%BF%D0%BE%D0%B1%D0%B5%D0%B4%D0%B8%D0%B2%D1%88%D0%B8%D1%85%20%D1%80%D0%B0%D0%BA%2C%20%D0%BD%D0%BE%20%D0%BD%D0%B5%20%D1%81%D0%B2%D0%BE%D0%B8%20%D0%BF%D1%80%D0%B8%D0%B2%D1%8B%D1%87%D0%BA%D0%B8&utm_source=share2"
+          :href='classmatesUrl'
           target="_blanc"
         >
           <classmates />
@@ -45,7 +45,7 @@
       <div class="share__icon-contain">
         <a
           class="share__icon-icon"
-          href="https://www.instagram.com/raklechitsa/"
+          :href='instagramUrl'
           target="_blanc"
         >
           <insta />
@@ -55,7 +55,7 @@
       <div class="share__icon-contain">
         <a
           class="share__icon-icon"
-          href="https://www.youtube.com/results?search_query=%23%D1%8D%D1%82%D0%BE%D0%BD%D0%B5%D0%BB%D0%B5%D1%87%D0%B8%D1%82%D1%81%D1%8F"
+          :href='youtubeUrl'
           target="_blanc"
         >
           <youtube />
@@ -68,7 +68,6 @@
 <script>
 import Container from '@/components/Container';
 import Title from '@/components/ui/Title';
-
 import Facebook from '@/components/svg/Facebook';
 import Twitter from '@/components/svg/Twitter';
 import Vk from '@/components/svg/Vk';
@@ -80,7 +79,6 @@ export default {
   components: {
     'title-social': Title,
     container: Container,
-
     facebook: Facebook,
     twitter: Twitter,
     vk: Vk,
@@ -88,6 +86,19 @@ export default {
     insta: Insta,
     youtube: Youtube,
   },
+  data () {
+    return {
+      facebook: {
+        url: `https://www.facebook.com/sharer.php?src=sp&u=${encodeURI(window.location.href)}&title=${document.querySelector('title').innerText}`,
+      },
+      instagramUrl: 'https://www.instagram.com/raklechitsa/',
+      youtubeUrl: 'https://www.youtube.com/results?search_query=%23%D1%8D%D1%82%D0%BE%D0%BD%D0%B5%D0%BB%D0%B5%D1%87%D0%B8%D1%82%D1%81%D1%8F',
+      facebookUrl: `https://www.facebook.com/sharer.php?src=sp&u=${encodeURI(window.location.href)}&title=${document.querySelector('title').innerText}`,
+      vkUrl: `https://vk.com/share.php?url=${encodeURI(window.location.href)}&title=${document.querySelector('title').innerText}`,
+      classmatesUrl: `https://connect.ok.ru/offer?url=${encodeURI(window.location.href)}&amp;title=${document.querySelector('title').innerText}`,
+      twitterUrl: `https://twitter.com/intent/tweet?text=${document.querySelector('title').innerText}&url=${encodeURI(window.location.href)}`
+    }
+  }
 };
 </script>
 

@@ -41,6 +41,16 @@ export default {
       return arr.find(el => el.block === `note-2`);
     },
   },
+  data() {
+    return {
+      title: 'РакЛечится',
+    }
+  },
+  head() {
+    return {
+      title: this.title,
+    }
+  }
 };
 </script>
 
