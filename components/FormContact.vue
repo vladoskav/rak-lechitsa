@@ -62,8 +62,8 @@
       <div class="contact-form__container">
         <span class="contact-form__additional"
           >Нажимая на кнопку «отправить», вы даете согласие на
-          <a href="/policy" class="contact-form__additional"
-            >обработку персональных данных</a
+          <nuxt-link to="/policy" target="_blank" class="contact-form__additional"
+            >обработку персональных данных</nuxt-link
           >
         </span>
       </div>
