@@ -29,12 +29,6 @@ export default {
   components: {
     'title-social': Title,
     container: Container,
-    facebook: Facebook,
-    twitter: Twitter,
-    vk: Vk,
-    classmates: Classmates,
-    insta: Insta,
-    youtube: Youtube,
   },
   data () {
     return {
