@@ -1,3 +1,10 @@
+const routerBase = process.env.DEPLOY_ENV === 'GH_PAGES' ? {
+  router: {
+    middleware: 'allData',
+    base: 'rak-lechitsa'
+  },
+} : {}
+
 export default {
   mode: 'universal',
   /*
@@ -51,9 +58,7 @@ export default {
     BASE_URL: 'https://strapi.kruzhok.io',
     INST_URL: 'https://www.instagram.com/raklechitsa/?__a=1',
   },
-  router: {
-    middleware: 'allData',
-  },
+  ...routerBase,
   /*
    ** Build configuration
    */
