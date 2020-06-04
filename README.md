@@ -6,23 +6,22 @@
 
 Реализация: написать адаптивный сайт, подключить его к бэку и настроить формат отправки данных на сервер.
 
-В проекте использовались технологии, такие как Vue.js, Vuex.js, Vue-router, JavaScript, HTML, CSS, адаптивная вёрстка, асинхронность.
+В проекте использовались технологии, такие как Vue.js, Vuex, Vue-router, JavaScript, HTML, CSS, адаптивная вёрстка, асинхронность.
+Ссылка на проект:
 
-## Build Setup
+---
 
-```bash
-# install dependencies
-$ npm install
+*Подготовка к работе*
 
-# serve with hot reload at localhost:3000
-$ npm run dev
+1. Проверьте наличие установленного Nuxt.js и npm
+2. Скопируйте проект на компьютер: git clone https://github.com/atichka/rak-lechitsa.git
+3. Установите зависимости: npm install
 
-# build for production and launch server
-$ npm run build
-$ npm run start
+---
 
-# generate static project
-$ npm run generate
-```
+*Работа*
 
-For detailed explanation on how things work, check out [Nuxt.js docs](https://nuxtjs.org).
+Для локальной разработки используйте: npm run dev
+Для сборки версии в продакшн: npm run build
+Для запустка сервера в продакшн-режиме: npm run start
+Для генерации статического проекта: npm run generate
