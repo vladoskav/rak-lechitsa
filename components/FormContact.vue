@@ -72,9 +72,9 @@
 </template>
 
 <script>
-import Button from '@/components/ui/Button';
-import Input from '@/components/ui/Input';
-import Title from '@/components/ui/Title';
+import Button from '@/components/ui/button';
+import Input from '@/components/ui/input';
+import Title from '@/components/ui/title';
 
 export default {
   components: {
