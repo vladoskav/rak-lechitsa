@@ -53,7 +53,6 @@ export default {
   },
   router: {
     middleware: 'allData',
-    base: '/rak-lechitsa/',
   },
   /*
    ** Build configuration
