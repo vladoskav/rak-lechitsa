@@ -56,13 +56,13 @@
 </template>
 
 <script>
-import Button from '@/components/ui/Button';
+import Button from '@/components/ui/button';
 import Input from '@/components/ui/Input';
 import Title from '@/components/ui/Title';
 
 export default {
   components: {
-    'nxt-button': button,
+    'nxt-button': Button,
     'nxt-input': Input,
     'story-title': Title,
   },
