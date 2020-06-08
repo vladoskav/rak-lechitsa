@@ -59,7 +59,7 @@
 </template>
 
 <script>
-import Button from '@/components/ui/Button';
+import Button from '@/components/ui/button';
 import Title from '@/components/ui/Title';
 import Container from '@/components/Container';
 export default {
