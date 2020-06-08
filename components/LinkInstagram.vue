@@ -34,6 +34,9 @@ export default {
     'insta-title': Title,
     container: Container,
   },
+  async created() {
+    await this.$store.dispatch('instagram/GET_PHOTOS');
+  },
 };
 </script>
 
