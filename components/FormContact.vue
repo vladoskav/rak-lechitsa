@@ -72,13 +72,13 @@
 </template>
 
 <script>
-import Button from '@/components/ui/button';
+import button from '@/components/ui/button';
 import Input from '@/components/ui/Input';
 import Title from '@/components/ui/Title';
 
 export default {
   components: {
-    'nxt-button': Button,
+    'nxt-button': button,
     'nxt-input': Input,
     'story-title': Title,
   },

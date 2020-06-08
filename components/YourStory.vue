@@ -59,12 +59,12 @@
 </template>
 
 <script>
-import Button from '@/components/ui/button';
+import button from '@/components/ui/button';
 import Title from '@/components/ui/Title';
 import Container from '@/components/Container';
 export default {
   components: {
-    'dark-button': Button,
+    'dark-button': button,
     'st-title': Title,
     container: Container,
   },
