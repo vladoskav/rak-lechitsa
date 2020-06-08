@@ -56,7 +56,7 @@
 </template>
 
 <script>
-import button from '@/components/ui/button';
+import Button from '@/components/ui/Button';
 import Input from '@/components/ui/Input';
 import Title from '@/components/ui/Title';
 
