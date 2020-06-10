@@ -84,7 +84,7 @@ export default {
     border-top: 1px solid #e8e8e8;
   }
   .header__menu {
-    display: none;
+    display: none!important;
   }
 
   .header__mobile-icon {
