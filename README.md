@@ -8,6 +8,7 @@
 
 В проекте использовались технологии, такие как Vue.js, Vuex, Vue-router, JavaScript, HTML, CSS, адаптивная вёрстка, асинхронность.
 Ссылка на проект:
+http://raklechitsa-beta.xyz/#/
 
 ---
 
