@@ -15,7 +15,7 @@ http://raklechitsa-beta.xyz/#/
 *Подготовка к работе*
 
 1. Проверьте наличие установленного Nuxt.js и npm
-2. Скопируйте проект на компьютер: git clone https://github.com/atichka/rak-lechitsa.git
+2. Скопируйте проект на компьютер: git clone https://github.com/vladoskav/rak-lechitsa.git
 3. Установите зависимости: npm install
 
 ---
